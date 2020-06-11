@@ -1,0 +1,27 @@
+document.querySelector('.btn1').addEventListener('click', function(e) {
+  [].map.call(document.querySelectorAll('.tg-yomigana, .tg-kor'), function(el) {
+    el.classList.toggle('toggled');
+  });
+});
+
+document.querySelector('.btn2').addEventListener('click', function(e) {
+  [].map.call(document.querySelectorAll('.tg-yomigana'), function(el) {
+    el.classList.toggle('toggled');
+  });
+});
+
+document.querySelector('.btn3').addEventListener('click', function(e) {
+  [].map.call(document.querySelectorAll('.tg-kor'), function(el) {
+    el.classList.toggle('toggled');
+  });
+});
+
+$('a[href*=#]').click(function(event) {
+  $('html, body').animate(
+    {
+      scrollTop: $($.attr(this, 'href')).offset().top,
+    },
+    500
+  );
+  event.preventDefault();
+});

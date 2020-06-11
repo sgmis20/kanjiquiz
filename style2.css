@@ -1,0 +1,206 @@
+
+body {
+  background-color:#232946;
+  /*background-color: #242f44;*/
+  color: #232946;
+  margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+  font-family: 'Noto Sans JP', sans-serif;
+  text-align: center;
+	vertical-align: center;
+}
+
+
+
+
+h1{
+color: whitesmoke;
+font-size : 30px;
+}
+
+h4{
+  font-size: 15px;
+}
+
+h5{
+  font-size: 5px;
+}
+
+
+table {
+  text-align: center;
+  border-collapse: collapse;
+  border-spacing: 0;
+  vertical-align: center;
+}
+
+td {
+  height: fit-content;
+  width: fit-content;
+  overflow: hidden;
+  padding: 1px 1px;
+  vertical-align: center;
+    /*
+  border-color: black;
+  border-style: dotted;
+  border-width: 1px;
+  */
+}
+
+th {
+  font-size: 20px;
+  overflow: hidden;
+  padding: 3px 0px;
+  word-break: normal;
+  text-align: center;
+
+    /*
+  border-color: black;
+  border-style: dotted;
+  border-width: 1px;
+  */
+}
+
+/* 제목  */
+th.tg-owpn {
+  background-color: #33a097;
+  border-bottom: 3pt solid #177069;
+  font-weight: 700;
+  letter-spacing: 8px;
+}
+/* 표제어 */
+td.tg-kanji {
+  font-size: 75px;
+  color:#fffffe;
+  padding-right: 10px;
+}
+
+/* 한자 음독, 훈독 */
+td.tg-kanjiyomi {
+  font-size: 20px;
+  color:#fffffe;
+  padding-right: 10px;
+}
+
+/* 단어 요미가나 */
+td.tg-yomigana {
+  font-size: 20px;
+}
+
+/* 단어 한자로 */
+td.tg-tango {
+  font-size: 50px;
+  letter-spacing: 5px;
+  color: #e4e4f1;
+}
+
+/* 단어 한글뜻 */
+td.tg-kor {
+  font-size: 20px;
+  padding-bottom: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+td.tg-yomigana,
+td.tg-tango,
+td.tg-kor{
+  padding-right: 25px;
+}
+
+td.tg-kanji,
+td.tg-kanjiyomi,
+td.tg-kor{
+  border-bottom: 2pt solid whitesmoke;
+
+}
+
+#frontpage,
+#backpage {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/*--------------------toggle starts-------------------------*/
+
+.toggled {
+  background-color:#1e233f;
+  color: #b8c1ec;
+}
+
+/*--------------------toggle ends-------------------------*/
+
+/****** class hidden by :default *****/
+.hidden{
+	display: none;
+}
+
+.hidden.is-visible {
+	display: block;
+}
+/*************************************/
+
+/*
+a:link - a normal, unvisited link
+a:visited - a link the user has visited
+a:hover - a link when the user mouses over it
+a:active - a link the moment it is clicked
+*/
+a:link {
+  color: green;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+
+a:hover {
+  color: #eebbc3;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:active {
+  color: whitesmoke;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+/********************navbar*********************/
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 15%;
+  background-color:#232946;
+  height: 100%; /* Full height */
+  position: fixed; /* Make it stick, even on scroll */
+  overflow: auto; /* Enable scrolling if the sidenav has too much content */
+}
+
+li a {
+  display: block;
+  color:#e4e4f1;
+  padding: 8px 16px;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+li a.page{
+color:#cacae2;
+}
+
+/* Change the link color on hover */
+li a:hover {
+  background-color:#eebbc3;
+  color:#232946;
+}
+
+.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+/************************************************/

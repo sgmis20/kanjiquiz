@@ -1,0 +1,122 @@
+body {
+  background-color:#232946;
+  color: white;
+}
+
+header {
+  text-align: center;
+  margin-top: 5px;
+}
+
+h1 {
+  font-size: 32px;
+  padding: 15px;
+  color: #8c6b48;
+  background-color: white;
+}
+
+h2 {
+  font-size: 30px;
+  padding: 10px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+h3 {
+  font-size: 26px;
+  padding: 10px;
+  text-transform: uppercase;
+  text-align: left;
+  font-weight: 500;
+  line-height: 2.0;
+  letter-spacing: 1px;
+}
+
+th {
+  border: 2px solid #8c6b48;
+}
+
+table {
+  text-align: center;
+  margin: 30px auto;
+}
+
+td {
+  border: 2px solid #8c6b48;
+  width: 1200px;
+}
+
+footer {
+  margin-top: 50px;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  bottom: 5px;
+  background-color: #242f44;
+  z-index: 5;
+}
+footer h3 {
+  display: inline-block;
+  font-size: 14px;
+  background-color: #242f44;
+}
+
+.container {
+  max-width: 940px;
+  margin: 0 auto;
+  height: 800px;
+}
+
+
+.left {
+  width: 120px;
+}
+
+a{
+  color:#e4e4f1;
+  text-decoration: none;
+}
+
+h3:hover{
+  background-color :#33a097;
+  color:#e4e4f1;
+  font-weight:900;
+}
+
+a:hover {
+  color: yellowgreen;
+
+  text-decoration: none;
+}
+
+
+/*
+a:link - a normal, unvisited link
+a:visited - a link the user has visited
+a:hover - a link when the user mouses over it
+a:active - a link the moment it is clicked
+
+a:link {
+  color: green;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: pink;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: yellowgreen;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:active {
+  color: whitesmoke;
+  background-color: transparent;
+  text-decoration: underline;
+}
+*/
