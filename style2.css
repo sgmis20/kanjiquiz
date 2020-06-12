@@ -1,3 +1,8 @@
+/*Not compatible with Safari, IE*/
+html{
+  scroll-behavior: smooth;
+}
+
 
 body {
   background-color:#232946;
@@ -14,10 +19,10 @@ body {
 
 
 
-
 h1{
 color: whitesmoke;
-font-size : 30px;
+font-size : 27px;
+padding-top: 70px;
 }
 
 h4{
@@ -159,6 +164,7 @@ a:hover {
   color: #eebbc3;
   background-color: transparent;
   text-decoration: none;
+  transition: .2s;
 }
 
 a:active {
@@ -169,23 +175,40 @@ a:active {
 
 /********************navbar*********************/
 
+nav{
+  text-align: center;
+	vertical-align: center;
+}
+
 ul {
   list-style-type: none;
   margin: 0;
-  padding: 0;
-  width: 15%;
+  padding: 5px 5px;
+  overflow: hidden;
   background-color:#232946;
-  height: 100%; /* Full height */
+  /*height: 100%;  Full height */
+  top:0;
+  width:100%;
+  /*
+  position: -webkit-sticky; // Safari
+  position: sticky;
+  */
   position: fixed; /* Make it stick, even on scroll */
-  overflow: auto; /* Enable scrolling if the sidenav has too much content */
+}
+
+
+li{
+  float:left;
+  font-size: 22px;
+  font-weight: 700;
+  position: relative;
 }
 
 li a {
   display: block;
   color:#e4e4f1;
-  padding: 8px 16px;
+  padding: 10px 40px;
   text-decoration: none;
-  font-weight: 700;
 }
 
 li a.page{
@@ -204,3 +227,87 @@ li a:hover {
 }
 
 /************************************************/
+@media screen and (max-width: 858px) {
+  h1{
+    display: none;
+  }
+
+  li {
+    font-size: 10px;
+    float: none;
+  }
+
+  li a {
+    color:#e4e4f1;
+    padding: 7px 5px;
+  }
+ul{
+  position: fixed;
+}
+
+
+.page{
+float: left;
+}
+
+.btn1, .btn2, .btn3{
+float: left;
+}
+
+
+/* 제목  */
+th.tg-owpn {
+  font-size: 10px;
+  letter-spacing: 4px;
+  letter-spacing: 2px;
+  border-bottom: 0.6pt solid #177069;
+}
+/* 표제어 */
+td.tg-kanji {
+  font-size: 27px;
+  color:#fffffe;
+  padding-right: 3px;
+}
+
+/* 한자 음독, 훈독 */
+td.tg-kanjiyomi {
+  font-size: 5px;
+  color:#fffffe;
+  padding-right: 2px;
+}
+
+/* 단어 요미가나 */
+td.tg-yomigana {
+  font-size: 9px;
+}
+
+/* 단어 한자로 */
+td.tg-tango {
+  font-size: 19px;
+  letter-spacing: 2px;
+  color: #e4e4f1;
+}
+
+/* 단어 한글뜻 */
+td.tg-kor {
+  font-size: 9px;
+  padding-bottom: 5px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+td.tg-yomigana,
+td.tg-tango,
+td.tg-kor{
+  padding-right: 3px;
+}
+
+td.tg-kanji,
+td.tg-kanjiyomi,
+td.tg-kor{
+  border-bottom: 0.6pt solid whitesmoke;
+
+}
+
+
+}
+
