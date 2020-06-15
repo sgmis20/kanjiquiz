@@ -1,3 +1,15 @@
+#onair img{
+  max-width: 10vw;
+  padding: 0vh;
+  height: auto;
+  transition: 0s;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  filter: grayscale(100%);
+  /*filter: grayscale(100%);*/
+}
+
 body {
   background-color: #232946;
   color: #e4e4f1;
@@ -66,6 +78,7 @@ img {
   height: auto;
   transition: 1s;
 }
+
 
 img:hover {
   filter: invert(95%);
@@ -139,7 +152,7 @@ text-decoration: underline;
 
   h3 {
     font-size: 3.7vw;
-    padding: 0.7vh 5vw;
+    padding: 0vh 5vw;
     letter-spacing: 0.05vw;
   }
 
@@ -182,7 +195,11 @@ text-decoration: underline;
     width: 12vw;
   }
 
+  #onair img{
+    max-width: 20vw;
+    height: auto;
 
+  }
 
   #day{
     letter-spacing: 4vw;
@@ -190,37 +207,3 @@ text-decoration: underline;
 
 
 }
-
-
-
-
-/*
-a:link - a normal, unvisited link
-a:visited - a link the user has visited
-a:hover - a link when the user mouses over it
-a:active - a link the moment it is clicked
-
-a:link {
-  color: green;
-  background-color: transparent;
-  text-decoration: none;
-}
-
-a:visited {
-  color: pink;
-  background-color: transparent;
-  text-decoration: none;
-}
-
-a:hover {
-  color: yellowgreen;
-  background-color: transparent;
-  text-decoration: none;
-}
-
-a:active {
-  color: whitesmoke;
-  background-color: transparent;
-  text-decoration: underline;
-}
-*/
