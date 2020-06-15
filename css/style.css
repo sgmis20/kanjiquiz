@@ -131,14 +131,19 @@ a:hover - a link when the user mouses over it
 a:active - a link the moment it is clicked
 */
 a:link {
-  color: green;
+  color: whitesmoke;
   background-color: transparent;
   text-decoration: none;
 }
 
+a:visited{
+  color: whitesmoke;
+  background-color: transparent;
+  text-decoration: none;
+}
 
 a:hover {
-  color: #eebbc3;
+  color: #ccff15;
   background-color: transparent;
   text-decoration: none;
   transition: .2s;
@@ -149,6 +154,7 @@ a:active {
   background-color: transparent;
   text-decoration: underline;
 }
+
 
 /********************navbar*********************/
 
