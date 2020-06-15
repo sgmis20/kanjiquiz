@@ -1,172 +1,522 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ko">
+
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="content-language" content="ja">
-  <title>2020-06-10 수</title>
-  <link rel="stylesheet" type="text/css" href="reset.css" />
-  <link rel="stylesheet" type="text/css" href="style.css" />
-  <!-- font-weight:100 to 900-->
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta http-equiv="content-language" content="ja">
+    <title>６月１０日（水）</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap" rel="stylesheet">
+    <script src="./javascript/toggle.js" async defer></script>
 </head>
 
 <body>
-  <header>
-    <h1>2020-06-10 수</h1>
-  </header>
-  
-  <div class="container">
-    <table>
-      <thead>
-        <tr>
-          <th colspan="2">
-            <h1>page 75</h1>　<!-- 前面 -->
-          </th>
-        </tr>
-        <tr>
-          <th>
-            <h2>漢字</h2>
-          </th>
-          <th>
-            <h2>単語</h2>
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="left"><h2>働</h2></td>
-          <!--    ろうどう　はたらく -->
-          <td><h3>労働　働く</h3></td>
-          <!--    노동  일하다-->
-        </tr>
-        <tr>
-          <td class="left"><h2>辞</h2></td>
-          <!--    じしょ　じたい　やめる -->
-          <td><h3>辞書　辞退　辞める</h3></td>
-          <!--    사전  사퇴  그만두다-->
-        </tr>
-        <tr>
-          <td class="left"><h2>続</h2></td>
-          <!--    けいぞく　せつぞく　れんぞく　つづく　つづける -->
-          <td><h3>継続　接続　連続　続く　続ける</h3></td>
-          <!--    계속  접속  연속 계속되다 계속하다-->
-        </tr>
-        <tr>
-          <td class="left"><h2>試</h2></td>
-          <!--    しけん　しちゃく　こころみる　ためす -->
-          <td><h3>試験　試着　試みる　試す</h3></td>
-          <!--    시험  시착  -->
-        </tr>
-        <tr>
-          <td class="left"><h2>愛</h2></td>
-          <!--    あいじょう　れんあい-->
-          <td><h3>愛情　恋愛</h3></td>
-          <!--    애정  연애-->
-        </tr>
-        <tr>
-          <td class="left"><h2>塩</h2></td>
-          <!--    えんぶん　しょくえん　しお-->
-          <td><h3>塩分　食塩　塩</h3></td>
-          <!--    염분  식염  소금-->
-        </tr>
-        <tr>
-          <td class="left"><h2>腸</h2></td>
-          <!--    いちょう-->
-          <td><h3>胃腸</h3></td>
-          <!--    위장-->
-        </tr>
-        <tr>
-          <td class="left"><h2>戦</h2></td>
-          <!--    せんそう　たたかう-->
-          <td><h3>戦争　戦う</h3></td>
-          <!--    전쟁  싸우다-->
-        </tr>
-      </tbody>    
+    <header>
+        <h1>６月１０日（水）75~76 page</h1>
+    </header>
+    <nav class="navbar">
+        <ul>
+            <li><a class="index" href="./index.html">메인페이지</a></li>
+            <li><a class="page" href="#frontpage">앞페이지 (75p)</a></li>
+            <li><a class="page" href="#backpage">뒷페이지 (76p)</a></li>
+            <li class="btn1"><a>읽기+뜻</a></li>
+            <li class="btn2"><a>한자 읽기</a></li>
+            <li class="btn3"><a>한글 뜻</a></li>
+    </nav>
+    </section>
+    <table id="frontpage">
+        <thead>
+            <tr>
+                <th class="title">한자</th>
+                <th class="title" id="onyomi">음</th>
+                <th class="title" id="kunyomi">훈</th>
+                <th class="title" colspan="6">단어(75p)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>　
+                <!-- 111111111111111111111111111111111111111111111111111111 -->
+                <td class="kanji" rowspan="3">働</td>
+                <td class="kanjiyomi" rowspan="3">どう<br></td> <!-- 음독 -->
+                <td class="kanjiyomi" rowspan="3">はたら</td> <!-- 훈독 -->
+
+                <td class="yomigana">ろうどう</td> <!-- 단어1 -->
+                <td class="yomigana">はたらく</td> <!-- 단어2 -->
+                <td class="yomigana"></td> <!-- 단어3 -->
+                <td class="yomigana"></td> <!-- 단어4 -->
+                <td class="yomigana"></td> <!-- 단어5 -->
+                <td class="yomigana"></td> <!-- 단어6 -->
+            </tr>
+            <tr>
+                <td class="tango">労働</td> <!-- 단어1 -->
+                <td class="tango">働く</td> <!-- 단어2 -->
+                <td class="tango"></td> <!-- 단어3 -->
+                <td class="tango"></td> <!-- 단어4 -->
+                <td class="tango"></td> <!-- 단어5 -->
+                <td class="tango"></td> <!-- 단어6 -->
+            </tr>
+            <tr>
+                <td class="kor">노동</td> <!-- 단어1 -->
+                <td class="kor">일하다</td> <!-- 단어2 -->
+                <td class="kor"></td> <!-- 단어3 -->
+                <td class="kor"></td> <!-- 단어4 -->
+                <td class="kor"></td> <!-- 단어5 -->
+                <td class="kor"></td> <!-- 단어6 -->
+            </tr>
+            <tr>
+                <!-- 222222222222222222222222222222222222222222222222 -->
+                <td class="kanji" rowspan="3">辞</td>
+                <td class="kanjiyomi" rowspan="3">じ<br></td> <!-- 음독 -->
+                <td class="kanjiyomi" rowspan="3">や</td> <!-- 훈독 -->
+
+                <td class="yomigana">じしょ</td> <!-- 단어1 -->
+                <td class="yomigana">じたい</td> <!-- 단어2 -->
+                <td class="yomigana">やめる</td> <!-- 단어3 -->
+                <td class="yomigana"></td> <!-- 단어4 -->
+                <td class="yomigana"></td> <!-- 단어5 -->
+                <td class="yomigana"></td> <!-- 단어6 -->
+            </tr>
+            <tr>
+                <td class="tango">辞書</td> <!-- 단어1 -->
+                <td class="tango">辞退</td> <!-- 단어2 -->
+                <td class="tango">辞める</td> <!-- 단어3 -->
+                <td class="tango"></td> <!-- 단어4 -->
+                <td class="tango"></td> <!-- 단어5 -->
+                <td class="tango"></td> <!-- 단어6 -->
+            </tr>
+            <tr>
+                <td class="kor">사전</td> <!-- 단어1 -->
+                <td class="kor">사퇴</td> <!-- 단어2 -->
+                <td class="kor">그만두다</td> <!-- 단어3 -->
+                <td class="kor"></td> <!-- 단어4 -->
+                <td class="kor"></td> <!-- 단어5 -->
+                <td class="kor"></td> <!-- 단어6 -->
+            </tr>
+            <tr>
+                <!-- 33333333333333333333333333333333333333333333333333 -->
+                <td class="kanji" rowspan="3">続</td>
+                <td class="kanjiyomi" rowspan="3">ぞく<br></td> <!-- 음독 -->
+                <td class="kanjiyomi" rowspan="3">つづ</td> <!-- 훈독 -->
+
+                <td class="yomigana">けいぞく</td> <!-- 단어1 -->
+                <td class="yomigana">せつぞく</td> <!-- 단어2 -->
+                <td class="yomigana">れんぞく</td> <!-- 단어3 -->
+                <td class="yomigana">つづく</td> <!-- 단어4 -->
+                <td class="yomigana">つづける</td> <!-- 단어5 -->
+                <td class="yomigana"></td> <!-- 단어6 -->
+            </tr>
+            <tr>
+                <td class="tango">継続</td> <!-- 단어1 -->
+                <td class="tango">接続</td> <!-- 단어2 -->
+                <td class="tango">連続</td> <!-- 단어3 -->
+                <td class="tango">続く</td> <!-- 단어4 -->
+                <td class="tango">続ける</td> <!-- 단어5 -->
+                <td class="tango"></td> <!-- 단어6 -->
+            </tr>
+            <tr>
+                <td class="kor">계속</td> <!-- 단어1 -->
+                <td class="kor">접속</td> <!-- 단어2 -->
+                <td class="kor">연속</td> <!-- 단어3 -->
+                <td class="kor">계속되다</td> <!-- 단어4 -->
+                <td class="kor">계속하다</td> <!-- 단어5 -->
+                <td class="kor"></td> <!-- 단어6 -->
+            </tr>
+            <tr>
+                <!-- 444444444444444444444444444444444444444444444444 -->
+                <td class="kanji" rowspan="3">試</td>
+                <td class="kanjiyomi" rowspan="3">し<br></td> <!-- 음독 -->
+                <td class="kanjiyomi" rowspan="3">こころ<br>ため</td> <!-- 훈독 -->
+
+                <td class="yomigana">しけん</td> <!-- 단어1 -->
+                <td class="yomigana">しちゃく</td> <!-- 단어2 -->
+                <td class="yomigana">こころみる</td> <!-- 단어3 -->
+                <td class="yomigana">ためす</td> <!-- 단어4 -->
+                <td class="yomigana"></td> <!-- 단어5 -->
+                <td class="yomigana"></td> <!-- 단어6 -->
+            </tr>
+            <tr>
+                <td class="tango">試験</td> <!-- 단어1 -->
+                <td class="tango">試着</td> <!-- 단어2 -->
+                <td class="tango">試みる</td> <!-- 단어3 -->
+                <td class="tango">試す</td> <!-- 단어4 -->
+                <td class="tango"></td> <!-- 단어5 -->
+                <td class="tango"></td> <!-- 단어6 -->
+            </tr>
+            <tr>
+                <td class="kor">시험</td> <!-- 단어1 -->
+                <td class="kor">시착</td> <!-- 단어2 -->
+                <td class="kor">시험하다</td> <!-- 단어3 -->
+                <td class="kor">시험하다</td> <!-- 단어4 -->
+                <td class="kor"></td> <!-- 단어5 -->
+                <td class="kor"></td> <!-- 단어6 -->
+            </tr>
+            <tr>
+                <!-- 5555555555555555555555555555555555555555555555555 -->
+                <td class="kanji" rowspan="3">愛</td>
+                <td class="kanjiyomi" rowspan="3">あい<br></td> <!-- 음독 -->
+                <td class="kanjiyomi" rowspan="3"></td> <!-- 훈독 -->
+
+                <td class="yomigana">あいじょう</td> <!-- 단어1 -->
+                <td class="yomigana">れんあい</td> <!-- 단어2 -->
+                <td class="yomigana"></td> <!-- 단어3 -->
+                <td class="yomigana"></td> <!-- 단어4 -->
+                <td class="yomigana"></td> <!-- 단어5 -->
+                <td class="yomigana"></td> <!-- 단어6 -->
+            </tr>
+            <tr>
+                <td class="tango">愛情</td> <!-- 단어1 -->
+                <td class="tango">恋愛</td> <!-- 단어2 -->
+                <td class="tango"></td> <!-- 단어3 -->
+                <td class="tango"></td> <!-- 단어4 -->
+                <td class="tango"></td> <!-- 단어5 -->
+                <td class="tango"></td> <!-- 단어6 -->
+            </tr>
+            <tr>
+                <td class="kor">애정</td> <!-- 단어1 -->
+                <td class="kor">연애</td> <!-- 단어2 -->
+                <td class="kor"></td> <!-- 단어3 -->
+                <td class="kor"></td> <!-- 단어4 -->
+                <td class="kor"></td> <!-- 단어5 -->
+                <td class="kor"></td> <!-- 단어6 -->
+            </tr>
+            <tr>
+                <!-- 66666666666666666666666666666666666666666666666666 -->
+                <td class="kanji" rowspan="3">塩</td>
+                <td class="kanjiyomi" rowspan="3">えん<br></td> <!-- 음독 -->
+                <td class="kanjiyomi" rowspan="3">しお</td> <!-- 훈독 -->
+
+                <td class="yomigana">えんぶん</td> <!-- 단어1 -->
+                <td class="yomigana">しょくえん</td> <!-- 단어2 -->
+                <td class="yomigana">しお</td> <!-- 단어3 -->
+                <td class="yomigana"></td> <!-- 단어4 -->
+                <td class="yomigana"></td> <!-- 단어5 -->
+                <td class="yomigana"></td> <!-- 단어6 -->
+            </tr>
+            <tr>
+                <td class="tango">塩分</td> <!-- 단어1 -->
+                <td class="tango">食塩</td> <!-- 단어2 -->
+                <td class="tango">塩</td> <!-- 단어3 -->
+                <td class="tango"></td> <!-- 단어4 -->
+                <td class="tango"></td> <!-- 단어5 -->
+                <td class="tango"></td> <!-- 단어6 -->
+            </tr>
+            <tr>
+                <td class="kor">염분</td> <!-- 단어1 -->
+                <td class="kor">식염</td> <!-- 단어2 -->
+                <td class="kor">소금</td> <!-- 단어3 -->
+                <td class="kor"></td> <!-- 단어4 -->
+                <td class="kor"></td> <!-- 단어5 -->
+                <td class="kor"></td> <!-- 단어6 -->
+            </tr>
+            <tr>
+                <!-- 777777777777777777777777777777777777777777777777777 -->
+                <td class="kanji" rowspan="3">腸</td>
+                <td class="kanjiyomi" rowspan="3">ちょう<br></td> <!-- 음독 -->
+                <td class="kanjiyomi" rowspan="3"></td> <!-- 훈독 -->
+
+                <td class="yomigana">いちょう</td> <!-- 단어1 -->
+                <td class="yomigana"></td> <!-- 단어2 -->
+                <td class="yomigana"></td> <!-- 단어3 -->
+                <td class="yomigana"></td> <!-- 단어4 -->
+                <td class="yomigana"></td> <!-- 단어5 -->
+                <td class="yomigana"></td> <!-- 단어6 -->
+            </tr>
+            <tr>
+                <td class="tango">胃腸</td> <!-- 단어1 -->
+                <td class="tango"></td> <!-- 단어2 -->
+                <td class="tango"></td> <!-- 단어3 -->
+                <td class="tango"></td> <!-- 단어4 -->
+                <td class="tango"></td> <!-- 단어5 -->
+                <td class="tango"></td> <!-- 단어6 -->
+            </tr>
+            <tr>
+                <td class="kor">위장</td> <!-- 단어1 -->
+                <td class="kor"></td> <!-- 단어2 -->
+                <td class="kor"></td> <!-- 단어3 -->
+                <td class="kor"></td> <!-- 단어4 -->
+                <td class="kor"></td> <!-- 단어5 -->
+                <td class="kor"></td> <!-- 단어6 -->
+            </tr>
+            <tr>
+                <!-- 88888888888888888888888888888888888888888888888888 -->
+                <td class="kanji" rowspan="3">戦</td>
+                <td class="kanjiyomi" rowspan="3">せん<br></td> <!-- 음독 -->
+                <td class="kanjiyomi" rowspan="3">たたか</td> <!-- 훈독 -->
+
+                <td class="yomigana">せんそう</td> <!-- 단어1 -->
+                <td class="yomigana">たたかう</td> <!-- 단어2 -->
+                <td class="yomigana"></td> <!-- 단어3 -->
+                <td class="yomigana"></td> <!-- 단어4 -->
+                <td class="yomigana"></td> <!-- 단어5 -->
+                <td class="yomigana"></td> <!-- 단어6 -->
+            </tr>
+            <tr>
+                <td class="tango">戦争</td> <!-- 단어1 -->
+                <td class="tango">戦う</td> <!-- 단어2 -->
+                <td class="tango"></td> <!-- 단어3 -->
+                <td class="tango"></td> <!-- 단어4 -->
+                <td class="tango"></td> <!-- 단어5 -->
+                <td class="tango"></td> <!-- 단어6 -->
+            </tr>
+            <tr>
+                <td class="kor">전쟁</td> <!-- 단어1 -->
+                <td class="kor">싸우다</td> <!-- 단어2 -->
+                <td class="kor"></td> <!-- 단어3 -->
+                <td class="kor"></td> <!-- 단어4 -->
+                <td class="kor"></td> <!-- 단어5 -->
+                <td class="kor"></td> <!-- 단어6 -->
+            </tr>
+        </tbody>
     </table>
 
-  </div>
-  
-  <div class="container">
-    <table>
-      <thead>
-        <tr>
-          <th colspan="2">
-            <h1>page 76</h1>　<!-- 前面 -->
-          </th>
-        </tr>
-        <tr>
-          <th>
-            <h2>漢字</h2>
-          </th>
-          <th>
-            <h2>単語</h2>
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="left"><h2>節</h2></td>
-          <!--    せつやく　きせつ　おせちりょうり　-->
-          <td><h3>節約　季節　お節料理　節</h3></td>
-          <!--    절약  계절  일본설날음식  마디-->
-        </tr>
-        <tr>
-          <td class="left"><h2>照</h2></td>
-          <!--    しょうめい　たいしょう　てる　てらす-->
-          <td><h3>照明　対照　照る　照らす</h3></td>
-          <!--    조명  대조  비치다  비추다 -->
-        </tr>
-        <tr>
-          <td class="left"><h2>置</h2></td>
-          <!--    いち　ほうち　おく-->
-          <td><h3>位置　放置　置く</h3></td>
-          <!--    위치  방치  두다-->
-        </tr>
-        <tr>
-          <td class="left"><h2>管</h2></td>
-          <!--    かんり-->
-          <td><h3>管理</h3></td>
-          <!--    관리-->
-        </tr>
-        <tr>
-          <td class="left"><h2>関</h2></td>
-          <!--    けんけい  きかん-->
-          <td><h3>関係　機関</h3></td>
-          <!--    관계  기관-->
-        </tr>
-        <tr>
-          <td class="left"><h2>旗</h2></td>
-          <!--    きしゅ　はた-->
-          <td><h3>旗手　旗</h3></td>
-          <!--    기수  깃발-->
-        </tr>
-        <tr>
-          <td class="left"><h2>歴</h2></td>
-          <!--    けいれき　れきし-->
-          <td><h3>経歴　歴史</h3></td>
-          <!--    경력  역사-->
-        </tr>
-        <tr>
-          <td class="left"><h2>説</h2></td>
-          <!--    せつめい　とく-->
-          <td><h3>説明　説く</h3></td>
-          <!--    설명  이야기하다-->
-        </tr>
-      </tbody>    
+    <h4>space</h4> <!-- 공백용-->
+
+    <table id="backpage">
+        <thead>
+            <tr>
+                <th class="title">한자</th>
+                <th class="title" id="onyomi">음</th>
+                <th class="title" id="kunyomi">훈</th>
+                <th class="title" colspan="6">단어(76p)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>　
+                <!-- 111111111111111111111111111111111111111111111111111111 -->
+                <td class="kanji" rowspan="3">節</td>
+                <td class="kanjiyomi" rowspan="3">せつ<br>せち</td> <!-- 음독 -->
+                <td class="kanjiyomi" rowspan="3">ふし</td> <!-- 훈독 -->
+
+                <td class="yomigana">せつやく</td> <!-- 단어1 -->
+                <td class="yomigana">きせつ</td> <!-- 단어2 -->
+                <td class="yomigana">おせちりょうり</td> <!-- 단어3 -->
+                <td class="yomigana">ふし</td> <!-- 단어4 -->
+                <td class="yomigana"></td> <!-- 단어5 -->
+                <td class="yomigana"></td> <!-- 단어6 -->
+            </tr>
+            <tr>
+                <td class="tango">節約</td> <!-- 단어1 -->
+                <td class="tango">季節</td> <!-- 단어2 -->
+                <td class="tango">お節料理</td> <!-- 단어3 -->
+                <td class="tango">節</td> <!-- 단어4 -->
+                <td class="tango"></td> <!-- 단어5 -->
+                <td class="tango"></td> <!-- 단어6 -->
+            </tr>
+            <tr>
+                <td class="kor">절약</td> <!-- 단어1 -->
+                <td class="kor">계절</td> <!-- 단어2 -->
+                <td class="kor">설명절음식</td> <!-- 단어3 -->
+                <td class="kor">마디</td> <!-- 단어4 -->
+                <td class="kor"></td> <!-- 단어5 -->
+                <td class="kor"></td> <!-- 단어6 -->
+            </tr>
+            <tr>
+                <!-- 222222222222222222222222222222222222222222222222 -->
+                <td class="kanji" rowspan="3">照</td>
+                <td class="kanjiyomi" rowspan="3">しょう<br></td> <!-- 음독 -->
+                <td class="kanjiyomi" rowspan="3">て</td> <!-- 훈독 -->
+
+                <td class="yomigana">しょうめい</td> <!-- 단어1 -->
+                <td class="yomigana">たいしょう</td> <!-- 단어2 -->
+                <td class="yomigana">てる</td> <!-- 단어3 -->
+                <td class="yomigana">てらす</td> <!-- 단어4 -->
+                <td class="yomigana"></td> <!-- 단어5 -->
+                <td class="yomigana"></td> <!-- 단어6 -->
+            </tr>
+            <tr>
+                <td class="tango">照明</td> <!-- 단어1 -->
+                <td class="tango">対照</td> <!-- 단어2 -->
+                <td class="tango">照る</td> <!-- 단어3 -->
+                <td class="tango">照らす</td> <!-- 단어4 -->
+                <td class="tango"></td> <!-- 단어5 -->
+                <td class="tango"></td> <!-- 단어6 -->
+            </tr>
+            <tr>
+                <td class="kor">조명</td> <!-- 단어1 -->
+                <td class="kor">대조</td> <!-- 단어2 -->
+                <td class="kor">비치다</td> <!-- 단어3 -->
+                <td class="kor">비추다</td> <!-- 단어4 -->
+                <td class="kor"></td> <!-- 단어5 -->
+                <td class="kor"></td> <!-- 단어6 -->
+            </tr>
+            <tr>
+                <!-- 33333333333333333333333333333333333333333333333333 -->
+                <td class="kanji" rowspan="3">置</td>
+                <td class="kanjiyomi" rowspan="3">ち<br></td> <!-- 음독 -->
+                <td class="kanjiyomi" rowspan="3">お</td> <!-- 훈독 -->
+
+                <td class="yomigana">いち</td> <!-- 단어1 -->
+                <td class="yomigana">ほうち</td> <!-- 단어2 -->
+                <td class="yomigana">おく</td> <!-- 단어3 -->
+                <td class="yomigana"></td> <!-- 단어4 -->
+                <td class="yomigana"></td> <!-- 단어5 -->
+                <td class="yomigana"></td> <!-- 단어6 -->
+            </tr>
+            <tr>
+                <td class="tango">位置</td> <!-- 단어1 -->
+                <td class="tango">放置</td> <!-- 단어2 -->
+                <td class="tango">置く</td> <!-- 단어3 -->
+                <td class="tango"></td> <!-- 단어4 -->
+                <td class="tango"></td> <!-- 단어5 -->
+                <td class="tango"></td> <!-- 단어6 -->
+            </tr>
+            <tr>
+                <td class="kor">위치</td> <!-- 단어1 -->
+                <td class="kor">방치</td> <!-- 단어2 -->
+                <td class="kor">두다</td> <!-- 단어3 -->
+                <td class="kor"></td> <!-- 단어4 -->
+                <td class="kor"></td> <!-- 단어5 -->
+                <td class="kor"></td> <!-- 단어6 -->
+            </tr>
+            <tr>
+                <!-- 444444444444444444444444444444444444444444444444 -->
+                <td class="kanji" rowspan="3">管</td>
+                <td class="kanjiyomi" rowspan="3">かん<br></td> <!-- 음독 -->
+                <td class="kanjiyomi" rowspan="3"></td> <!-- 훈독 -->
+
+                <td class="yomigana">かんり</td> <!-- 단어1 -->
+                <td class="yomigana"></td> <!-- 단어2 -->
+                <td class="yomigana"></td> <!-- 단어3 -->
+                <td class="yomigana"></td> <!-- 단어4 -->
+                <td class="yomigana"></td> <!-- 단어5 -->
+                <td class="yomigana"></td> <!-- 단어6 -->
+            </tr>
+            <tr>
+                <td class="tango">管理</td> <!-- 단어1 -->
+                <td class="tango"></td> <!-- 단어2 -->
+                <td class="tango"></td> <!-- 단어3 -->
+                <td class="tango"></td> <!-- 단어4 -->
+                <td class="tango"></td> <!-- 단어5 -->
+                <td class="tango"></td> <!-- 단어6 -->
+            </tr>
+            <tr>
+                <td class="kor">관리</td> <!-- 단어1 -->
+                <td class="kor"></td> <!-- 단어2 -->
+                <td class="kor"></td> <!-- 단어3 -->
+                <td class="kor"></td> <!-- 단어4 -->
+                <td class="kor"></td> <!-- 단어5 -->
+                <td class="kor"></td> <!-- 단어6 -->
+            </tr>
+            <tr>
+                <!-- 5555555555555555555555555555555555555555555555555 -->
+                <td class="kanji" rowspan="3">関</td>
+                <td class="kanjiyomi" rowspan="3">かん<br></td> <!-- 음독 -->
+                <td class="kanjiyomi" rowspan="3"></td> <!-- 훈독 -->
+
+                <td class="yomigana">かんけい</td> <!-- 단어1 -->
+                <td class="yomigana">きかん</td> <!-- 단어2 -->
+                <td class="yomigana"></td> <!-- 단어3 -->
+                <td class="yomigana"></td> <!-- 단어4 -->
+                <td class="yomigana"></td> <!-- 단어5 -->
+                <td class="yomigana"></td> <!-- 단어6 -->
+            </tr>
+            <tr>
+                <td class="tango">関係</td> <!-- 단어1 -->
+                <td class="tango">機関</td> <!-- 단어2 -->
+                <td class="tango"></td> <!-- 단어3 -->
+                <td class="tango"></td> <!-- 단어4 -->
+                <td class="tango"></td> <!-- 단어5 -->
+                <td class="tango"></td> <!-- 단어6 -->
+            </tr>
+            <tr>
+                <td class="kor">관계</td> <!-- 단어1 -->
+                <td class="kor">기관</td> <!-- 단어2 -->
+                <td class="kor"></td> <!-- 단어3 -->
+                <td class="kor"></td> <!-- 단어4 -->
+                <td class="kor"></td> <!-- 단어5 -->
+                <td class="kor"></td> <!-- 단어6 -->
+            </tr>
+            <tr>
+                <!-- 66666666666666666666666666666666666666666666666666 -->
+                <td class="kanji" rowspan="3">旗</td>
+                <td class="kanjiyomi" rowspan="3">き<br></td> <!-- 음독 -->
+                <td class="kanjiyomi" rowspan="3">はた</td> <!-- 훈독 -->
+
+                <td class="yomigana">きしゅ</td> <!-- 단어1 -->
+                <td class="yomigana">はた</td> <!-- 단어2 -->
+                <td class="yomigana"></td> <!-- 단어3 -->
+                <td class="yomigana"></td> <!-- 단어4 -->
+                <td class="yomigana"></td> <!-- 단어5 -->
+                <td class="yomigana"></td> <!-- 단어6 -->
+            </tr>
+            <tr>
+                <td class="tango">旗手</td> <!-- 단어1 -->
+                <td class="tango">旗</td> <!-- 단어2 -->
+                <td class="tango"></td> <!-- 단어3 -->
+                <td class="tango"></td> <!-- 단어4 -->
+                <td class="tango"></td> <!-- 단어5 -->
+                <td class="tango"></td> <!-- 단어6 -->
+            </tr>
+            <tr>
+                <td class="kor">기수</td> <!-- 단어1 -->
+                <td class="kor">깃발</td> <!-- 단어2 -->
+                <td class="kor"></td> <!-- 단어3 -->
+                <td class="kor"></td> <!-- 단어4 -->
+                <td class="kor"></td> <!-- 단어5 -->
+                <td class="kor"></td> <!-- 단어6 -->
+            </tr>
+            <tr>
+                <!-- 777777777777777777777777777777777777777777777777777 -->
+                <td class="kanji" rowspan="3">歴</td>
+                <td class="kanjiyomi" rowspan="3">れき<br></td> <!-- 음독 -->
+                <td class="kanjiyomi" rowspan="3"></td> <!-- 훈독 -->
+
+                <td class="yomigana">けいれき</td> <!-- 단어1 -->
+                <td class="yomigana">れきし</td> <!-- 단어2 -->
+                <td class="yomigana"></td> <!-- 단어3 -->
+                <td class="yomigana"></td> <!-- 단어4 -->
+                <td class="yomigana"></td> <!-- 단어5 -->
+                <td class="yomigana"></td> <!-- 단어6 -->
+            </tr>
+            <tr>
+                <td class="tango">経歴</td> <!-- 단어1 -->
+                <td class="tango">歴史</td> <!-- 단어2 -->
+                <td class="tango"></td> <!-- 단어3 -->
+                <td class="tango"></td> <!-- 단어4 -->
+                <td class="tango"></td> <!-- 단어5 -->
+                <td class="tango"></td> <!-- 단어6 -->
+            </tr>
+            <tr>
+                <td class="kor">경력</td> <!-- 단어1 -->
+                <td class="kor">역사</td> <!-- 단어2 -->
+                <td class="kor"></td> <!-- 단어3 -->
+                <td class="kor"></td> <!-- 단어4 -->
+                <td class="kor"></td> <!-- 단어5 -->
+                <td class="kor"></td> <!-- 단어6 -->
+            </tr>
+            <tr>
+                <!-- 88888888888888888888888888888888888888888888888888 -->
+                <td class="kanji" rowspan="3">説</td>
+                <td class="kanjiyomi" rowspan="3">せつ<br></td> <!-- 음독 -->
+                <td class="kanjiyomi" rowspan="3">とく</td> <!-- 훈독 -->
+
+                <td class="yomigana">せつめい</td> <!-- 단어1 -->
+                <td class="yomigana">とく</td> <!-- 단어2 -->
+                <td class="yomigana"></td> <!-- 단어3 -->
+                <td class="yomigana"></td> <!-- 단어4 -->
+                <td class="yomigana"></td> <!-- 단어5 -->
+                <td class="yomigana"></td> <!-- 단어6 -->
+            </tr>
+            <tr>
+                <td class="tango">説明</td> <!-- 단어1 -->
+                <td class="tango">説く</td> <!-- 단어2 -->
+                <td class="tango"></td> <!-- 단어3 -->
+                <td class="tango"></td> <!-- 단어4 -->
+                <td class="tango"></td> <!-- 단어5 -->
+                <td class="tango"></td> <!-- 단어6 -->
+            </tr>
+            <tr>
+                <td class="kor">설명</td> <!-- 단어1 -->
+                <td class="kor">이야기하다</td> <!-- 단어2 -->
+                <td class="kor"></td> <!-- 단어3 -->
+                <td class="kor"></td> <!-- 단어4 -->
+                <td class="kor"></td> <!-- 단어5 -->
+                <td class="kor"></td> <!-- 단어6 -->
+            </tr>
+        </tbody>
     </table>
-
-  </div>
-  <section>
-    <p>アホ野郎、これは日本語のページやんか</p>
-  </section>
-  <!--
-  <footer>
-    <h3>Contact</h3>
-    <h3>Location</h3>
-    <h3>Privacy Policy</h3>
-  </footer>
-  -->
-
 </body>
 
 </html>

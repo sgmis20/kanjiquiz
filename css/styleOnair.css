@@ -1,0 +1,362 @@
+/*Not compatible with Safari, IE*/
+html{
+  scroll-behavior: smooth;
+}
+
+
+body {
+  background-color:#232946;
+  color: #b8c1ec;
+  margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+  font-family: 'Noto Sans JP', sans-serif;
+  text-align: center;
+	vertical-align: center;
+}
+
+
+
+h1{
+color: #e4e4f1;
+font-size : 2vw;
+}
+
+h4{
+  font-size: 0.8vw;
+}
+
+h5{
+  font-size: 0.26vw;
+}
+
+
+table {
+  text-align: center;
+  border-collapse: collapse;
+  border-spacing: 0;
+  vertical-align: center;
+  min-width: 80vw;
+}
+
+td {
+  vertical-align: center;
+  word-break: keep-all;
+}
+
+th {
+  font-size: 1.25vw;
+  word-break: normal;
+  text-align: center;
+}
+
+/* 제목  */
+th.title {
+  background-color: #33a097;
+  border-bottom: 3pt solid #177069;
+  font-weight: 700;
+  color:#e4e4f1;
+  font-family: 'Noto Sans KR', sans-serif;
+  letter-spacing: 1vw;
+}
+/* 표제어 */
+td.kanji {
+  font-size: 4.7vw;
+  color:#e4e4f1;
+  padding-right: 0.1vw;
+}
+
+/* 한자 음독, 훈독 */
+td.kanjiyomi {
+  font-size: 1.5vw;
+  letter-spacing: -0.2vw;
+  color:#e4e4f1;
+}
+
+/* 단어 요미가나 */
+td.yomigana {
+  font-size: 1.7vw;
+  font-weight: 500;
+  background-color:#1e233f;
+}
+
+/* 단어 한자로 */
+td.tango {
+  font-size: 4.7vw;
+  letter-spacing: 0.2vw;
+  color: #e4e4f1;
+}
+
+/* 단어 한글뜻 */
+td.kor {
+  font-size: 1.5vw;
+  font-weight: 700;
+  letter-spacing: 0.15vw;
+  font-family: 'Noto Sans KR', sans-serif;
+  background-color:#1e233f;
+}
+td.yomigana,
+td.tango,
+td.kor{
+  padding-right: 1vw;
+}
+
+td.kanji,
+td.kanjiyomi,
+td.kor{
+  border-bottom: 3pt solid #177069;
+
+}
+
+#frontpage,
+#backpage {
+  margin-left: 12vw;
+  margin-right: auto;
+}
+
+
+/*--------------------toggle starts-------------------------*/
+
+.toggled {
+  background-color:#232946;
+  color: #232946;
+}
+
+
+/*--------------------toggle ends-------------------------*/
+
+
+
+/*
+a:link - a normal, unvisited link
+a:visited - a link the user has visited
+a:hover - a link when the user mouses over it
+a:active - a link the moment it is clicked
+*/
+a:link {
+  color: green;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+
+a:hover {
+  color: #eebbc3;
+  background-color: transparent;
+  text-decoration: none;
+  transition: .2s;
+}
+
+a:active {
+  color: whitesmoke;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+/********************navbar*********************/
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 12vw;
+  background-color:#232946;
+  height: 100%; /* Full height */
+  position: fixed; /* Make it stick, even on scroll */
+  overflow: auto; /* Enable scrolling if the sidenav has too much content */
+}
+
+li a {
+  display: inline-block;
+  color:#e4e4f1;
+  padding: 8px 16px;
+  text-decoration: none;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 1.25vw;
+  font-weight: 700;
+}
+
+li a.index,
+li a.page{
+color:#cacae2;
+}
+
+/* Change the link color on hover */
+li a:hover {
+  background-color:#eebbc3;
+  color:#232946;
+}
+
+.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+
+
+/************************************************/
+@media screen and (max-width: 858px) {
+
+  table {
+    text-align: center;
+    border-collapse: collapse;
+    border-spacing: 0;
+    vertical-align: center;
+    min-width: 97vw;
+  }
+
+  td {
+    vertical-align: center;
+    word-break: keep-all;
+  }
+
+  th {
+    font-size: 3vw;
+    font-weight: 700;
+    word-break: normal;
+    text-align: center;
+  }
+
+  /* 제목  */
+  th.title {
+    background-color: #33a097;
+    border-bottom: 2pt solid #177069;
+    font-weight: 700;
+    letter-spacing: 0.7vw;
+  }
+  /* 표제어 */
+  td.kanji {
+    font-size: 7vw;
+    color:#fffffe;
+    border-right:2pt solid #177069;
+    width: 9vw;
+  }
+
+  /* 한자 음독, 훈독 */
+  td.kanjiyomi {
+    display: none;
+    /*
+    font-size: 2vw;
+    letter-spacing: -0.15vw;
+    color:#fffffe;
+    */
+  }
+
+  #onyomi,
+  #kunyomi{
+    display: none;
+  }
+
+  /* 단어 요미가나 */
+  td.yomigana {
+    font-size: 3.3vw;
+  }
+
+  /* 단어 한자로 */
+  td.tango {
+    font-size: 7vw;
+    letter-spacing: 0.1vw;
+    color: #e4e4f1;
+    padding-left: 0.3vw;
+  }
+
+  /* 단어 한글뜻 */
+  td.kor {
+    font-size: 3vw;
+    font-weight: 700;
+    letter-spacing: 0.15vw;
+  }
+  td.yomigana,
+  td.tango,
+  td.kor{
+    padding-right: 1vw;
+  }
+
+  td.kanji,
+  td.kanjiyomi,
+  td.kor{
+    border-bottom: 2pt solid #177069;
+
+  }
+
+  #frontpage,
+  #backpage {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+
+
+
+
+nav{
+  text-align: center;
+	vertical-align: center;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  overflow: hidden;
+  background-color:#232946;
+  top:0;
+  height: 8vh;
+  width:100%;
+  position: fixed;
+}
+
+
+li{
+  float: none;
+  font-weight: 500;
+  position: relative;
+}
+
+li a {
+  display: inline-block;
+  color:#e4e4f1;
+  padding: 1vh 3vw;
+  text-decoration: none;
+  font-size: 3.5vw;
+  font-weight: 700;
+}
+
+ul{
+  position: fixed;
+}
+
+li a.page{
+color:#cacae2;
+}
+
+.index{
+  float: left;
+  padding-left: 4vw;
+  padding-right: 4vw;
+}
+
+.page{
+float: left;
+display: none;
+}
+
+
+.btn1, .btn2, .btn3{
+float: left;
+padding-left: 4vw;
+}
+
+
+
+h1{
+color: transparent;
+font-size : 0.1vh;
+padding-top: 5vh;
+}
+
+
+
+} /* @mobile ends */
+

@@ -1,17 +1,17 @@
 document.querySelector('.btn1').addEventListener('click', function(e) {
-  [].map.call(document.querySelectorAll('.tg-yomigana, .tg-kor'), function(el) {
+  [].map.call(document.querySelectorAll('.yomigana, .kor'), function(el) {
     el.classList.toggle('toggled');
   });
 });
 
 document.querySelector('.btn2').addEventListener('click', function(e) {
-  [].map.call(document.querySelectorAll('.tg-yomigana'), function(el) {
+  [].map.call(document.querySelectorAll('.yomigana'), function(el) {
     el.classList.toggle('toggled');
   });
 });
 
 document.querySelector('.btn3').addEventListener('click', function(e) {
-  [].map.call(document.querySelectorAll('.tg-kor'), function(el) {
+  [].map.call(document.querySelectorAll('.kor'), function(el) {
     el.classList.toggle('toggled');
   });
 });
