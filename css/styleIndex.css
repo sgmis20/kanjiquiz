@@ -7,8 +7,19 @@
   margin-left: auto;
   margin-right: auto;
   filter: grayscale(100%);
+}
+
+#onairon img{
+  max-width: 10vw;
+  padding: 0vh;
+  height: auto;
+  transition: 0s;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   /*filter: grayscale(100%);*/
 }
+
 
 body {
   background-color: #232946;
@@ -47,7 +58,7 @@ h3 {
 
 
 h4 {
-  font-size: 1.5vw;
+  font-size: 3.2vw;
   padding: 0.5vh 2vw;
   text-align: center;
   line-height: 2.0;
@@ -157,7 +168,7 @@ text-decoration: underline;
   }
 
   h4 {
-    font-size: 3.65vw;
+    font-size: 5vw;
     padding: 0.7vh 3vw;
     letter-spacing: 0.05vw;
   }
