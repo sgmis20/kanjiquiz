@@ -120,6 +120,10 @@ td.kor{
   color: #b8c1ec;
 }
 
+.kanjitoggled{
+  display: none;
+}
+
 /*--------------------toggle ends-------------------------*/
 
 
@@ -289,10 +293,6 @@ li a:hover {
   }
 
 
-
-
-
-
 nav{
   text-align: center;
 	vertical-align: center;
@@ -345,10 +345,16 @@ display: none;
 }
 
 
-.btn1, .btn2, .btn3{
+.btn1{
+display: none;
+}
+
+
+.btn2, .btn3, .btn4{
 float: left;
 padding-left: 4vw;
 }
+
 
 
 

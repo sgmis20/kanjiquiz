@@ -16,6 +16,15 @@ document.querySelector('.btn3').addEventListener('click', function(e) {
   });
 });
 
+document.querySelector('.btn4').addEventListener('click', function(e) {
+  [].map.call(
+    document.querySelectorAll('.title, .kanji, .kanjiyomi, .tango'),
+    function(el) {
+      el.classList.toggle('kanjitoggled');
+    }
+  );
+});
+
 $('a[href*=#]').click(function(event) {
   $('html, body').animate(
     {

@@ -130,7 +130,7 @@ h3:hover {
   transition:background-size 0.7s, background-color 0.7s;
   opacity: 0.9;
   font-weight:900;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 h3:active {
@@ -138,7 +138,7 @@ h3:active {
 }
 
 h4:hover{
-text-decoration: underline;
+text-decoration: none;
 }
 
 #day{
@@ -168,7 +168,7 @@ text-decoration: underline;
   }
 
   h4 {
-    font-size: 5vw;
+    font-size: 3.7vw;
     padding: 0.7vh 3vw;
     letter-spacing: 0.05vw;
   }
