@@ -20,6 +20,17 @@
   /*filter: grayscale(100%);*/
 }
 
+#javacode img{
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+  transition: 0s;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  /*filter: grayscale(100%);*/
+}
+
+
 
 body {
   background-color: #232946;
