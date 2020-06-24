@@ -30,7 +30,22 @@
   /*filter: grayscale(100%);*/
 }
 
+#parrot img{
+  padding-top: 3vh;
+  padding-bottom: 5vh;
+  height: 12vh;
+  width: auto;
+  transition: 0s;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  /*filter: grayscale(100%);*/
+}
 
+#space p{
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+}
 
 body {
   background-color: #232946;
