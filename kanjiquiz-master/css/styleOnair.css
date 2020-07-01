@@ -5,7 +5,7 @@ html {
 
 body {
   background-color: #232946;
-  color: #232946;
+  color: #b8c1ec;
   margin: 0;
   padding: 0;
   border: 0;
@@ -52,10 +52,10 @@ th.title {
   background-color: #33a097;
   border-bottom: 3pt solid #177069;
   font-weight: 700;
+  color: #e4e4f1;
   font-family: "Noto Sans KR", sans-serif;
   letter-spacing: 1vw;
 }
-
 /* 표제어 */
 td.kanji {
   font-size: 4.7vw;
@@ -72,8 +72,9 @@ td.kanjiyomi {
 
 /* 단어 요미가나 */
 td.yomigana {
+  font-size: 1.7vw;
   font-weight: 500;
-  font-size: 1.5vw;
+  background-color: #1e233f;
 }
 
 /* 단어 한자로 */
@@ -85,12 +86,12 @@ td.tango {
 
 /* 단어 한글뜻 */
 td.kor {
-  font-size: 1.4vw;
+  font-size: 1.5vw;
   font-weight: 700;
   letter-spacing: 0.15vw;
   font-family: "Noto Sans KR", sans-serif;
+  background-color: #1e233f;
 }
-
 td.yomigana,
 td.tango,
 td.kor {
@@ -112,13 +113,8 @@ td.kor {
 /*--------------------toggle starts-------------------------*/
 
 .toggled {
-  background-color: #1e233f;
-  color: #b8c1ec;
-  transition: all 0.7s;
-}
-
-.kanjitoggled {
-  display: none;
+  background-color: #232946;
+  color: #232946;
 }
 
 /*--------------------toggle ends-------------------------*/
@@ -162,12 +158,9 @@ ul {
   padding: 0;
   width: 12vw;
   background-color: #232946;
-  height: 100%;
-  /* Full height */
-  position: fixed;
-  /* Make it stick, even on scroll */
-  overflow: auto;
-  /* Enable scrolling if the sidenav has too much content */
+  height: 100%; /* Full height */
+  position: fixed; /* Make it stick, even on scroll */
+  overflow: auto; /* Enable scrolling if the sidenav has too much content */
 }
 
 li a {
@@ -225,7 +218,6 @@ li a:hover {
     font-weight: 700;
     letter-spacing: 0.7vw;
   }
-
   /* 표제어 */
   td.kanji {
     font-size: 7vw;
@@ -238,9 +230,9 @@ li a:hover {
   td.kanjiyomi {
     display: none;
     /*
-    font-size     : 2vw;
+    font-size: 2vw;
     letter-spacing: -0.15vw;
-    color         :#fffffe;
+    color:#fffffe;
     */
   }
 
@@ -257,9 +249,9 @@ li a:hover {
   /* 단어 한자로 */
   td.tango {
     font-size: 7vw;
-    letter-spacing: 0.25vw;
+    letter-spacing: 0.1vw;
     color: #e4e4f1;
-    padding-left: 0.2vw;
+    padding-left: 0.3vw;
   }
 
   /* 단어 한글뜻 */
@@ -268,7 +260,6 @@ li a:hover {
     font-weight: 700;
     letter-spacing: 0.15vw;
   }
-
   td.yomigana,
   td.tango,
   td.kor {
@@ -337,13 +328,9 @@ li a:hover {
     display: none;
   }
 
-  .btn1 {
-    display: none;
-  }
-
+  .btn1,
   .btn2,
-  .btn3,
-  .btn4 {
+  .btn3 {
     float: left;
     padding-left: 4vw;
   }
@@ -353,6 +340,4 @@ li a:hover {
     font-size: 0.1vh;
     padding-top: 5vh;
   }
-}
-
-/* @mobile ends */
+} /* @mobile ends */
