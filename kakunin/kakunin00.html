@@ -1,63 +1,59 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="content-language" content="ja" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>별책부록</title>
-    <link rel="stylesheet" type="text/css" href="../css/resetIndex.css?v=1.4" />
-    <link rel="stylesheet" type="text/css" href="../css/styleIndex.css?v=1.4" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap"
-      rel="stylesheet"
-    />
-  </head>
 
-  <body>
-    <header>
-      <h1>아직 안 만들었음!</h1>
-    </header>
-    <div class="container">
-      <table>
-        <thead>
-          <tr>
-            <th colspan="2">
-              <h2>아래 사진을 클릭 / 터치 하지마세요</h2>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="leftTrap">
-              <h2>0</h2>
-            </td>
-            <td>
-              <img
-                class="trapcard"
-                src="../media/trapcard.png"
-                alt="You'veActivatedMyTrapCard"
-              />
-            </td>
-            <!--    ☆-->
-          </tr>
-          <tr>
-            <td class="leftTrap">
-              <!----------- 문장 번호 02----------->
-              <h2>0</h2>
-            </td>
-            <td>
-              <a href="../index.html">
-                <h4>이전 페이지로</h4>
-              </a>
-            </td>
-            <!--    ☆-->
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="content-language" content="ja" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>별책부록</title>
+  <link rel="stylesheet" type="text/css" href="../css/resetIndex.css?v=1.4" />
+  <link rel="stylesheet" type="text/css" href="../css/styleIndex.css?v=1.482" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <header>
+    <h1>별책부록이 없었던 날</h1>
+  </header>
+  <div class="container">
+    <table>
+      <thead>
+        <tr>
+          <th colspan="2">
+            <h2>아래 사진을 클릭 / 터치 하지마세요</h2>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <img class="trapcard" id="trap" src="../media/trapcard.png" alt="You'veActivatedMyTrapCard" />
+          </td>
+          <!--    ☆-->
+        </tr>
+        <tr>
+          <td class="leftTrap">
+            <!----------- 문장 번호 02----------->
+            <h2>0</h2>
+          </td>
+          <td>
+            <a href="../index.html">
+              <h4>이전 페이지로</h4>
+            </a>
+          </td>
+          <!--    ☆-->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <script>const activateTrapcard = document.querySelector('.trapcard');
+
+    activateTrapcard.addEventListener('click', function () {
+      const imgTrapcard = document.getElementById('trap');
+      imgTrapcard.classList.toggle('activateTrapcard');
+    });
+  </script>
+</body>
+
 </html>

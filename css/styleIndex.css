@@ -20,31 +20,26 @@
   /*filter    : grayscale(100%);*/
 }
 
-#javacode img {
-  padding-top: 5vh;
-  padding-bottom: 5vh;
-  transition: 0s;
+img {
+  padding: 3vh;
+  width: 5vw;
+  height: auto;
+  transition: all 0.3s;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  /*filter      : grayscale(100%);*/
+  margin-bottom: 5vh;
 }
 
-#parrot img {
-  padding-top: 3vh;
-  padding-bottom: 5vh;
-  height: 12vh;
-  width: auto;
-  transition: 0s;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  /*filter      : grayscale(100%);*/
+img.trapcard {
+  width: 50vw;
+  height: auto;
 }
 
-#space p {
-  padding-top: 2vh;
-  padding-bottom: 2vh;
+.activateTrapcard {
+  border-radius: 50%;
+  transform: rotate(3turn) scale(3);
+  filter: invert(100%);
 }
 
 body {
@@ -58,32 +53,34 @@ header {
 }
 
 h1 {
-  font-size: 2.5vw;
+  font-size: 2.2vw;
   padding: 3vh 2vw;
   color: #e4e4f1;
   background-color: #177069;
-  letter-spacing: 0.4vw;
+  letter-spacing: 0.3vw;
 }
 
 h2 {
-  font-size: 2vw;
+  font-size: 1.8vw;
   padding: 2.7vh 0.5vw;
   color: #e4e4f1;
   text-align: center;
-  letter-spacing: 0.5vw;
+  letter-spacing: 0.2vw;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
 }
 
 h3 {
-  font-size: 1.7vw;
+  font-size: 1.8vw;
   padding: 0.5vh 4vw;
   text-align: center;
   line-height: 2;
-  letter-spacing: 0.05vw;
+  letter-spacing: 0.1vw;
   text-decoration: none;
 }
 
 h4 {
-  font-size: 3.2vw;
+  font-size: 1.8vw;
   padding: 0.5vh 2vw;
   text-align: center;
   line-height: 2;
@@ -92,7 +89,7 @@ h4 {
 }
 
 h5 {
-  font-size: 2vh;
+  font-size: 1.5vw;
   margin-bottom: 25px;
   text-align: center;
   line-height: 1.5;
@@ -102,41 +99,23 @@ h5 {
   font-style: italic;
 }
 
-th {
-  border: 4px solid #177069;
-}
-
 table {
   text-align: center;
-  margin: 2vh auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3vh;
 }
 
+th {
+  border: 0.34vw solid #177069;
+}
 td {
-  border: 4px solid #177069;
+  border: 0.34vw solid #177069;
   text-align: center;
-}
-
-img {
-  border-radius: 20%;
-  padding: 3vh;
-  max-width: 10vw;
-  height: auto;
-  transition: all 0.3s;
-}
-
-img:hover {
-  filter: sepia(95%);
-}
-
-.trapcard:hover {
-  border-radius: 50%;
-  transform: rotate(3turn) scale(3);
-  /*box-shadow: 0 0 7px blue;*/
-  filter: invert(100%);
 }
 
 .containerTable {
-  max-width: 80vw;
+  max-width: 85vw;
   margin: 0 auto;
 }
 
@@ -147,6 +126,7 @@ img:hover {
 
 .left {
   width: 8vw;
+  min-width: fit-content;
 }
 
 .leftTrap {
@@ -163,14 +143,14 @@ h3:hover {
   background-color: #eebbc3;
   background-image: linear-gradient(
     to right,
-    rgba(35, 41, 70, 0) 0%,
-    rgba(35, 41, 70, 0) 40%,
-    rgba(35, 41, 70, 0) 100%
+    rgba(92, 105, 172, 0) 0%,
+    rgba(101, 117, 197, 0) 40%,
+    rgba(43, 58, 129, 0) 100%
   );
   background-repeat: no-repeat;
   background-size: 200% 100%;
-  transition: background-size 0.7s, background-color 0.7s;
-  opacity: 0.9;
+  transition: background-size 0.5s, background-color 0.5s;
+  opacity: 0.87;
   font-weight: 900;
   text-decoration: none;
 }
@@ -212,7 +192,7 @@ h4:hover {
 
 .my-calendar {
   width: 700px;
-  margin: 30px;
+  margin: 10px;
   padding: 20px 20px 10px;
   text-align: center;
   align-items: center;
@@ -221,13 +201,15 @@ h4:hover {
   cursor: default;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 10vh;
+  margin-top: 5vh;
+  max-width: 85vw;
+  max-height: auto;
 }
 .my-calendar .clicked-date {
   border-radius: 45px;
   margin-top: 60px;
   float: left;
-  width: 43%;
+  width: 42%;
   padding: 45px 0 26px;
   background: #eebbc3;
 }
@@ -249,7 +231,7 @@ h4:hover {
 
 .cal-table th:nth-child(7),
 .cal-table td:nth-child(7) {
-  color: #5a70d1;
+  color: #6077dd;
 }
 
 .clicked-date .cal-day {
@@ -266,8 +248,7 @@ h4:hover {
 }
 
 .ctr-box {
-  padding: 0 16px;
-  /*margin-bottom: 20px;*/
+  padding: 0 40px;
   font-size: 25px;
   line-height: normal;
 }
@@ -292,8 +273,7 @@ h4:hover {
   height: 100%;
   line-height: 25px;
   font-weight: 700;
-  font-size: 33px;
-  padding-bottom: 50px;
+  font-size: 35px;
 }
 .ctr-box .btn-cal.next {
   float: right;
@@ -308,8 +288,8 @@ h4:hover {
 .cal-table th {
   width: 14.2857%; /* 100/7 */
   padding-bottom: 5px;
-  font-size: 25px;
-  font-weight: 900;
+  font-size: 27px;
+  font-weight: bold;
   line-height: normal;
   height: fit-content;
 }
@@ -322,7 +302,7 @@ h4:hover {
 
 .cal-table td {
   height: 47px;
-  font-size: 22px;
+  font-size: 25px;
   vertical-align: middle;
 }
 .cal-table td.day {
@@ -332,12 +312,14 @@ h4:hover {
 .cal-table td.today {
   background: hotpink;
   border-radius: 50%;
-  color: #fff;
+  opacity: 0.97;
+  /*color: #161e4d;*/
+  color: rgb(231, 234, 240);
 }
 .cal-table td.day-active {
-  background: #ff8585;
+  background: coral;
   border-radius: 50%;
-  color: #fff;
+  color: rgb(231, 234, 240);
 }
 .cal-table td.has-event:after {
   content: "";
@@ -351,60 +333,32 @@ h4:hover {
 }
 /* ======== Calendar ends ======== */
 
-@media screen and (max-width: 858px) {
+@media screen and (max-width: 1600px) {
   h1 {
-    font-size: 4.5vw;
-    padding: 3vh 2vw;
-    letter-spacing: 0.5vw;
+    font-size: 3.5vh;
   }
 
   h2 {
-    font-size: 3.7vw;
-    padding: 3.5vh 1vw;
-    letter-spacing: 0.5vw;
+    font-size: 3vh;
   }
 
   h3 {
-    font-size: 3.7vw;
-    padding: 0vh 5vw;
-    letter-spacing: 0.05vw;
-  }
-
-  h3:hover {
-    color: #232946;
-    background-image: none;
-    transition: none;
-    text-decoration: none;
-    background-color: #eebbc3;
-    opacity: 0.9;
-    font-weight: 900;
+    font-size: 3vh;
   }
 
   h4 {
-    font-size: 3.2vw;
-    padding: 0.7vh 3vw;
-    letter-spacing: 0.05vw;
+    font-size: 3.2vh;
   }
 
   h5 {
-    font-size: 2.3vh;
+    font-size: 2vh;
   }
+}
 
-  table {
-    text-align: center;
-    margin: 2vh auto;
-  }
-
-  img {
-    border-radius: 20%;
-    padding: 2vh;
-    max-width: 60vw;
-    height: auto;
-  }
-
-  .containerTable {
-    max-width: 85vw;
-    margin: 0 auto;
+/********** 모바일페이지 mobile *********/
+@media screen and (max-width: 858px) {
+  h5 {
+    font-size: 1.7vh;
   }
 
   .left {
@@ -418,5 +372,105 @@ h4:hover {
 
   #day {
     letter-spacing: 4vw;
+  }
+
+  /* ======== Calendar ======== */
+
+  .my-calendar {
+    width: 82vw;
+    margin: 1.17vw;
+    padding: 2.34vw 1.17vw 1.17vw;
+    margin-top: 5vh;
+    max-width: 85vw;
+    max-height: auto;
+  }
+
+  .my-calendar .clicked-date {
+    border-radius: 5.25vw;
+    margin-top: 7vw;
+    width: 42%;
+    padding: 5.269vw 0 3.044vw;
+    background: #eebbc3;
+  }
+  .my-calendar .calendar-box {
+    width: 52%;
+    padding-left: 3.513vw;
+  }
+
+  .clicked-date .cal-day {
+    font-size: 4.684vw;
+    color: #2b314e;
+  }
+
+  .clicked-date .cal-date {
+    font-size: 14.052vw;
+    color: #2b314e;
+  }
+
+  .ctr-box {
+    padding: 0 1vw;
+    font-size: 2.927vw;
+  }
+  .ctr-box .btn-cal {
+    margin-top: 1.171vw;
+    font-size: 5.855vw;
+    color: #b8c1ec;
+  }
+  .ctr-box .btn-cal:after {
+    width: 100%;
+    height: 100%;
+    line-height: 2.927vw;
+    font-size: 4.098vw;
+  }
+
+  .cal-table th {
+    width: 14.2857%; /* 100/7 */
+    padding-bottom: 0.585vw;
+    font-size: 3.162vw;
+  }
+  .cal-table th,
+  .cal-table td,
+  .cal-table td.day {
+    border: 0.351vw solid #b8c1ec;
+  }
+
+  .cal-table td {
+    height: 5.504vw;
+    font-size: 2.927vw;
+  }
+
+  .cal-table td.today {
+    background: hotpink;
+    border-radius: 50%;
+    opacity: 0.97;
+    /*color: #161e4d;*/
+    color: rgb(231, 234, 240);
+  }
+  .cal-table td.day-active {
+    background: coral;
+    border-radius: 50%;
+    color: rgb(231, 234, 240);
+  }
+  .cal-table td.has-event:after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 0.468vw;
+    background: #ffc107;
+  }
+  /* ======== Calendar ends ======== */
+
+  img {
+    width: 10vw;
+    height: auto;
+    margin-bottom: 5vh;
+  }
+
+  img.trapcard {
+    width: 75vw;
+    height: auto;
   }
 }
