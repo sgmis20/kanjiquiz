@@ -333,7 +333,7 @@ h4:hover {
 }
 /* ======== Calendar ends ======== */
 
-@media screen and (max-width: 1600px) {
+@media screen and (max-width 1600px) {
   h1 {
     font-size: 3.5vh;
   }
