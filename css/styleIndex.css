@@ -152,7 +152,7 @@ h3:hover {
   transition: background-size 0.5s, background-color 0.5s;
   opacity: 0.87;
   font-weight: 900;
-  text-decoration: none;
+  text-decoration: ;
 }
 
 h3:active {
@@ -383,13 +383,15 @@ h4:hover {
     margin-top: 5vh;
     max-width: 85vw;
     max-height: auto;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .my-calendar .clicked-date {
     border-radius: 5.25vw;
-    margin-top: 7vw;
+    margin-top: 9vw;
     width: 42%;
-    padding: 5.269vw 0 3.044vw;
+    padding: 5vw 0vw;
     background: #eebbc3;
   }
   .my-calendar .calendar-box {
