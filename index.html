@@ -9,13 +9,14 @@
   <link rel="stylesheet" type="text/css" href="./css/resetIndex.css?v=1.28" />
   <link rel="stylesheet" type="text/css" href="./css/styleIndex.css?v=1.28" />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
 </head>
 
 <body>
   <header>
     <h1>한자 퀴즈</h1>
   </header>
-  <div class="container">
+  <div class="containerTable">
     <table>
       <thead>
         <tr>
@@ -174,7 +175,7 @@
   <!-- <a href="./onair.html" id="onair"><img src="./media/onair.png" alt="onair"></a> -->
   <!--<a href="./onair.html" id="onairon"><img src="./media/onairon.png" alt="onair"></a>-->
 
-  <div class="container">
+  <div class="containerTable">
     <table>
       <thead>
         <tr>
@@ -261,9 +262,6 @@
     </table>
   </div>
 
-  <a href="./java-formatter.zip" id="javacode">
-    <img src="./media/middleparrot.gif" alt="parrot" />
-  </a>
 
   <!-- <div id="parrot"><img src="./media/middleparrot.gif" alt="parrot" /></div>-->
 
@@ -289,6 +287,50 @@
     </tbody>
   </table>
   ☆-->
+
+  <!-- calendar -->
+  <!-- https://im-developer.tistory.com/115 -->
+  <div class="container">
+    <div class="my-calendar clearfix">
+      <h5>우측 달력에서 날짜를 선택한 후에<br>
+        ↓아래 네모버튼을 클릭하면 해당 날짜 페이지로 이동합니다
+      </h5>
+      <div class="clicked-date">
+        <div class="cal-day"></div>
+        <div class="cal-date"></div>
+      </div>
+      <div class="calendar-box">
+        <div class="ctr-box clearfix">
+          <button type="button" title="prev" class="btn-cal prev">
+          </button>
+          <span class="cal-year"></span>
+          <span class="cal-month" id="selectedMonth"></span>
+          <button type="button" title="next" class="btn-cal next">
+          </button>
+        </div>
+        <table class="cal-table">
+          <thead>
+            <tr>
+              <th>日</th>
+              <th>月</th>
+              <th>火</th>
+              <th>水</th>
+              <th>木</th>
+              <th>金</th>
+              <th>土</th>
+            </tr>
+          </thead>
+          <tbody class="cal-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="./javascript/calendar.js"></script>
+
+  <a href="./java-formatter.zip" id="javacode">
+    <img src="./media/middleparrot.gif" alt="parrot" />
+  </a>
 </body>
 
 </html>

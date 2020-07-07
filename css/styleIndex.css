@@ -91,6 +91,17 @@ h4 {
   font-family: "Noto Sans JP", sans-serif;
 }
 
+h5 {
+  font-size: 2vh;
+  margin-bottom: 25px;
+  text-align: center;
+  line-height: 1.5;
+  letter-spacing: 0.05vw;
+  font-family: "Noto Sans KR", sans-serif;
+  opacity: 0.7;
+  font-style: italic;
+}
+
 th {
   border: 4px solid #177069;
 }
@@ -108,7 +119,7 @@ td {
 img {
   border-radius: 20%;
   padding: 3vh;
-  max-width: 40vw;
+  max-width: 10vw;
   height: auto;
   transition: all 0.3s;
 }
@@ -124,7 +135,7 @@ img:hover {
   filter: invert(100%);
 }
 
-.container {
+.containerTable {
   max-width: 80vw;
   margin: 0 auto;
 }
@@ -176,6 +187,170 @@ h4:hover {
   letter-spacing: 2.5vw;
 }
 
+.container {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+  float: none;
+}
+*/
+/* ======== Calendar ======== */
+
+#dateInKanji {
+  height: auto;
+}
+
+.my-calendar {
+  width: 700px;
+  margin: 30px;
+  padding: 20px 20px 10px;
+  text-align: center;
+  align-items: center;
+  font-weight: 800;
+  /*border: 1px solid #ddd;*/
+  cursor: default;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10vh;
+}
+.my-calendar .clicked-date {
+  border-radius: 45px;
+  margin-top: 60px;
+  float: left;
+  width: 43%;
+  padding: 45px 0 26px;
+  background: #eebbc3;
+}
+.my-calendar .calendar-box {
+  float: right;
+  width: 52%;
+  padding-left: 30px;
+}
+
+.clicked-date .cal-day,
+.cal-table th {
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+.cal-table th:nth-child(1),
+.cal-table td:nth-child(1) {
+  color: #e67e8e;
+}
+
+.cal-table th:nth-child(7),
+.cal-table td:nth-child(7) {
+  color: #5a70d1;
+}
+
+.clicked-date .cal-day {
+  font-size: 40px;
+  line-height: normal;
+  color: #2b314e;
+}
+.clicked-date .cal-date {
+  margin-top: auto;
+  line-height: normal;
+  font-size: 120px;
+  font-weight: 700;
+  color: #2b314e;
+}
+
+.ctr-box {
+  padding: 0 16px;
+  /*margin-bottom: 20px;*/
+  font-size: 25px;
+  line-height: normal;
+}
+.ctr-box .btn-cal {
+  position: relative;
+  float: left;
+  width: auto;
+  height: auto;
+  margin-top: 10px;
+  font-size: 50px;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: #b8c1ec;
+}
+.ctr-box .btn-cal:after {
+  content: "<";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  line-height: 25px;
+  font-weight: 700;
+  font-size: 33px;
+  padding-bottom: 50px;
+}
+.ctr-box .btn-cal.next {
+  float: right;
+}
+.ctr-box .btn-cal.next:after {
+  content: ">";
+}
+
+.cal-table {
+  width: 100%;
+}
+.cal-table th {
+  width: 14.2857%; /* 100/7 */
+  padding-bottom: 5px;
+  font-size: 25px;
+  font-weight: 900;
+  line-height: normal;
+  height: fit-content;
+}
+.cal-table th,
+.cal-table td,
+.cal-table td.day {
+  border: 3px solid #b8c1ec;
+  line-height: normal;
+}
+
+.cal-table td {
+  height: 47px;
+  font-size: 22px;
+  vertical-align: middle;
+}
+.cal-table td.day {
+  position: relative;
+  cursor: pointer;
+}
+.cal-table td.today {
+  background: hotpink;
+  border-radius: 50%;
+  color: #fff;
+}
+.cal-table td.day-active {
+  background: #ff8585;
+  border-radius: 50%;
+  color: #fff;
+}
+.cal-table td.has-event:after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 4px;
+  background: #ffc107;
+}
+/* ======== Calendar ends ======== */
+
 @media screen and (max-width: 858px) {
   h1 {
     font-size: 4.5vw;
@@ -195,12 +370,6 @@ h4:hover {
     letter-spacing: 0.05vw;
   }
 
-  h4 {
-    font-size: 3.2vw;
-    padding: 0.7vh 3vw;
-    letter-spacing: 0.05vw;
-  }
-
   h3:hover {
     color: #232946;
     background-image: none;
@@ -209,6 +378,16 @@ h4:hover {
     background-color: #eebbc3;
     opacity: 0.9;
     font-weight: 900;
+  }
+
+  h4 {
+    font-size: 3.2vw;
+    padding: 0.7vh 3vw;
+    letter-spacing: 0.05vw;
+  }
+
+  h5 {
+    font-size: 2.3vh;
   }
 
   table {
@@ -223,7 +402,7 @@ h4:hover {
     height: auto;
   }
 
-  .container {
+  .containerTable {
     max-width: 85vw;
     margin: 0 auto;
   }
