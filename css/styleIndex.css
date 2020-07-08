@@ -53,7 +53,7 @@ header {
 }
 
 h1 {
-  font-size: 3.2vh;
+  font-size: 4.1vh;
   padding: 3vh 2vw;
   color: #e4e4f1;
   background-color: #177069;
@@ -61,8 +61,8 @@ h1 {
 }
 
 h2 {
-  font-size: 3vh;
-  padding: 2.7vh 0.5vw;
+  font-size: 4.1vh;
+  padding: 2.5vh 0.5vw;
   color: #e4e4f1;
   text-align: center;
   letter-spacing: 0.2vw;
@@ -71,8 +71,8 @@ h2 {
 }
 
 h3 {
-  font-size: 3vh;
-  padding: 0.5vh 4vw;
+  font-size: 3.5vh;
+  padding: 0.5vh 2vw;
   text-align: center;
   line-height: 2;
   letter-spacing: 0.1vw;
@@ -80,8 +80,8 @@ h3 {
 }
 
 h4 {
-  font-size: 3vh;
-  padding: 0.5vh 2vw;
+  font-size: 4.7vh;
+  padding: 0.4vh 1vw;
   text-align: center;
   line-height: 2;
   letter-spacing: 0.05vw;

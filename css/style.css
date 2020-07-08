@@ -174,7 +174,7 @@ li a {
   display: inline-block;
   color: #e4e4f1;
   padding: 8px 16px;
-  margin-bottom: 0.5vh;
+  margin-bottom: 0.25vh;
   text-decoration: none;
   font-family: "Noto Sans KR", sans-serif;
   font-size: 1.25vw;
@@ -299,7 +299,7 @@ li a:hover {
     overflow: hidden;
     background-color: #232946;
     top: 0;
-    height: 8vh;
+    height: 9vh;
     width: 100%;
     position: fixed;
   }
