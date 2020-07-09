@@ -10,11 +10,12 @@
 }
 
 #onairon img {
-  max-width: 10vw;
+  max-width: 40vw;
   padding: 0vh;
   height: auto;
   transition: 0s;
   display: block;
+  margin-top: 3vh;
   margin-left: auto;
   margin-right: auto;
   /*filter    : grayscale(100%);*/
@@ -22,13 +23,12 @@
 
 img {
   padding: 3vh;
-  width: 5vw;
+  width: 33vh;
   height: auto;
   transition: all 0.3s;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 5vh;
 }
 
 img.trapcard {
@@ -97,6 +97,29 @@ h5 {
   font-family: "Noto Sans KR", sans-serif;
   opacity: 0.7;
   font-style: italic;
+}
+
+.onairDescription h5 {
+  font-size: 3.5vh;
+}
+
+#huom {
+  color: rgb(236, 153, 122);
+}
+
+h6 {
+  display: inline-block;
+  padding: 38px 30px;
+  border-radius: 50px;
+  background-color: salmon;
+  border: none;
+  color: white;
+  font-size: 25px;
+  font-weight: 900;
+  margin-top: 4vh;
+  margin-left: 42vw;
+  margin-bottom: 4vh;
+  font-family: "Noto Sans KR", sans-serif;
 }
 
 table {
@@ -360,6 +383,20 @@ h4:hover {
     font-size: 1.8vh;
   }
 
+  .onairDescription h5,
+  #huom {
+    display: none;
+  }
+
+  h6 {
+    padding: 16px 12px;
+    border-radius: 40px;
+    font-size: 10px;
+    margin-top: 4vh;
+    margin-left: 35vw;
+    margin-bottom: 4vh;
+  }
+
   th,
   td {
     border: 0.5vw solid #177069;
@@ -470,7 +507,7 @@ h4:hover {
   /* ======== Calendar ends ======== */
 
   img {
-    width: 10vw;
+    width: 20vh;
     height: auto;
     margin-bottom: 5vh;
   }

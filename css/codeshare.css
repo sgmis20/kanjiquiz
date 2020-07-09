@@ -1,0 +1,87 @@
+body {
+  font-family: "Noto Sans KR", sans-serif;
+  background-color: #0f0e17;
+  margin-left: 10vw;
+  margin-right: 10vw;
+  font-weight: bold;
+}
+
+a {
+  text-decoration: none;
+  text-align: left;
+}
+
+h1 {
+  text-align: center;
+  padding: 0.5vh 0;
+  font-size: 2.5vh;
+  background-color: #ff8906;
+  color: #f5f2ef;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2vh;
+  margin-bottom: 3vh;
+}
+
+h3 {
+  line-height: 0.8;
+  font-size: 2vh;
+  color: #220503;
+}
+
+li {
+  color: #491109;
+  list-style-type: circle;
+}
+
+li:hover,
+h3:hover {
+  color: rgb(238, 29, 134);
+  font-size: 2.2vh;
+  transition: all 0.1s;
+}
+
+p {
+  color: #0f0e17;
+  font-size: 2vh;
+}
+
+#description {
+  margin-bottom: 2vw;
+}
+
+.collapsible {
+  background-color: #f25f4c;
+  color: #fffffe;
+  cursor: pointer;
+  padding: 1.7vh;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 2vw;
+}
+
+.active,
+.collapsible:hover {
+  background-color: #f3381f;
+}
+
+.collapsible:after {
+  content: "\002B";
+  color: white;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.content {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: #ecdada;
+}
