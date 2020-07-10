@@ -1,3 +1,54 @@
+/********************navbar*********************/
+
+ul {
+  list-style-type: none;
+  margin-top: 2vh;
+  padding: 0;
+  width: 20vw;
+  background-color: #232946;
+  height: 100%;
+  /* Full height */
+  position: fixed;
+  /* Make it stick, even on scroll */
+  overflow: auto;
+  /* Enable scrolling if the sidenav has too much content */
+}
+
+#newicon {
+  margin-left: 3vw;
+  width: 7vw;
+  height: auto;
+  background: transparent;
+  transform: rotate(5deg);
+  filter: grayscale(20%);
+}
+
+li a {
+  margin-left: 1vw;
+  display: inline-block;
+  color: aliceblue;
+  padding: 30px 20px;
+  border-radius: 15px;
+  margin-bottom: 1vw;
+  text-decoration: none;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 2vw;
+  font-weight: 700;
+}
+
+/* Change the link color on hover */
+li a:hover {
+  background-color: coral;
+  color: aliceblue;
+}
+
+.active {
+  background-color: #4caf50;
+  color: white;
+}
+
+/******** navbar ends ********/
+
 #onair img {
   max-width: 10vw;
   padding: 0vh;
@@ -55,9 +106,23 @@ header {
 h1 {
   font-size: 4.1vh;
   padding: 3vh 2vw;
+  padding-bottom: 2.5vh;
   color: #e4e4f1;
   background-color: #177069;
   letter-spacing: 0.3vw;
+}
+
+.upcomingQuiz h1 {
+  background-color: #19758b;
+}
+
+.upcomingQuiz h3 {
+  color: #e4e4f1;
+}
+
+.upcomingQuiz th,
+.upcomingQuiz td {
+  border: 0.5vw solid #19758b;
 }
 
 h2 {
@@ -79,6 +144,27 @@ h3 {
   text-decoration: none;
 }
 
+h3:hover {
+  color: #232946;
+  background-color: #e6d8da;
+  background-image: linear-gradient(
+    to right,
+    rgba(92, 105, 172, 0) 0%,
+    rgba(101, 117, 197, 0) 40%,
+    rgba(43, 58, 129, 0) 100%
+  );
+  background-repeat: no-repeat;
+  background-size: 200% 100%;
+  transition: background-size 0.5s, background-color 0.5s;
+  opacity: 0.87;
+  font-weight: 900;
+  text-decoration: ;
+}
+
+h3:active {
+  background-color: #b8c1ec;
+}
+
 h4 {
   font-size: 4.7vh;
   padding: 0.4vh 1vw;
@@ -86,6 +172,10 @@ h4 {
   line-height: 2;
   letter-spacing: 0.05vw;
   font-family: "Noto Sans JP", sans-serif;
+}
+
+h4:hover {
+  text-decoration: none;
 }
 
 h5 {
@@ -158,31 +248,6 @@ td {
 
 a {
   color: #e4e4f1;
-  text-decoration: none;
-}
-
-h3:hover {
-  color: #232946;
-  background-color: #eebbc3;
-  background-image: linear-gradient(
-    to right,
-    rgba(92, 105, 172, 0) 0%,
-    rgba(101, 117, 197, 0) 40%,
-    rgba(43, 58, 129, 0) 100%
-  );
-  background-repeat: no-repeat;
-  background-size: 200% 100%;
-  transition: background-size 0.5s, background-color 0.5s;
-  opacity: 0.87;
-  font-weight: 900;
-  text-decoration: ;
-}
-
-h3:active {
-  background-color: #b8c1ec;
-}
-
-h4:hover {
   text-decoration: none;
 }
 
@@ -402,6 +467,11 @@ h4:hover {
     border: 0.5vw solid #177069;
   }
 
+  .upcomingQuiz th,
+  .upcomingQuiz td {
+    border: 0.5vw solid #19758b;
+  }
+
   .left {
     width: 12vw;
   }
@@ -505,6 +575,60 @@ h4:hover {
     background: #ffc107;
   }
   /* ======== Calendar ends ======== */
+
+  #newicon {
+    display: none;
+  }
+  /* nav bar */
+
+  li a:hover {
+    background-color: transparent;
+    color: honeydew;
+  }
+
+  nav {
+    text-align: center;
+    vertical-align: center;
+    /* 일단 모바일 버전은 가려둠 */
+    /* 일단 가려둠 */
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    overflow: hidden;
+    background-color: #232946;
+    top: 0;
+    height: 9vh;
+    width: 100%;
+    position: fixed;
+  }
+
+  li {
+    margin-top: 2vh;
+    float: left;
+    font-weight: 500;
+    position: relative;
+  }
+
+  li a {
+    display: inline-block;
+    color: #e4e4f1;
+    padding: 1vh 3vw;
+    text-decoration: none;
+    font-size: 3.5vw;
+    font-weight: 700;
+  }
+
+  ul {
+    position: fixed;
+  }
+
+  li a.page {
+    color: #cacae2;
+  }
+
+  /* nav bar ends */
 
   img {
     width: 20vh;

@@ -1,0 +1,173 @@
+body {
+  background-color: rgb(3, 1, 10);
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+h1 {
+  font-size: 50px;
+  color: aliceblue;
+  text-align: center;
+}
+
+p {
+  font-size: 1.563vw;
+  color: lightblue;
+  line-height: 0.7;
+  margin-left: 6vw;
+  /* line-height: 0.7; */
+}
+
+.lyrics {
+  width: 50%;
+  margin-left: auto;
+  margin-right: 23vw;
+  padding: 1.5vw 1vw;
+  background-color: #282a36;
+  border-radius: 50px;
+  margin-bottom: 5vh;
+}
+
+.space {
+  padding: 1vh;
+}
+
+#firstflight p {
+  margin-left: 10vw;
+}
+
+#firstflight {
+  width: 45%;
+  margin-right: 26.5vw;
+  padding: 1.8vw 0vw;
+}
+
+#pretender p {
+  margin-left: 6.5vw;
+}
+
+p.japaneseLyrics {
+  color: #dddddd;
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+p.koreanLyrics {
+  font-weight: 500;
+}
+
+/*
+em {
+  color: #595e7c;
+}
+*/
+
+button {
+  padding: 0vh 10vh;
+  border-radius: 50px;
+  border-style: none;
+  outline: none;
+  background-color: #7d7e80;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2.5vh;
+}
+
+h4 {
+  color: aliceblue;
+  line-height: 0;
+  font-size: 30px;
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 700;
+}
+
+article {
+  color: aliceblue;
+}
+
+iframe {
+  width: 672px;
+  height: 378px;
+}
+
+.youtube {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2.5vh;
+}
+
+@media screen and (max-width: 858px) {
+  h1 {
+    font-size: 5.8vw;
+    font-weight: 900;
+  }
+
+  p {
+    font-size: 4.1vw;
+  }
+
+  p.japaneseLyrics {
+    font-family: "Noto Sans JP", sans-serif;
+    font-weight: 700;
+    line-height: 0.87;
+    letter-spacing: 0px;
+  }
+
+  button {
+    padding: 0vh 10vh;
+    background-color: #7d7e80;
+    margin-bottom: 2.5vh;
+  }
+
+  h4 {
+    font-size: 4vw;
+  }
+
+  .lyrics {
+    width: 80%;
+    margin: 0 auto;
+    padding: 12px 20px;
+    background-color: #282a36;
+    border-radius: 50px;
+    margin-bottom: 5vh;
+  }
+
+  #firstflight {
+    width: 80%;
+    margin: 0 auto;
+    padding: 12px 20px;
+    background-color: #282a36;
+    border-radius: 50px;
+    margin-bottom: 5vh;
+  }
+
+  #firstflight p {
+    margin-left: 10vw;
+  }
+
+  #pretender {
+    width: 90%;
+    margin: 0 auto;
+    padding: 12px 20px;
+    background-color: #282a36;
+    border-radius: 50px;
+    margin-bottom: 5vh;
+  }
+
+  #pretender p {
+    font-size: 3vw;
+    margin-left: 2vw;
+  }
+
+  .space {
+    padding: 0.1vh;
+  }
+
+  iframe {
+    width: 336px;
+    height: 189px;
+  }
+}

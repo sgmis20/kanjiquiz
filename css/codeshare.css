@@ -46,8 +46,20 @@ p {
   font-size: 2vh;
 }
 
-#description {
-  margin-bottom: 2vw;
+em {
+  color: rgb(39, 39, 85);
+  text-decoration: solid line-through;
+}
+
+strong {
+  color: #c41a00;
+  font-weight: 900;
+  font-size: 2.4vh;
+  text-decoration: underline;
+}
+
+.javacode {
+  background-color: #220503;
 }
 
 .collapsible {
@@ -72,6 +84,27 @@ p {
   color: white;
   float: right;
   margin-left: 5px;
+}
+
+#javacodeList,
+#todaycodeList {
+  margin-top: 2vh;
+}
+
+.javacode {
+  background-color: hotpink;
+}
+
+.javacode:hover {
+  background-color: rgb(240, 32, 136);
+}
+
+.todaycode {
+  background-color: hotpink;
+}
+
+.todaycode:hover {
+  background-color: hotpink;
 }
 
 .active:after {
