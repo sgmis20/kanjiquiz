@@ -2,16 +2,14 @@
 
 ul {
   list-style-type: none;
+  margin-left: 1.5vw;
   margin-top: 2vh;
   padding: 0;
-  width: 20vw;
+  width: 22vw;
   background-color: #232946;
   height: 100%;
-  /* Full height */
   position: fixed;
-  /* Make it stick, even on scroll */
   overflow: auto;
-  /* Enable scrolling if the sidenav has too much content */
 }
 
 #newicon {
@@ -24,16 +22,16 @@ ul {
 }
 
 li a {
+  font-size: 1.7vw;
+  font-weight: 700;
+  font-family: "Noto Sans KR", sans-serif;
   margin-left: 1vw;
   display: inline-block;
   color: aliceblue;
-  padding: 30px 20px;
-  border-radius: 15px;
-  margin-bottom: 1vw;
+  padding: 2vw 1vw;
+  border-radius: 20px;
+  margin-bottom: 0.5vw;
   text-decoration: none;
-  font-family: "Noto Sans KR", sans-serif;
-  font-size: 2vw;
-  font-weight: 700;
 }
 
 /* Change the link color on hover */
@@ -583,14 +581,12 @@ a {
 
   li a:hover {
     background-color: transparent;
-    color: honeydew;
+    color: aquamarine;
   }
 
   nav {
     text-align: center;
     vertical-align: center;
-    /* 일단 모바일 버전은 가려둠 */
-    /* 일단 가려둠 */
   }
 
   ul {
@@ -599,7 +595,8 @@ a {
     overflow: hidden;
     background-color: #232946;
     top: 0;
-    height: 9vh;
+    padding-top: 0.5vh;
+    height: 6.5vh;
     width: 100%;
     position: fixed;
   }
@@ -614,9 +611,10 @@ a {
   li a {
     display: inline-block;
     color: #e4e4f1;
-    padding: 1vh 3vw;
+    padding: 1vh 0;
+    margin-left: 4.5vw;
     text-decoration: none;
-    font-size: 3.5vw;
+    font-size: 4vw;
     font-weight: 700;
   }
 

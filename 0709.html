@@ -6,7 +6,43 @@
     <meta http-equiv="content-language" content="ja">
     <title>7月9日（목）</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="./css/style.css?v=1.4" />
+    <link rel="stylesheet" type="text/css" href="./css/style.css?v=1.5712" />
+    <style>
+    /* 단어 너무 많고 길어서 넘어가는 줄 강제 조정 */
+    td.smaller1 {
+    font-size: 1.3vw !important;
+    }
+
+    td.smaller2 {
+    font-size: 3.9vw !important;
+    }
+
+    td.smaller3 {
+    font-size: 1.2vw !important;
+    }
+    /* 단어 너무 많고 길어서 넘어가는 줄 강제 조정 */
+    @media screen and (max-width: 858px) {
+
+    td.smaller1 {
+      font-size: 3.3vw !important;
+    }
+
+    td.smaller2 {
+      font-size: 6.5vw !important;
+    }
+
+    td.smaller3 {
+      font-size: 3vw !important;
+    }
+    td.smaller1,
+    td.smaller2,
+    td.smaller3 {
+      letter-spacing: 0 !important;
+      padding-left: 0vw !important;
+      padding-right: 0vw !important;
+        }
+    }
+    </style>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap" rel="stylesheet">
     <script src="./javascript/toggle.js?v=1.28" async defer></script>
@@ -105,27 +141,28 @@
                 <td class="kanjiyomi" rowspan="3">かく<br></td> <!-- 음독 -->
                 <td class="kanjiyomi" rowspan="3">たし</td> <!-- 훈독 -->
 
-                <td class="yomigana">かくじつ</td> <!-- 단어1 -->
-                <td class="yomigana">かくにん</td> <!-- 단어2 -->
-                <td class="yomigana">めいかく</td> <!-- 단어3 -->
-                <td class="yomigana">たしかだ</td> <!-- 단어4 -->
-                <td class="yomigana">たしかめる</td> <!-- 단어5 -->
+                <td class="yomigana smaller1">かくじつ</td> <!-- 단어1 -->
+                <td class="yomigana smaller1">かくにん</td> <!-- 단어2 -->
+                <td class="yomigana smaller1">めいかく</td> <!-- 단어3 -->
+                <td class="yomigana smaller1">たしかだ</td> <!-- 단어4 -->
+                <td class="yomigana smaller1">たしかめる</td> <!-- 단어5 -->
                 <td class="yomigana"></td> <!-- 단어6 -->
             </tr>
+
             <tr>
-                <td class="tango">確実</td> <!-- 단어1 -->
-                <td class="tango">確認</td> <!-- 단어2 -->
-                <td class="tango">明確</td> <!-- 단어3 -->
-                <td class="tango">確かだ</td> <!-- 단어4 -->
-                <td class="tango">確かめる</td> <!-- 단어5 -->
+                <td class="tango smaller2">確実</td> <!-- 단어1 -->
+                <td class="tango smaller2">確認</td> <!-- 단어2 -->
+                <td class="tango smaller2">明確</td> <!-- 단어3 -->
+                <td class="tango smaller2">確かだ</td> <!-- 단어4 -->
+                <td class="tango smaller2">確かめる</td> <!-- 단어5 -->
                 <td class="tango"></td> <!-- 단어6 -->
             </tr>
             <tr>
-                <td class="kor">확실</td> <!-- 단어1 -->
-                <td class="kor">확인</td> <!-- 단어2 -->
-                <td class="kor">명확</td> <!-- 단어3 -->
-                <td class="kor">확실하다</td> <!-- 단어4 -->
-                <td class="kor">확인하다</td> <!-- 단어5 -->
+                <td class="kor smaller3">확실</td> <!-- 단어1 -->
+                <td class="kor smaller3">확인</td> <!-- 단어2 -->
+                <td class="kor smaller3">명확</td> <!-- 단어3 -->
+                <td class="kor smaller3">확실하다</td> <!-- 단어4 -->
+                <td class="kor smaller3">확인하다</td> <!-- 단어5 -->
                 <td class="kor"></td> <!-- 단어6 -->
             </tr>
             <tr>

@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>한자퀴즈 목차</title>
   <link rel="stylesheet" type="text/css" href="./css/resetIndex.css?v=1.5" />
-  <link rel="stylesheet" type="text/css" href="./css/styleIndex.css?v=1.5125" />
+  <link rel="stylesheet" type="text/css" href="./css/styleIndex.css?v=1.5713" />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
 </head>
@@ -32,10 +32,40 @@
     <ul>
       <li><img id="newicon" src="./media/newicon.png" alt="newicon"></li>
 
-      <!--<li><a href="http://192.168.0.53:5500/codeshare/codeshare.html">수업코드 공유</a></li>-->
-      <li><a href="./codeshare/codeshare.html">수업코드 공유</a></li>
-      <li><a href="./lyrics/firstflight.html">ファーストフライト♬</a></li>
-      <li><a href="./lyrics/pretender.html">Pretender♬</a></li>
+      <li><a href="./codeshare/codeshare.html">IT수업코드 공유</a></li>
+      <!--  -->
+      <!-- <li><a href="./lyrics/firstflight.html">ファーストフライト♬</a></li>
+      <li><a href="./lyrics/timewilltell.html">Time Will Tell</a></li>
+      <li><a href="./lyrics/nijikan.html">二時間だけのバカンス</a></li>
+      <li><a href="./lyrics/hellogoodbye.html">ハローグッバイ</a></li>
+      <li><a href="./lyrics/meltbitter.html">melt bitter</a></li>
+      <li><a href="./lyrics/koiwositanowa.html">恋をしたのは</a></li>
+      <li><a href="./lyrics/hakujitsu.html">白日</a></li>
+      <li><a href="./lyrics/seishyunno.html">青春の胸騒ぎ</a></li> -->
+      <script>
+        const lyricsPage = [
+          'firstflight',
+          'pretender',
+          'seishyunno',
+          'koiwositanowa',
+          'hakujitsu',
+          'meltbitter',
+          'hellogoodbye',
+          'wasurerarenaino',
+          'nijikan',
+          'timewilltell',
+          'lovestory',
+        ];
+
+        const createRandomPage =
+          lyricsPage[Math.floor(Math.random() * lyricsPage.length)];
+
+        const randomMusic = `<li><a href="./lyrics/${createRandomPage}.html">오늘의 J-pop</a></li>`;
+        document.write(randomMusic);
+// console.log('random page=>', createRandomPage);
+      </script>
+      <li><a href="./lyrics/songlist.html">J-pop 전체리스트</a></li>
+    </ul>
   </nav>
   <div class="containerTable">
     <table class="upcomingQuiz">
@@ -50,7 +80,15 @@
         <tr colspan="2">
           <td>
             <a href=".\0709.html">
-              <h3> ◆ 101, 102 페이지 ◆</h3>
+              <h3> 101, 102 페이지 </h3>
+            </a>
+          </td>
+          <!--    ☆-->
+        </tr>
+        <tr colspan="2">
+          <td>
+            <a href="http://192.168.0.53:9000/kanji/kanjiquiz.html">
+              <h3> ◆ 자가 테스트 ◆ </h3>
             </a>
           </td>
           <!--    ☆-->
@@ -387,11 +425,11 @@
   </a>
   -->
   <!--<div id="parrot"><img src="./media/middleparrot.gif" alt="parrot" /></div>-->
-  <div id="codeshareBtn">
+  <!-- <div id="codeshareBtn">
     <a href="./codeshare.html">
       <h6>수업코드 공유페이지로</h6>
     </a>
-  </div>
+  </div> -->
   <!--
   <div id="javaprogramming">
     <a href="./codeshare.html">

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>7/13 월요일 (JSP 1일차)</title>
+  <!-- <link rel="stylesheet" href="../../highlight/styles/solarized-light.css" /> -->
+  <link rel="stylesheet" href="../../highlight/styles/zenburn.css" />
+  <!-- <link rel="stylesheet" href="../../highlight/styles/Androidstudio.css" /> -->
+  <!-- <link rel="stylesheet" href="../../highlight/styles/GitHub.css" /> -->
+  <style>
+    body {
+      font-size: 1.55vw;
+      /* font-size: 1.65vw; */
+      background-color: rgb(5, 5, 12);
+    }
+
+    h1 {
+      font-size: 3vw;
+      margin-top: 10vh;
+      line-height: 0.5;
+      color: aliceblue;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+  </style>
+  <script src="../../highlight/highlight.pack.js"></script>
+</head>
+
+<body>
+  <!-- https://www.freeformatter.com/html-escape.html#ad-output -->
+  <h1>JdbcEx01.java</h1>
+  <pre><code>
+        package assignment;
+
+import java.sql.*;
+import java.awt.*;
+import javax.swing.*;
+import javax.swing.table.*;
+
+
+
+public class JdbcDynamicSQLFinal { // ADD버튼, REMOVE버튼
+
+	public static void main(String[] args) {
+		StringBuffer sqlSelect = new StringBuffer();
+		sqlSelect.append("SELECT DEPTNO, S_ID, S_NAME, KOR, ENG, MATH ");
+		sqlSelect.append("FROM STUDENT");
+
+		Connection conn = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+
+		try {
+			conn = ConnUtil.getConnection(); // ****************
+			stmt = conn.createStatement();
+
+			rs = stmt.executeQuery(sqlSelect.toString());
+
+			int rowCount = 0;
+
+			while (rs.next()) {
+				++rowCount;
+
+			}
+
+
+		// --------------------공통 모듈---------------------
+		JFrame jf = new JFrame("학생 성적 관리 프로그램");
+		jf.setPreferredSize(new Dimension(1000, 700));
+		jf.setLocation(500, 400);
+		Container contentPane = jf.getContentPane();
+		// -------------------------------------------------
+
+
+		// ----------------------그래프 드로잉 패널--------------------------
+		DrawingPanel drawingPanel = new DrawingPanel();
+		contentPane.add(drawingPanel, BorderLayout.CENTER);
+		// -----------------------------------------------------------
+
+
+		// String colName[] = {"DEPTNO", "S_ID", "S_NAME", "KOR", "ENG", "MATH"};
+		String colName[] = { "학과", "학번(8자리)", "이름", "국어", "영어", "수학" };
+
+		// (colName : 컬럼 이름이 있는 1차원 배열, 0 : 행의 수);
+		DefaultTableModel model = new DefaultTableModel(colName, 0);
+
+		JTable table = new JTable(model);
+
+		contentPane.add(new JScrollPane(table), BorderLayout.CENTER);
+
+		// -------------------SELECT 문 받아서 출력
+		rs = stmt.executeQuery(sqlSelect.toString());
+		while (rs.next()) {
+			Object arr[] = new Object[6];
+			int col1 = rs.getInt(1); // 또는 rs.getInt("DEPTNO");
+			int col2 = rs.getInt("S_ID"); // 또는 rs.getInt(2);
+			String col3 = rs.getString("S_NAME"); // 또는 rs.getString(3);
+			int col4 = rs.getInt(4);
+			int col5 = rs.getInt(5);
+			int col6 = rs.getInt(6);
+
+			arr[0] = col1;
+			arr[1] = col2;
+			arr[2] = col3;
+			arr[3] = col4;
+			arr[4] = col5;
+			arr[5] = col6;
+			model = (DefaultTableModel) table.getModel();
+			model.addRow(arr);
+		}
+
+		JPanel jp = new JPanel();
+
+		// 패널 레이아웃 설정
+		// jp.setLayout(new GridLayout(3,4));
+
+		JTextField txt1 = new JTextField(2); // 입력창 필드 크기 설정
+		JTextField txt2 = new JTextField(7);
+		JTextField txt3 = new JTextField(5);
+		JTextField txt4 = new JTextField(3);
+		JTextField txt5 = new JTextField(3);
+		JTextField txt6 = new JTextField(3);
+
+		JLabel label1 = new JLabel(colName[0]);
+		JLabel label2 = new JLabel(colName[1]);
+		JLabel label3 = new JLabel(colName[2]);
+		JLabel label4 = new JLabel(colName[3]);
+		JLabel label5 = new JLabel(colName[4]);
+		JLabel label6 = new JLabel(colName[5]);
+
+		JButton btn1 = new JButton("추가");
+		JButton btn2 = new JButton("삭제");
+		JButton btn3 = new JButton("출력");
+		JButton btn4 = new JButton("그래프");
+
+		// 위 내용을 패널에 추가
+		jp.add(label1);
+		jp.add(txt1);
+
+		jp.add(label2);
+		jp.add(txt2);
+
+		jp.add(label3);
+		jp.add(txt3);
+
+		jp.add(label4);
+		jp.add(txt4);
+
+		jp.add(label5);
+		jp.add(txt5);
+
+		jp.add(label6);
+		jp.add(txt6);
+
+		jp.add(btn1);
+		jp.add(btn2);
+		jp.add(btn3);
+		jp.add(btn4);
+
+		contentPane.add(jp, BorderLayout.SOUTH);
+
+
+		// ADD Listener 등록 / constructor arguments 확인할 것
+		btn1.addActionListener(new AddButtonActionListener(table, txt1, txt2, txt3, txt4, txt5, txt6));
+
+		// REMOVE Listener 등록 / constructor arguments 확인할 것
+		btn2.addActionListener(new RemoveButtonActionListener(table));
+
+		// Print Listener 등록
+		btn3.addActionListener(new PrintButtonActionListener(table));
+
+
+		btn4.addActionListener(new DrawActionListener(txt4, txt5, txt6, drawingPanel));
+
+		// --------------------공통 모듈2--------------------
+		jf.setDefaultCloseOperation(jf.EXIT_ON_CLOSE);
+		jf.pack();
+		jf.setVisible(true);
+		// -------------------------------------------------
+
+	}catch (SQLException se) {
+			se.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+			} catch (SQLException se) {
+				se.printStackTrace();
+			}
+			try {
+				if (stmt != null)
+					stmt.close();
+			} catch (SQLException se) {
+				se.printStackTrace();
+			}
+			try {
+				if (conn != null)
+					conn.close();
+			} catch (SQLException se) {
+				se.printStackTrace();
+
+			}
+		}
+
+	}
+
+}
+    </code></pre>
+  <!-- ☆ -->
+  <h1>sample.jsp</h1>
+  <pre><code>
+        &lt;%@ page contentType=&quot;text/html; charset=UTF-8&quot; %&gt;
+        &lt;%@ page import=&quot;java.time.LocalDate&quot; %&gt;
+
+        &lt;html&gt;
+          &lt;head&gt;
+            &lt;title&gt;Kanji Test&lt;/title&gt;
+          &lt;/head&gt;
+          &lt;body&gt;
+            &lt;h3&gt;7월 14일 테스트 준비&lt;/h3&gt;
+
+            &lt;br /&gt;
+                &lt;p&gt; 오늘 날짜 &lt;/p&gt; &lt;%= LocalDate.now() %&gt;
+            &lt;br /&gt;
+
+            &lt;%!
+            static String vocab2[] = { &quot;問屋&quot;, &quot;君主&quot;, &quot;勲章&quot;, &quot;募集&quot;, &quot;収集&quot;, &quot;興味&quot;, &quot;委員&quot;, &quot;主人&quot;, &quot;主婦&quot;, &quot;主だ&quot;, &quot;等しい&quot;, &quot;守備&quot;, &quot;今昔&quot;, &quot;酒屋&quot;,
+                    &quot;飲酒&quot;, &quot;祭日&quot;, &quot;酒量&quot;, &quot;屋根&quot;, &quot;柱&quot;, &quot;世界&quot;, &quot;世紀&quot;, &quot;両替&quot;, &quot;羊毛&quot;, &quot;急坂&quot;, &quot;坂道&quot;, &quot;寿命&quot;, &quot;俎板&quot;, &quot;鉄板&quot;, &quot;発表&quot;, &quot;信号&quot;, &quot;羊&quot;, &quot;他&quot;,
+                    &quot;上級&quot;, &quot;支度&quot;, &quot;面影&quot;, &quot;泣きっ面&quot;, &quot;境界&quot;, &quot;昭和&quot;, &quot;温和&quot;, &quot;和む&quot;, &quot;太平洋&quot;, &quot;秒速&quot;, &quot;都&quot;, &quot;調味料&quot;, &quot;筆&quot;, &quot;模様&quot;, &quot;調整&quot;, &quot;整う&quot;, &quot;修士&quot;,
+                    &quot;欠ける&quot;, &quot;夫人&quot;, &quot;功労&quot; }; // 47~56 페이지 한자
+
+            static String vocab3[] = { &quot;とんや&quot;, &quot;くんしゅ&quot;, &quot;くんしょう&quot;, &quot;ぼしゅう&quot;, &quot;しゅうしゅう&quot;, &quot;きょうみ&quot;, &quot;いいん&quot;, &quot;しゅじん&quot;, &quot;しゅふ&quot;, &quot;おもだ&quot;, &quot;ひとしい&quot;,
+                    &quot;しゅび&quot;, &quot;こんじゃく&quot;, &quot;さかや&quot;, &quot;いんしゅ&quot;, &quot;さいじつ&quot;, &quot;しゅりょう&quot;, &quot;やね&quot;, &quot;はしら&quot;, &quot;せかい&quot;, &quot;せいき&quot;, &quot;りょうがえ&quot;, &quot;ようもう&quot;, &quot;きゅうはん&quot;, &quot;さかみち&quot;,
+                    &quot;じゅみょう&quot;, &quot;まないた&quot;, &quot;てっぱん&quot;, &quot;はっぴょう&quot;, &quot;しんごう&quot;, &quot;ひつじ&quot;, &quot;ほか&quot;, &quot;じょうきゅう&quot;, &quot;したく&quot;, &quot;おもかげ&quot;, &quot;なきっつら&quot;, &quot;きょうかい&quot;, &quot;しょうわ&quot;,
+                    &quot;おんわ&quot;, &quot;なごむ&quot;, &quot;たいへいよう&quot;, &quot;びょうそく&quot;, &quot;みやこ&quot;, &quot;ちょうみりょう&quot;, &quot;ふで&quot;, &quot;もよう&quot;, &quot;ちょうせい&quot;, &quot;ととのう&quot;, &quot;しゅうし&quot;, &quot;かける&quot;, &quot;ふじん&quot;,
+                    &quot;こうろう&quot; }; // 47~56 페이지 독음
+            %&gt;
+
+            &lt;%!
+            static String[] writing(int howMany) {
+                String koreanMeaning[] = new String[howMany];
+                for (int i = 0; i &lt; howMany; i++) {
+                    int random = (int) (Math.random() * vocab2.length);
+                    koreanMeaning[i] = vocab3[random];
+                    for (int j = 0; j &lt; i; j++) {
+                        if (koreanMeaning[i].equals(koreanMeaning[j])) {
+                            i--;
+                        }
+                    }
+                }
+                return koreanMeaning;
+            }
+            %&gt;
+
+            &lt;br&gt;    47~56 페이지 : &lt;br&gt;&lt;br&gt;
+             &lt;%
+
+                int num = Integer.parseInt(request.getParameter(&quot;howMany&quot;));
+                int count = 0;
+                for (String p : writing(num)) {
+                    out.println(++count+&quot;번 : &quot; +p + &quot;&lt;br/&gt;&quot;);
+                }
+            %&gt;
+
+
+
+            &lt;br /&gt;
+
+
+          &lt;/body&gt;
+        &lt;/html&gt;
+    </code></pre>
+  <!-- ☆ -->
+  <h1>sample.css</h1>
+  <pre><code>
+        body {
+            font-family: "Noto Sans KR", sans-serif;
+            background-color: #0f0e17;
+            margin-left: 10vw;
+            margin-right: 10vw;
+          }
+
+          a {
+            text-decoration: none;
+            text-align: left;
+          }
+
+          h1 {
+            font-size: 4vw;
+            font-weight: 900;
+            text-align: center;
+            color: aliceblue;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 1.5vh;
+            margin-bottom: 2.5vh;
+          }
+
+          h3 {
+            line-height: 1;
+            font-size: 1.5vw;
+            color: #220503;
+          }
+
+          li {
+            color: #491109;
+            list-style-type: circle;
+          }
+
+          .space {
+            margin: 2vh;
+          }
+
+          h3:hover {
+            font-size: 1.7vw;
+            color: rgb(243, 59, 114);
+            transition: all 0.1s;
+          }
+    </code></pre>
+  <!-- ☆ -->
+  <!-- <pre><code class="html">...</code></pre> -->
+  <!-- <pre><code class="language-html">...</code></pre> -->
+  <!-- <pre><code class="plaintext">...</code></pre> -->
+  <!-- <pre><code class="nohighlight">...</code></pre> -->
+  <script>
+    hljs.initHighlightingOnLoad();
+    /* <pre><code>&lt;p&gt;Paragraph&lt;/p&gt;</code></pre> */
+  </script>
+</body>
+
+</html>

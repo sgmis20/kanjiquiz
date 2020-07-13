@@ -1,12 +1,59 @@
 body {
-  background-color: rgb(3, 1, 10);
+  background-color: rgb(5, 5, 15);
   font-family: "Noto Sans KR", sans-serif;
+}
+
+.youtube {
+  background-color: rgb(5, 5, 15);
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  position: sticky;
+  top: 0;
 }
 
 h1 {
   font-size: 50px;
   color: aliceblue;
   text-align: center;
+  line-height: 0.5;
+  padding-top: 1.5vh;
+}
+
+a:link {
+  color: aliceblue;
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(102, 221, 230);
+}
+
+h4 {
+  color: aliceblue;
+  line-height: 0;
+  font-size: 30px;
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 600;
+}
+
+button {
+  padding: 0vh 10vh;
+  border-radius: 40px;
+  border-style: none;
+  outline: none;
+  background-color: #424f6b;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2.5vh;
+}
+
+button:hover {
+  background-color: #6b83af;
 }
 
 p {
@@ -23,26 +70,8 @@ p {
   margin-right: 23vw;
   padding: 1.5vw 1vw;
   background-color: #282a36;
-  border-radius: 50px;
+  border-radius: 35px;
   margin-bottom: 5vh;
-}
-
-.space {
-  padding: 1vh;
-}
-
-#firstflight p {
-  margin-left: 10vw;
-}
-
-#firstflight {
-  width: 45%;
-  margin-right: 26.5vw;
-  padding: 1.8vw 0vw;
-}
-
-#pretender p {
-  margin-left: 6.5vw;
 }
 
 p.japaneseLyrics {
@@ -56,32 +85,45 @@ p.koreanLyrics {
   font-weight: 500;
 }
 
-/*
-em {
-  color: #595e7c;
+.toggleDisplayLyrics {
+  margin-top: 1.5vh;
 }
-*/
 
-button {
-  padding: 0vh 10vh;
-  border-radius: 50px;
-  border-style: none;
-  outline: none;
-  background-color: #7d7e80;
-  text-align: center;
-  display: block;
+.space {
+  padding: 1vh;
+}
+
+/*  songlist 페이지 박스 css */
+
+#songListTitle {
+  margin-bottom: 5vh;
+}
+
+.songlistBox {
+  width: 65%;
   margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 2.5vh;
+  margin-right: 13vw;
+  padding: 0.5vw 3vw;
+  background-color: #282a36;
+  border-radius: 35px;
+  margin-bottom: 5vh;
 }
 
-h4 {
-  color: aliceblue;
-  line-height: 0;
-  font-size: 30px;
-  font-family: "Noto Sans KR", sans-serif;
+ul li {
+  color: rgb(141, 194, 219);
+  font-size: 1.85vw;
+  list-style-type: decimal-leading-zero;
+  margin-left: 2vw;
   font-weight: 700;
+  line-height: 1.8;
 }
+
+ul li a {
+  color: aliceblue;
+  margin-left: 1vw;
+}
+
+/*  songlist 페이지 박스 끝 */
 
 article {
   color: aliceblue;
@@ -90,18 +132,374 @@ article {
 iframe {
   width: 672px;
   height: 378px;
+  border-radius: 15px;
 }
 
-.youtube {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 2.5vh;
+/* 일본어 가사만 있는 페이지 */
+#lyricsOnly {
+  line-height: 1.55;
+  font-weight: 700;
 }
+
+#lyricsOnlymusicvideo {
+  margin-bottom: 2vh;
+}
+
+/* 杏沙子 ‐ ファーストフライト */
+
+#firstflight p {
+  font-size: 1.6vw;
+  font-weight: 700;
+  margin-left: 8vw;
+}
+
+#firstflight {
+  width: 45%;
+  margin-right: 26.5vw;
+  padding: 1.8vw 0vw;
+}
+
+/* Official髭男dism - Pretender */
+
+#pretender p {
+  font-size: 1.563vw;
+  font-weight: 700;
+  margin-left: 5vw;
+}
+
+#pretender p.koreanLyrics {
+  color: rgb(214, 162, 162);
+  font-weight: 500;
+}
+
+#pretender em {
+  color: rgba(214, 162, 162, 0.329);
+}
+
+/* Awesome City Club – 青春の胸騒ぎ */
+
+#seishyunno p {
+  font-size: 1.6vw;
+  margin-left: 7vw;
+}
+
+#seishyunno {
+  width: 45%;
+  margin-right: 26.5vw;
+  padding: 0.5vw 0;
+}
+
+/* King Gnu - 白日 */
+
+#hakujitsu p {
+  font-size: 1.6vw;
+  margin-left: 8vw;
+  line-height: 1.65;
+}
+
+#hakujitsu {
+  width: 45%;
+  margin-right: 26.8vw;
+  padding: 0.5vw 0;
+}
+
+/* aiko - 恋をしたのは */
+#koiwositanowa p {
+  font-size: 1.7vw;
+  margin-left: 8vw;
+}
+
+#koiwositanowa {
+  width: 45%;
+  margin-right: 26.8vw;
+  padding: 0.5vw 0;
+}
+
+/* さとうもか - melt bitter */
+#meltbitter p {
+  font-size: 1.7vw;
+  margin-left: 6vw;
+}
+
+#meltbitter {
+  width: 45%;
+  margin-right: 26.8vw;
+  padding: 0.5vw 0;
+}
+
+/* サカナクション - 忘れられないの */
+#wasurerarenaino p {
+  font-size: 1.8vw;
+  margin-left: 9vw;
+  line-height: 1.7;
+}
+
+#wasurerarenaino {
+  width: 45%;
+  margin-right: 26.8vw;
+  padding: 0.5vw 0;
+}
+
+/* 藍坊主 - ハローグッバイ */
+#hellogoodbye p {
+  font-size: 1.75vw;
+  margin-left: 8vw;
+  line-height: 1.65;
+}
+
+#hellogoodbye {
+  width: 45%;
+  margin-right: 26.8vw;
+  padding: 0.5vw 0;
+}
+
+/* 宇多田ヒカル - 二時間だけのバカンス */
+#nijikan p {
+  font-size: 1.7vw;
+  margin-left: 3.5vw;
+  line-height: 1.7;
+}
+
+#nijikan {
+  width: 45%;
+  margin-right: 26.8vw;
+  padding: 0.5vw 0;
+}
+
+#nijikanTitle {
+  line-height: 1.2;
+}
+
+/* 宇多田ヒカル - Time Will Tell */
+#timewilltell p {
+  font-size: 1.7vw;
+  margin-left: 5vw;
+  line-height: 1.6;
+}
+
+#timewilltell {
+  width: 45%;
+  margin-right: 26.8vw;
+  padding: 0.5vw 0;
+}
+
+/* クリス ハート - ラブストーリーは突然に */
+#lovestory p {
+  font-size: 1.75vw;
+  margin-left: 7vw;
+  line-height: 1.58;
+}
+
+#lovestory {
+  width: 45%;
+  margin-right: 26.8vw;
+  padding: 0.5vw 0;
+}
+
+/* songtitle */
+#songtitle p {
+  font-size: 1.7vw;
+  margin-left: 6vw;
+  line-height: 1.6;
+}
+
+#songtitle {
+  width: 45%;
+  margin-right: 26.8vw;
+  padding: 0.5vw 0;
+}
+/* 새로운 곡 설정 */
+
+/*********************** mobile page ***********************/
+/*********************** 모바일 페이지 ***********************/
 
 @media screen and (max-width: 858px) {
+  /*  */
+  /* 일본어 가사만 있는 페이지 */
+  #lyricsOnly {
+    line-height: 1.6;
+  }
+
+  #lyricsOnlymusicvideo {
+    margin-bottom: 2vh;
+  }
+  /* 杏沙子 ‐ ファーストフライト  mobile */
+
+  #firstflight {
+    width: 80%;
+    margin: 0 auto;
+    padding: 12px 20px;
+    background-color: #282a36;
+    border-radius: 50px;
+    margin-bottom: 5vh;
+  }
+
+  #firstflight p {
+    font-size: 3.6vw;
+    margin-left: 2vw;
+  }
+
+  /* Official髭男dism - Pretender   mobile*/
+
+  #pretender {
+    width: 90%;
+    margin: 0 auto;
+    padding: 12px 20px;
+    background-color: #282a36;
+    margin-bottom: 5vh;
+  }
+
+  #pretender p {
+    font-size: 3.3vw;
+    margin-left: 1.5vw;
+  }
+
+  /* Awesome City Club – 青春の胸騒ぎ mobile */
+
+  #seishyunnoTitle {
+    font-size: 5vw;
+  }
+
+  #seishyunno p {
+    font-size: 4.1vw;
+    margin-left: 7vw;
+  }
+
+  #seishyunno {
+    width: 90%;
+    margin: 0 auto;
+    padding: 5px 5px;
+    margin-bottom: 5vh;
+  }
+
+  /* King Gnu - 白日 mobile */
+
+  #hakujitsu p {
+    font-size: 4.1vw;
+    margin-left: 10vw;
+  }
+
+  #hakujitsu {
+    width: 90%;
+    margin: 0 auto;
+    padding: 5px 5px;
+    margin-bottom: 5vh;
+  }
+
+  /* aiko - 恋をしたのは  mobile */
+  #koiwositanowa p {
+    font-size: 4vw;
+    margin-left: 8vw;
+  }
+
+  #koiwositanowa {
+    width: 90%;
+    margin: 0 auto;
+    padding: 5px 5px;
+    margin-bottom: 5vh;
+  }
+
+  /* さとうもか - melt bitter   mobile*/
+  #meltbitter p {
+    font-size: 4vw;
+    margin-left: 4.5vw;
+  }
+
+  #meltbitter {
+    width: 90%;
+    margin: 0 auto;
+    padding: 5px 5px;
+    margin-bottom: 5vh;
+  }
+
+  /* サカナクション - 忘れられないの  mobile*/
+  #wasurerarenaino p {
+    font-size: 4.2vw;
+    margin-left: 14vw;
+  }
+
+  #wasurerarenaino {
+    width: 90%;
+    margin: 0 auto;
+    padding: 5px 5px;
+    margin-bottom: 5vh;
+  }
+
+  /* 藍坊主 - ハローグッバイ  mobile*/
+  #hellogoodbye p {
+    font-size: 4vw;
+    margin-left: 10vw;
+  }
+
+  #hellogoodbye {
+    width: 90%;
+    margin: 0 auto;
+    padding: 5px 5px;
+    margin-bottom: 5vh;
+  }
+
+  /*   宇多田ヒカル - 二時間だけのバカンス  mobile*/
+  #nijikan p {
+    font-size: 3.55vw;
+    margin-left: 2.5vw;
+  }
+
+  #nijikan {
+    width: 90%;
+    margin: 0 auto;
+    padding: 5px 5px;
+    margin-bottom: 5vh;
+  }
+
+  #nijikanTitle {
+    font-size: 4.5vw;
+    line-height: 1.2;
+  }
+
+  /* 宇多田ヒカル - Time Will Tell  mobile*/
+  #timewilltell p {
+    font-size: 3.7vw;
+    margin-left: 4.5vw;
+  }
+
+  #timewilltell {
+    width: 90%;
+    margin: 0 auto;
+    padding: 5px 5px;
+    margin-bottom: 5vh;
+  }
+
+  /* クリス ハート - ラブストーリーは突然に  mobile*/
+  #lovestory p {
+    font-size: 4vw;
+    margin-left: 11vw;
+  }
+
+  #lovestory {
+    width: 90%;
+    margin: 0 auto;
+    padding: 5px 5px;
+    margin-bottom: 5vh;
+  }
+
+  /* songtitle  mobile*/
+  #songtitle p {
+    font-size: 3.5vw;
+    margin-left: 8vw;
+  }
+
+  #songtitle {
+    width: 90%;
+    margin: 0 auto;
+    padding: 5px 5px;
+    margin-bottom: 5vh;
+  }
+  /* 새로운 곡 설정 mobile*/
+
+  /***** song specific setting ends *****/
+
   h1 {
-    font-size: 5.8vw;
+    font-size: 6vw;
     font-weight: 900;
   }
 
@@ -131,43 +529,44 @@ iframe {
     margin: 0 auto;
     padding: 12px 20px;
     background-color: #282a36;
-    border-radius: 50px;
+    border-radius: 25px;
     margin-bottom: 5vh;
-  }
-
-  #firstflight {
-    width: 80%;
-    margin: 0 auto;
-    padding: 12px 20px;
-    background-color: #282a36;
-    border-radius: 50px;
-    margin-bottom: 5vh;
-  }
-
-  #firstflight p {
-    margin-left: 10vw;
-  }
-
-  #pretender {
-    width: 90%;
-    margin: 0 auto;
-    padding: 12px 20px;
-    background-color: #282a36;
-    border-radius: 50px;
-    margin-bottom: 5vh;
-  }
-
-  #pretender p {
-    font-size: 3vw;
-    margin-left: 2vw;
   }
 
   .space {
-    padding: 0.1vh;
+    padding: 0.7vh;
   }
 
   iframe {
     width: 336px;
     height: 189px;
   }
+
+  /*  songlist 페이지 박스 css mobile */
+
+  #songListTitle {
+    margin-bottom: 5vh;
+  }
+
+  .songlistBox {
+    width: 90%;
+    margin-right: 2.9vw;
+    padding: 0 2vw;
+    border-radius: 20px;
+    margin-bottom: 5vh;
+  }
+
+  ul li {
+    font-weight: 800;
+    font-size: 4.3vw;
+    margin-left: 0.2vw;
+    line-height: 2.55;
+  }
+
+  ul li a {
+    font-weight: 700;
+    margin-left: 0.1vw;
+  }
+
+  /*  songlist 페이지 박스 끝 */
 }

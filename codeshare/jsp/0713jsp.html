@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>7/13 월요일 (JSP 1일차)</title>
+  <!-- <link rel="stylesheet" href="../../highlight/styles/solarized-light.css" /> -->
+  <link rel="stylesheet" href="../../highlight/styles/zenburn.css" />
+  <!-- <link rel="stylesheet" href="../../highlight/styles/Androidstudio.css" /> -->
+  <!-- <link rel="stylesheet" href="../../highlight/styles/GitHub.css" /> -->
+  <!-- <link rel="stylesheet" href="../../highlight/styles/nnfx.css" /> -->
+
+  <script>
+    function enableStylesheet(node) {
+      node.rel = 'stylesheet';
+    }
+
+    function disableStylesheet(node) {
+      node.rel = 'alternate stylesheet';
+    }
+  </script>
+  <style>
+    body {
+      font-size: 1.6vw;
+      /* overflow-x: scroll; */
+      /* font-size: 1.65vw; */
+      background-color: rgb(5, 5, 12);
+    }
+
+    h1 {
+      font-size: 3vw;
+      margin-top: 10vh;
+      line-height: 0.5;
+      color: aliceblue;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+  </style>
+  <script src="../../highlight/highlight.pack.js"></script>
+</head>
+
+<body>
+  <!-- https://www.freeformatter.com/html-escape.html#ad-output -->
+  <h1>Exam01.java</h1>
+  <pre><code class="language-java">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+      pageEncoding=&quot;UTF-8&quot;%&gt;
+  &lt;!DOCTYPE html&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+        &lt;%= new java.util.Date() %&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;</code></pre>
+  <!-- ☆ -->
+  <h1>MyFirstServlet.java</h1>
+  <pre><code class="language-java">package sample;
+
+    import java.io.IOException;
+    import java.io.PrintWriter;
+    import java.util.*;
+    import javax.servlet.ServletException;
+    import javax.servlet.http.HttpServlet;
+    import javax.servlet.http.HttpServletRequest;
+    import javax.servlet.http.HttpServletResponse;
+
+    public class MyFirstServlet extends HttpServlet {
+      private static final long serialVersionUID = 1L;
+      protected void doGet(HttpServletRequest request,
+      HttpServletResponse response) throws ServletException, IOException {
+
+        response.setContentType(&quot;text/html;charset=utf-8&quot;);
+        PrintWriter out = response.getWriter();
+
+        Date date = new Date();
+
+        out.println(&quot;&lt;html&gt;&quot;);
+        out.println(&quot;&lt;body&gt;&quot;);
+        out.println(&quot;My First Servlet Programming !!!!&quot;);
+        out.println(&quot;&lt;br&gt;&quot;);
+        out.println(date.toString());
+        out.println(&quot;&lt;/body&gt;&quot;);
+        out.println(&quot;&lt;/html&gt;&quot;);
+      }
+
+    }
+    </code></pre>
+  <!-- ☆ -->
+  <h1>web.xml</h1>
+  <pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+    &lt;web-app xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+        xmlns=&quot;http://xmlns.jcp.org/xml/ns/javaee&quot;
+        xsi:schemaLocation=&quot;http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd&quot;
+        id=&quot;WebApp_ID&quot;
+        version=&quot;3.1&quot;&gt;
+      &lt;display-name&gt;JSPExam&lt;/display-name&gt;
+
+      &lt;servlet&gt;
+             &lt;servlet-name&gt;MyOne&lt;/servlet-name&gt;
+             &lt;servlet-class&gt;sample.MyFirstServlet&lt;/servlet-class&gt;
+      &lt;/servlet&gt;
+
+      &lt;servlet-mapping&gt;
+      &lt;servlet-name&gt;MyOne&lt;/servlet-name&gt;
+      &lt;url-pattern&gt;/My&lt;/url-pattern&gt;
+      &lt;/servlet-mapping&gt;
+
+
+    &lt;/web-app&gt;</code></pre>
+  <!-- ☆ -->
+  <h1>HelloServlet.java</h1>
+  <pre><code class="language-java">package com.test;
+
+    import java.io.IOException;
+    import javax.servlet.ServletException;
+    import javax.servlet.annotation.WebServlet;
+    import javax.servlet.http.HttpServlet;
+    import javax.servlet.http.HttpServletRequest;
+    import javax.servlet.http.HttpServletResponse;
+
+    /**
+     * Servlet implementation class HelloServlet
+     */
+    @WebServlet(&quot;/Hello&quot;)
+    //@WebServlet(name = &quot;MyHello&quot;, urlPatterns = { &quot;/aaa&quot;, &quot;/bbb&quot;, &quot;/ccc&quot; })
+    public class HelloServlet extends HttpServlet {
+      private static final long serialVersionUID = 1L;
+       // 서비스 호출 메소드
+      protected void doGet(HttpServletRequest request, HttpServletResponse response)
+          throws ServletException, IOException {
+
+        System.out.println(&quot;Hello servlet 요청&quot;);
+
+      }
+
+      // 서블릿이 처음으로 생성할때 단 한번만 호출되는 메소드
+      // 초기작업때 주로 사용하는 메소드
+      @Override
+      public void init() throws ServletException {
+
+        System.out.println(&quot;init() 메소드 호출&quot;);
+      }
+
+      // 웹 컨터이너에서 제거될때 호출되는 메소드
+      // init() 메소드에서 구현한 초기화 작업을 반납처리할때 호출되는 메소드
+      @Override
+      public void destroy() {
+        System.out.println(&quot;destroy() 메소드 호출&quot;);
+
+      }
+
+    }</code></pre>
+  <h1>ResponseServlet.java</h1>
+  <pre><code class="language-java">package com.test;
+
+    import java.io.IOException;
+    import javax.servlet.ServletException;
+    import javax.servlet.annotation.WebServlet;
+    import javax.servlet.http.HttpServlet;
+    import javax.servlet.http.HttpServletRequest;
+    import javax.servlet.http.HttpServletResponse;
+    import java.io.PrintWriter;
+
+
+    @WebServlet("/Response")
+    public class ResponseServlet extends HttpServlet {
+      private static final long serialVersionUID = 1L;
+
+      protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        response.setContentType("text/html; charset=UTF-8");
+
+        PrintWriter out = response.getWriter();
+
+        out.println("<html>");
+        out.println("<head><title> 조선의 의적 </title></head>");
+        out.println("<body>");
+        out.println("나는 조선의 의적 홍길동이다 !!!!");
+        out.println("</body>");
+        out.println("</html>");
+      }
+
+    }</code></pre>
+
+  <!-- ☆ -->
+  <!-- <pre><code class="html">...</code></pre> -->
+  <!-- <pre><code class="language-html">...</code></pre> -->
+  <!-- <pre><code class="plaintext">...</code></pre> -->
+  <!-- <pre><code class="nohighlight">...</code></pre> -->
+  <script>
+    hljs.initHighlightingOnLoad();
+    /* <pre><code>&lt;p&gt;Paragraph&lt;/p&gt;</code></pre> */
+  </script>
+</body>
+
+</html>
