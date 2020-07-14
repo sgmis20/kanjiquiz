@@ -112,6 +112,8 @@ h1 {
 
 .upcomingQuiz h1 {
   background-color: #19758b;
+  padding-top: 3vh;
+  padding-bottom: 3vh;
 }
 
 .upcomingQuiz h3 {
@@ -120,7 +122,7 @@ h1 {
 
 .upcomingQuiz th,
 .upcomingQuiz td {
-  border: 0.5vw solid #19758b;
+  border: 0.25vw solid #19758b;
 }
 
 h2 {
@@ -218,10 +220,10 @@ table {
 }
 
 th {
-  border: 0.34vw solid #177069;
+  border: 0.25vw solid #177069;
 }
 td {
-  border: 0.34vw solid #177069;
+  border: 0.25vw solid #177069;
   text-align: center;
 }
 
@@ -423,8 +425,9 @@ a {
 @media screen and (max-width: 858px) {
   h1 {
     font-size: 3vh;
-    padding: 2vh 2vw;
     letter-spacing: 0.5vw;
+    padding-top: 2.5vh;
+    padding-bottom: 2.5vh;
   }
   h2 {
     font-size: 2.5vh;
@@ -462,12 +465,16 @@ a {
 
   th,
   td {
-    border: 0.5vw solid #177069;
+    border: 0.4vw solid #177069;
+  }
+  .upcomingQuiz h1 {
+    padding-top: 2.4vh;
+    padding-bottom: 2.4vh;
   }
 
   .upcomingQuiz th,
   .upcomingQuiz td {
-    border: 0.5vw solid #19758b;
+    border: 0.35vw solid #19758b;
   }
 
   .left {

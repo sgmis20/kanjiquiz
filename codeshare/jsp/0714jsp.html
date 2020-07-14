@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>7/14 화요일 (JSP 2일차)</title>
+  <!-- <link rel="stylesheet" href="../../highlight/styles/solarized-light.css" /> -->
+  <link rel="stylesheet" href="../../highlight/styles/zenburn.css" />
+  <!-- <link rel="stylesheet" href="../../highlight/styles/Androidstudio.css" /> -->
+  <!-- <link rel="stylesheet" href="../../highlight/styles/GitHub.css" /> -->
+  <!-- <link rel="stylesheet" href="../../highlight/styles/nnfx.css" /> -->
+  <style>
+    body {
+      font-size: 1.3vw;
+      /* overflow-x: scroll; */
+      /* font-size: 1.65vw; */
+      background-color: rgb(5, 5, 12);
+    }
+
+    h1 {
+      font-size: 2.8vw;
+      background-color: rgb(12, 49, 70);
+      padding: 0.5em 2vw;
+      margin-top: 8vh;
+      line-height: 1;
+      color: aliceblue;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+  </style>
+  <script src="../../highlight/highlight.pack.js"></script>
+</head>
+
+<body>
+  <!-- https://www.freeformatter.com/html-escape.html#ad-output -->
+  <h1>HelloServlet.java</h1>
+  <pre><code class="language-java">package com.test;
+
+    import java.io.IOException;
+
+    import javax.annotation.PostConstruct;
+    import javax.annotation.PreDestroy;
+    import javax.servlet.ServletException;
+    import javax.servlet.annotation.WebServlet;
+    import javax.servlet.http.HttpServlet;
+    import javax.servlet.http.HttpServletRequest;
+    import javax.servlet.http.HttpServletResponse;
+
+    /**
+     * Servlet implementation class HelloServlet
+     */
+    @WebServlet("/Hello")
+    //@WebServlet(name = "MyHello", urlPatterns = { "/aaa", "/bbb", "/ccc" })
+    public class HelloServlet extends HttpServlet {
+      private static final long serialVersionUID = 1L;
+       // 서비스 호출 메소드
+      protected void doGet(HttpServletRequest request, HttpServletResponse response)
+          throws ServletException, IOException {
+
+        System.out.println("Hello servlet 요청");
+
+      }
+
+
+      // 서블릿이 처음으로 생성할 때 단 한 번만 호출되는 메소드
+      // 초기작업 때 주로 사용하는 메소드
+      @Override
+      public void init() throws ServletException {
+
+        System.out.println("init() 메소드 호출");
+      }
+
+
+      // 웹 컨터이너에서 제거될 때 호출되는 메소드
+      // init() 메소드에서 구현한 초기화 작업을 반납 처리할때 호출되는 메소드
+      @Override
+      public void destroy() {
+        System.out.println("destroy() 메소드 호출");
+
+      }
+
+      @PostConstruct
+        public void initMethod() {
+          System.out.println("initMethod()");
+        }
+
+      @PreDestroy
+        public void clean() {
+          System.out.println("clean()");
+        }
+
+    }</code></pre>
+  <!-- ☆ -->
+  <h1>InitParam.java</h1>
+  <pre><code class="language-java">package sample;
+
+    import java.io.*;
+    import javax.servlet.*;
+    import javax.servlet.http.*;
+
+
+    //@WebServlet(&quot;/InitParam&quot;)
+    public class InitParam extends HttpServlet {
+      private static final long serialVersionUID = 1L;
+
+      private String company;
+      private String manager;
+      private String tel;
+      private String email;
+
+      /*  ServletConfig
+       *   - ServletConfig 객체는 Container가 서블릿을 생성할때 생성되는 객체
+       *   - DD(web.xml)를 읽어서 이름/값의  쌍으로 된 초기화 파라미터를 읽어서 저장
+       *   - ServletConfig 객체는 Servlet 객체당 한 개씩 생성
+       *   - Servlet 에서는 getServletConfig()를 이용해서 servlet과 관련된
+       *     ServletConfig 객체를 얻을 수 있음
+       *
+       *   ServletContext
+       *     - ServletContext 객체는 web application 당 하나씩 생성됨
+       *     - web application 전체에서 참조할 수 있는 초기 파라미터를 저장할 수 있음
+       *     - Servlet에서는 getServletContext()를 이용해서 ServletContext 객체를 얻을 수 있다
+       */
+
+
+      @Override
+      public void init() throws ServletException {
+      System.out.println(&quot;초기화 메소드 수행....&quot;);
+      // ServletContext의 초기 파라미터 값 읽기
+      company = getServletContext().getInitParameter(&quot;company&quot;);
+      manager = getServletContext().getInitParameter(&quot;manager&quot;);
+
+      // ServletConfig의 초기 파라미터 값 읽기
+      tel = getServletConfig().getInitParameter(&quot;tel&quot;);
+      email = getServletConfig().getInitParameter(&quot;email&quot;);
+
+      }
+
+
+      protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        response.setContentType(&quot;text/html;charset=utf-8&quot;);
+
+        PrintWriter out = response.getWriter();
+
+        try {
+          response.setContentType(&quot;text/html;charset=utf-8&quot;);
+          out.println(&quot;&lt;html&gt;&quot;);
+          out.println(&quot;&lt;body&gt;&quot;);
+          out.println(&quot;&lt;li&gt; 회사명 :&quot;+ company+&quot;&lt;/li&gt;&quot;);
+          out.println(&quot;&lt;li&gt; 담당자 :&quot;+ manager+&quot;&lt;/li&gt;&quot;);
+          out.println(&quot;&lt;li&gt; 연락처 :&quot;+ tel+&quot;&lt;/li&gt;&quot;);
+          out.println(&quot;&lt;li&gt; 이메일 :&quot;+ email+&quot;&lt;/li&gt;&quot;);
+          out.println(&quot;&lt;/body&gt;&quot;);
+          out.println(&quot;&lt;/html&gt;&quot;);
+        }finally {
+          out.close();
+        }
+      }
+
+
+      protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        processRequest(request, response);
+      }
+
+      protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        processRequest(request, response);
+      }
+
+    }
+    </code></pre>
+  <!-- ☆ -->
+  <h1>Oracle DB 설정</h1>
+  <pre><code class="language-sql">
+    SELECT * FROM TAB;
+
+    CREATE TABLE visit (
+    no number(5) not null,
+    writer varchar2(20) not null,
+    memo varchar2(4000) not null,
+    regdate date not null,
+    CONSTRAINT visit_pk PRIMARY KEY (no)
+    );
+
+    DESC visit;
+
+    CREATE SEQUENCE visit_seq
+    START WITH 1
+    INCREMENT BY 1
+    NOMAXVALUE
+    NOCACHE
+    NOCYCLE;
+
+  </code></pre>
+  <!-- ☆ -->
+  <h1>write.html</h1>
+  <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+    &lt;html&gt;
+    &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt; 방명록 작성 &lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+
+    &lt;!-- 아래와 같이 절대경로로 지정해줘도 됩니다 --&gt;
+    &lt;!-- &lt;form action=&quot;http://localhost:9000/JSPExam/VisitInsert&quot;&gt; --&gt;
+    &lt;form  action=&quot;/JSPExam/VisitInsert&quot; method=&quot;post&quot;&gt;
+
+      &lt;table align=&quot;center&quot; width=&quot;500&quot; border=&quot;1&quot;&gt;
+
+         &lt;tr&gt;
+             &lt;th width=&quot;70&quot;&gt;작성자&lt;/th&gt;
+             &lt;td&gt;&amp;nbsp;&lt;input type=&quot;text&quot; name=&quot;writer&quot; size=&quot;50&quot;&gt;
+             &lt;/td&gt;
+         &lt;/tr&gt;
+
+         &lt;tr&gt;
+         &lt;th&gt;  내   용 &lt;/th&gt;
+         &lt;td&gt;
+         &amp;nbsp;&lt;textarea rows=&quot;7&quot; cols=&quot;50&quot; name=&quot;memo&quot;&gt;&lt;/textarea&gt;
+         &lt;/td&gt;
+         &lt;/tr&gt;
+
+         &lt;tr&gt;
+           &lt;td colspan=&quot;2&quot; align=&quot;center&quot;&gt;
+            &lt;input type=&quot;submit&quot; value=&quot;저장&quot;&gt;&amp;nbsp;&amp;nbsp;
+            &lt;input type=&quot;reset&quot; value=&quot;취소&quot;&gt;
+           &lt;/td&gt;
+         &lt;/tr&gt;
+      &lt;/table&gt;
+
+    &lt;/form&gt;
+
+    &lt;/body&gt;
+    &lt;/html&gt;</code></pre>
+  <!-- ☆ -->
+  <h1>VisitInsert.java</h1>
+  <pre><code class="language-java">package bbs;
+
+    import java.io.*;
+    import javax.servlet.*;
+    import javax.servlet.http.*;
+    import java.sql.*;
+
+    //@WebServlet(&quot;/VisitInsert&quot;)
+    public class VisitInsert extends HttpServlet {
+      private static final long serialVersionUID = 1L;
+
+      protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+      request.setCharacterEncoding(&quot;utf-8&quot;);
+      // 클라이언트가 http(write.html)요청으로 전송한 값을 읽어옴
+      String writer = request.getParameter(&quot;writer&quot;);
+      String memo = request.getParameter(&quot;memo&quot;);
+      System.out.println(&quot;작성자 :&quot;+writer);
+      System.out.println(&quot;내용 :&quot;+memo);
+
+      // 가져온 파라미터 값을 데이터 베이스에 저장
+      StringBuffer sql = new StringBuffer();
+      sql.append(&quot;insert into visit(no, writer, memo, regdate) &quot;);
+      sql.append(&quot;values(visit_seq.nextval, ?, ?, sysdate)&quot;);
+
+      Connection conn = null;
+      PreparedStatement pstmt = null;
+      String url = &quot;jdbc:oracle:thin:@localhost:1521:orcl&quot;;
+      try {
+
+    	Class.forName(&quot;oracle.jdbc.driver.OracleDriver&quot;);
+		conn = DriverManager.getConnection(url, &quot;SCOTT&quot;, &quot;tiger&quot;);
+
+        pstmt = conn.prepareStatement(sql.toString());
+        pstmt.setString(1, writer);
+        pstmt.setString(2, memo);
+        pstmt.executeUpdate();
+      }
+      catch(SQLException se) {
+        se.printStackTrace();
+      }
+      catch(ClassNotFoundException e) {
+        e.printStackTrace();
+      }
+      finally {
+        try { if(pstmt != null) pstmt.close();}catch(SQLException ss) {}
+        try { if(conn != null) conn.close();}catch(SQLException ss) {}
+      }
+
+      response.sendRedirect(&quot;VisitList&quot;);
+
+      }
+
+      protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        processRequest(request, response);
+      }
+
+      protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        processRequest(request, response);
+      }
+
+    }</code></pre>
+  <!-- ☆ -->
+  <h1>web.xml</h1>
+  <pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+    &lt;web-app xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+             xmlns=&quot;http://xmlns.jcp.org/xml/ns/javaee&quot;
+             xsi:schemaLocation=&quot;http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd&quot;
+             id=&quot;WebApp_ID&quot;
+             version=&quot;3.1&quot;&gt;
+      &lt;display-name&gt;JSPExam&lt;/display-name&gt;
+
+     &lt;!--  &lt;servlet&gt;
+             &lt;servlet-name&gt;MyOne&lt;/servlet-name&gt;
+             &lt;servlet-class&gt;sample.MyFirstServlet&lt;/servlet-class&gt;
+      &lt;/servlet&gt;
+
+      &lt;servlet-mapping&gt;
+      &lt;servlet-name&gt;MyOne&lt;/servlet-name&gt;
+      &lt;url-pattern&gt;/My&lt;/url-pattern&gt;
+      &lt;/servlet-mapping&gt;
+       --&gt;
+      &lt;!-- &lt;servlet&gt;
+      &lt;servlet-name&gt;Hello&lt;/servlet-name&gt;
+      &lt;servlet-class&gt;com.test.HelloServlet&lt;/servlet-class&gt;
+      &lt;/servlet&gt;
+
+      &lt;servlet-mapping&gt;
+      &lt;servlet-name&gt;Hello&lt;/servlet-name&gt;
+      &lt;url-pattern&gt;/Hello&lt;/url-pattern&gt;
+
+      &lt;/servlet-mapping&gt;
+       --&gt;
+
+      &lt;!-- &lt;context-param&gt;
+           &lt;param-name&gt;company&lt;/param-name&gt;
+           &lt;param-value&gt;IT&lt;/param-value&gt;
+      &lt;/context-param&gt;
+
+      &lt;context-param&gt;
+           &lt;param-name&gt;manager&lt;/param-name&gt;
+           &lt;param-value&gt;Hong Gil Dong&lt;/param-value&gt;
+      &lt;/context-param&gt;
+
+      &lt;servlet&gt;
+          &lt;servlet-name&gt;InitParam&lt;/servlet-name&gt;
+          &lt;servlet-class&gt;sample.InitParam&lt;/servlet-class&gt;
+
+          &lt;init-param&gt;
+             &lt;param-name&gt;tel&lt;/param-name&gt;
+             &lt;param-value&gt;010-1234-1234&lt;/param-value&gt;
+          &lt;/init-param&gt;
+            &lt;init-param&gt;
+             &lt;param-name&gt;email&lt;/param-name&gt;
+             &lt;param-value&gt;hong@naver.com&lt;/param-value&gt;
+          &lt;/init-param&gt;
+      &lt;/servlet&gt;
+
+      &lt;servlet-mapping&gt;
+           &lt;servlet-name&gt;InitParam&lt;/servlet-name&gt;
+           &lt;url-pattern&gt;/init&lt;/url-pattern&gt;
+      &lt;/servlet-mapping&gt;
+       --&gt;
+
+       &lt;servlet&gt;
+              &lt;servlet-name&gt;VisitInsert&lt;/servlet-name&gt;
+              &lt;servlet-class&gt;bbs.VisitInsert&lt;/servlet-class&gt;
+       &lt;/servlet&gt;
+       &lt;servlet-mapping&gt;
+              &lt;servlet-name&gt;VisitInsert&lt;/servlet-name&gt;
+              &lt;url-pattern&gt;/VisitInsert&lt;/url-pattern&gt;
+       &lt;/servlet-mapping&gt;
+
+    &lt;/web-app&gt;</code></pre>
+  <!-- ☆ -->
+  <h1>VisitList.java</h1>
+  <pre><code class="language-java">package bbs;
+
+    import java.io.*;
+    import javax.servlet.*;
+    import javax.servlet.http.*;
+    import java.sql.*;
+
+    public class VisitList extends HttpServlet {
+      private static final long serialVersionUID = 1L;
+
+      protected void processRequest(HttpServletRequest request,
+          HttpServletResponse response) throws ServletException, IOException {
+
+        response.setContentType(&quot;text/html;charset=utf-8&quot;);
+        PrintWriter out = response.getWriter();
+
+        try {
+          out.println(&quot;&lt;html&gt;&quot;);
+          out.println(&quot;&lt;head&gt;&lt;title&gt; ~ 방명록 리스트 ~ &lt;/title&gt;&lt;/head&gt;&quot;);
+          out.println(&quot;&lt;body&gt;&quot;);
+
+          StringBuffer sql = new StringBuffer();
+           sql.append(&quot;select no, writer, memo, regdate &quot;);
+           sql.append(&quot;from visit &quot;);
+           sql.append(&quot;order by no desc &quot;);
+
+           Connection conn = null;
+           PreparedStatement pstmt = null;
+           ResultSet rs = null;
+
+           try {
+            // Class.forName
+            Class.forName(&quot;oracle.jdbc.driver.OracleDriver&quot;);
+            //DriverManager.getConnection()
+            conn = DriverManager.getConnection(
+              &quot;jdbc:oracle:thin:@localhost:1521:orcl&quot;,
+                  &quot;scott&quot;, &quot;tiger&quot;);
+             pstmt = conn.prepareStatement(sql.toString());
+
+             rs = pstmt.executeQuery();
+
+             while(rs.next()) {
+               int no = rs.getInt(&quot;no&quot;);
+               String writer = rs.getString(&quot;writer&quot;);
+               String memo = rs.getString(&quot;memo&quot;);
+               java.sql.Date regdate = rs.getDate(&quot;regdate&quot;);
+
+               out.println(&quot;&lt;table align=center width=500 border=1&gt;&quot;);
+               out.println(&quot;&lt;tr&gt;&quot;);
+               out.println(&quot;&lt;th width=50&gt;번호&lt;/th&gt;&quot;);
+               out.println(&quot;&lt;td width=50 align=center&gt;&quot;+no+&quot;&lt;/td&gt;&quot;);
+
+               out.println(&quot;&lt;th width=70&gt;작성자&lt;/th&gt;&quot;);
+               out.println(&quot;&lt;td width=180 align=center&gt;&quot;+writer+&quot;&lt;/td&gt;&quot;);
+
+               out.println(&quot;&lt;th width=50&gt;날짜&lt;/th&gt;&quot;);
+               out.println(&quot;&lt;td width=100 align=center&gt;&quot;+regdate+&quot;&lt;/td&gt;&quot;);
+
+               out.println(&quot;&lt;/tr&gt;&quot;);
+
+               out.println(&quot;&lt;tr&gt;&quot;);
+               out.println(&quot;&lt;th width=50&gt;내용&lt;/th&gt;&quot;);
+               out.println(&quot;&lt;td colspan=5&gt;&amp;nbsp;&lt;textarea rows=3 cols=50&gt;&quot;
+               +memo+&quot;&lt;/textarea&gt;&lt;/td&gt;&quot;);
+               out.println(&quot;&lt;/tr&gt;&quot;);
+               out.println(&quot;&lt;/table&gt;&quot;);
+               out.println(&quot;&lt;p&gt;&quot;);
+             }// end while
+           }catch(SQLException e) {
+             e.printStackTrace();
+           }catch(ClassNotFoundException e) {
+             e.printStackTrace();
+           }finally {
+             try {if(pstmt != null) pstmt.close();}catch(SQLException e) {}
+             try {if(conn != null) conn.close();}catch(SQLException e) {}
+           }
+          out.println(&quot;&lt;p align=center&gt;&lt;a href=/JSPExam/bbs/write.html&gt;글쓰기&lt;/a&gt;&lt;/p&gt;&quot;);
+          out.println(&quot;&lt;/body&gt;&quot;);
+          out.println(&quot;&lt;/html&gt;&quot;);
+        }finally {
+          out.close();
+        }
+
+      }
+
+      protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        processRequest(request, response);
+      }
+
+      protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        processRequest(request, response);
+      }
+    }</code></pre>
+  <!-- ☆ -->
+  <!-- <pre><code class="html">...</code></pre> -->
+  <!-- <pre><code class="language-html">...</code></pre> -->
+  <!-- <pre><code class="plaintext">...</code></pre> -->
+  <!-- <pre><code class="nohighlight">...</code></pre> -->
+  <script>
+    hljs.initHighlightingOnLoad();
+    /* <pre><code>&lt;p&gt;Paragraph&lt;/p&gt;</code></pre> */
+  </script>
+</body>
+
+</html>

@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ page import="java.time.LocalDate" %>
-<%@ page import="kanjiquiz.Kanjiquiz" %>
+<%@ page import="kanjiquiz.Kanjiquiz0714" %>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -10,7 +10,7 @@
     <title>한자 퀴즈</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/kanjiquiz.css?v=1.1715">
+    <link rel="stylesheet" href="./css/kanjiquiz.css?v=1.1717">
   </head>
   <body>
 
@@ -26,7 +26,7 @@
  -->
 
      <%
-     	Kanjiquiz kq = new Kanjiquiz();
+     	Kanjiquiz0714 kq = new Kanjiquiz0714();
 
 		int num = Integer.parseInt(request.getParameter("howMany"));
 

@@ -173,6 +173,8 @@ const validDate = [
   '0702',
   '0707',
   '0708',
+  '0709',
+  '0714',
 ];
 
 const clickedDateBox = document.querySelector('.clicked-date');
