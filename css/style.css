@@ -299,7 +299,7 @@ li a:hover {
     overflow: hidden;
     background-color: #232946;
     top: 0;
-    height: 9vh;
+    height: 8vh;
     width: 100%;
     position: fixed;
   }
@@ -315,7 +315,7 @@ li a:hover {
     color: #e4e4f1;
     padding: 1vh 3vw;
     text-decoration: none;
-    font-size: 3.5vw;
+    font-size: 3.2vw;
     font-weight: 700;
   }
 
