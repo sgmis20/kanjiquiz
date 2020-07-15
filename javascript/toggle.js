@@ -25,12 +25,12 @@ document.querySelector('.btn4').addEventListener('click', function(e) {
   );
 });
 
-$('a[href*=#]').click(function(event) {
-  $('html, body').animate(
-    {
-      scrollTop: $($.attr(this, 'href')).offset().top,
-    },
-    500
-  );
-  event.preventDefault();
-});
+// $('a[href*=#]').click(function(event) {
+//   $('html, body').animate(
+//     {
+//       scrollTop: $($.attr(this, 'href')).offset().top,
+//     },
+//     500
+//   );
+//   event.preventDefault();
+// });

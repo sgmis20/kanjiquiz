@@ -24,3 +24,6 @@ function getKanjiList() {
   }
 }
 getKanjiList();
+console.log(yomiganaList.substring(0, yomiganaList.length - 1));
+console.log(tangoList.substring(0, tangoList.length - 1));
+console.log(korList.substring(0, korList.length - 1));
