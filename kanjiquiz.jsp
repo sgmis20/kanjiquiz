@@ -1,32 +1,34 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ page import="java.time.LocalDate" %>
-<%@ page import="kanjiquiz.Kanjiquiz0714" %>
-
+<%-- <%@ page import="kanjiquiz.Kanjiquiz0715" %> --%>
+<%@ page import="kanjiquiz.*" %>
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>한자 퀴즈</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/kanjiquiz.css?v=1.1717">
-  </head>
-  <body>
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>한자 퀴즈</title>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="./css/kanjiquiz.css?v=1.1717">
+</head>
+
+<body>
 
 
-     <div class="space">
-     </div>
-    <h3>한자퀴즈 자가테스트</h3>
+	<div class="space">
+	</div>
+	<h3>한자퀴즈 자가테스트</h3>
 
-<!--
+	<!--
     <br />
         <p> 오늘 날짜 : </p> <%= LocalDate.now() %>
     <br />
  -->
 
-     <%
-     	Kanjiquiz0714 kq = new Kanjiquiz0714();
+	<%
+     	Kanjiquiz0715 kq = new Kanjiquiz0715();
 
 		int num = Integer.parseInt(request.getParameter("howMany"));
 
@@ -36,7 +38,7 @@
 		//	out.println(++count+"번 : " +p + "<br/>");
 		//}
 		out.println("<h4 class=\"instruction desktop\">다음 단어의 일본어 한자와 요미가나를 써보세요!</h4>");
-		out.println("<h4 class=\"instruction mobile\">모바일로는 가로보기 모드로 보시면 편합니다!</h4>");
+		//out.println("<h4 class=\"instruction mobile\">모바일로는 가로보기 모드로 보시면 편합니다!</h4>");
 
 		int count = 0;
 
@@ -79,49 +81,50 @@
 
 		%>
 
-    <h3 class="btnAnswer">정답 확인</h3>
-    <br/>
-    <br/>
-    <script>
+	<h3 class="btnAnswer">정답 확인</h3>
+	<br />
+	<br />
+	<script>
 
-    function hideAnswer() {
-    	  const upper = document.getElementsByClassName('yomigana');
-    	  const middle = document.getElementsByClassName('tango');
-    	  console.log(upper.length);
-    	  let i;
-    	  for (i = 0; i < upper.length; i++) {
-    		  upper[i].style.display = 'none';
-    		  middle[i].style.display = 'none';
-    	  }
-    	}
-    hideAnswer();
+		function hideAnswer() {
+			const upper = document.getElementsByClassName('yomigana');
+			const middle = document.getElementsByClassName('tango');
+			console.log(upper.length);
+			let i;
+			for (i = 0; i < upper.length; i++) {
+				upper[i].style.display = 'none';
+				middle[i].style.display = 'none';
+			}
+		}
+		hideAnswer();
 
-    document
-    .querySelector('.btnAnswer')
-    .addEventListener('click', function() {
-      const upper = document.getElementsByClassName('yomigana');
-      const middle = document.getElementsByClassName('tango');
-      console.log(upper.length);
-      console.log(middle.length);
-      let i;
-      for (i = 0; i < upper.length; i++) {
-        if (upper[i].style.display === 'none') {
-        	upper[i].style.display = 'block';
-        } else {
-        	upper[i].style.display = 'none';
-        }
-      }
-      for (i = 0; i < middle.length; i++) {
-          if (middle[i].style.display === 'none') {
-        	  middle[i].style.display = 'block';
-          } else {
-        	  middle[i].style.display = 'none';
-          }
-        }
-    });
+		document
+			.querySelector('.btnAnswer')
+			.addEventListener('click', function () {
+				const upper = document.getElementsByClassName('yomigana');
+				const middle = document.getElementsByClassName('tango');
+				console.log(upper.length);
+				console.log(middle.length);
+				let i;
+				for (i = 0; i < upper.length; i++) {
+					if (upper[i].style.display === 'none') {
+						upper[i].style.display = 'block';
+					} else {
+						upper[i].style.display = 'none';
+					}
+				}
+				for (i = 0; i < middle.length; i++) {
+					if (middle[i].style.display === 'none') {
+						middle[i].style.display = 'block';
+					} else {
+						middle[i].style.display = 'none';
+					}
+				}
+			});
 
 
-    </script>
+	</script>
 
-  </body>
+</body>
+
 </html>
