@@ -1,0 +1,272 @@
+body {
+  font-family: "Noto Sans KR", sans-serif;
+  background-color: blanchedalmond;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-align: center;
+}
+h3 {
+  font-size: 2.5vw;
+  line-height: 0.4em;
+  color: rgb(48, 39, 25);
+}
+/* 문제 번호 */
+h4 {
+  color: grey;
+  font-size: 25px;
+  margin-block-start: 0.1em;
+  margin-block-end: 0em;
+  line-height: 1.15;
+}
+
+td {
+  min-width: max-content;
+  padding-bottom: 1.5vh;
+  padding-right: 1vw;
+}
+
+/* 단어 등 */
+h5 {
+  line-height: 0.05;
+  font-size: 25px;
+  margin-block-start: 1.08em;
+  margin-block-end: 1.15em;
+}
+
+.yomigana,
+.tango {
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+.yomigana {
+  color: rgb(85, 17, 88);
+}
+
+.tango {
+  font-size: 40px;
+  color: rgb(21, 2, 22);
+}
+
+.korMeaning {
+  font-size: 28px;
+  color: rgb(16, 16, 56);
+}
+
+h4.instruction {
+  font-size: 18px;
+  color: brown;
+  margin-bottom: 1.5vh;
+  line-height: 1.4;
+}
+
+h4.problemNumber {
+  line-height: 0.8;
+}
+
+h3.btnAnswer {
+  background-color: rgb(44, 151, 142);
+  color: aliceblue;
+  font-size: 2vw;
+  padding: 1vw 3vw;
+  border-radius: 50px;
+  position: fixed;
+  display: block;
+  top: 2vh;
+  right: 7vw;
+  margin-right: auto;
+  line-height: normal;
+}
+
+.btnAnswer:hover {
+  color: seashell;
+  background-color: rgb(7, 73, 67);
+}
+
+input,
+select {
+  font-family: "Noto Sans KR", sans-serif;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  color: aliceblue;
+  border: none;
+}
+
+input {
+  font-size: 2.2vw;
+  color: aliceblue;
+  width: 17%;
+  padding: 0.6em 0em;
+  box-sizing: border-box;
+  background-color: darkslategrey;
+  border-style: none;
+  border-radius: 120px;
+}
+
+input:hover {
+  background-color: rgb(0, 0, 71);
+  color: rgb(235, 235, 55);
+  transition: all 0.3s;
+}
+
+select {
+  width: 40%;
+  font-weight: 900;
+  box-sizing: border-box;
+  background-color: cadetblue;
+  border-radius: 15px;
+}
+/* select:active {
+  background-color: aquamarine;
+}
+option {
+    filter: hue-rotate(90deg);
+}
+select:hover {
+  background-color: lightcoral;
+} */
+
+/* select option {
+  filter: opacity(0.5);
+} */
+
+#pageSelector {
+  font-size: 2.2vw;
+  padding: 0.5em 3em;
+}
+
+#numSelector {
+  font-size: 2.2vw;
+  padding: 0.5em 6.5em;
+  letter-spacing: 0.1em;
+}
+
+.resultTable {
+  padding-top: 1.2vh;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mobile {
+  display: none;
+}
+
+.desktop {
+  display: block;
+}
+
+.space {
+  margin-top: 5vw;
+}
+
+.spaceResult {
+  margin-top: 3.5vw;
+}
+
+@media screen and (max-width: 858px) {
+  select {
+    width: 60%;
+  }
+
+  input {
+    font-size: 3.6vw;
+    color: aliceblue;
+    width: 30%;
+    padding: 0.65em 0em;
+    border-radius: 3em;
+  }
+
+  #pageSelector {
+    font-size: 3.2vw;
+    padding: 0.6em 1.5em;
+  }
+
+  #numSelector {
+    font-size: 3.2vw;
+    padding: 0.6em 5.9em;
+    letter-spacing: 0.1em;
+  }
+
+  h3 {
+    font-size: 4vw;
+  }
+  /* 문제 번호 */
+  h4 {
+    color: grey;
+    font-size: 3vw;
+    margin-block-start: 0.1em;
+    margin-block-end: 0em;
+    line-height: 1.3;
+  }
+
+  td {
+    min-width: fit-content;
+  }
+
+  /* 단어 등 */
+  h5 {
+    line-height: 0.05;
+    font-size: 3vw;
+    margin-block-start: 1em;
+    margin-block-end: 1.3em;
+  }
+
+  .yomigana {
+    font-size: 2.8vw;
+    letter-spacing: 0;
+    color: rgb(85, 17, 88);
+  }
+
+  .tango {
+    font-size: 3.5vw;
+    color: rgb(21, 2, 22);
+  }
+
+  .korMeaning {
+    font-size: 2.8vw;
+    color: rgb(16, 16, 56);
+  }
+
+  h4.instruction {
+    font-size: 15px;
+    color: brown;
+    margin-bottom: 2vh;
+    line-height: 0;
+  }
+
+  h3.btnAnswer {
+    font-size: 17px;
+    padding: 1vw 3vw;
+    border-radius: 50px;
+    position: fixed;
+    display: block;
+    top: 1.4vh;
+    right: 4.5vw;
+    margin-right: auto;
+    line-height: normal;
+  }
+
+  td {
+    min-width: max-content;
+    padding-bottom: 1.8vh;
+    padding-right: 2vw;
+  }
+
+  .desktop {
+    display: none;
+  }
+
+  .mobile {
+    display: block;
+  }
+
+  .spaceResult {
+    margin-top: 3vh;
+  }
+}
