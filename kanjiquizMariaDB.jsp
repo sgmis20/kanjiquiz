@@ -10,7 +10,7 @@
     <title>한자 퀴즈</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/kanjiquizNew.css?v=1.35">
+    <link rel="stylesheet" href="./css/kanjiquizNew.css?v=1.37">
   </head>
   <body>
 
@@ -27,7 +27,7 @@
 
 
 
- 
+
 
 
      <%
@@ -45,18 +45,18 @@
 	//	out.print(orclKanjiquiz.getregdate());
 	//	out.print("</p>");
 
-		
+
 		out.print("<h4 class=\"lecturedate\">");
 		out.print("수업일자 : ");
 		out.print(orclKanjiquiz.getlecturedate());
 		out.print("</h4>");
-		
-		
+
+
 		out.print("<h4 class=\"regpage\">");
 		out.print(orclKanjiquiz.getPage());
 		out.print(" 페이지");
 		out.print("</h4>");
-		
+
 		out.println("<h4 class=\"instruction desktop\">다음 단어의 일본어 한자와 요미가나를 써보세요!</h4>");
 		//out.println("<h4 class=\"instruction mobile\">모바일로는 가로보기 모드로 보시면 편합니다!</h4>");
 

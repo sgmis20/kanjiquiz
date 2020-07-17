@@ -8,7 +8,7 @@
     <title>한자 퀴즈</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/kanjiquizNew.css?v=1.35">
+    <link rel="stylesheet" href="./css/kanjiquizNew.css?v=1.37">
 </head>
 
 <body>

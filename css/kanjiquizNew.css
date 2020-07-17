@@ -26,7 +26,7 @@ h4 {
 }
 
 td {
-  min-width: max-content;
+  min-width: 12vw;
   padding-bottom: 1.5vh;
   padding-right: 1vw;
 }
@@ -34,7 +34,7 @@ td {
 /* 단어 등 */
 h5 {
   line-height: 0.05;
-  font-size: 25px;
+  font-size: 20px;
   margin-block-start: 1.08em;
   margin-block-end: 1.15em;
 }
@@ -45,21 +45,22 @@ h5 {
 }
 
 .yomigana {
+  font-size: 18px;
   color: rgb(85, 17, 88);
 }
 
 .tango {
-  font-size: 40px;
+  font-size: 33px;
   color: rgb(21, 2, 22);
 }
 
 .korMeaning {
-  font-size: 28px;
+  font-size: 22px;
   color: rgb(16, 16, 56);
 }
 
 h4.instruction {
-  font-size: 18px;
+  font-size: 16px;
   color: brown;
   margin-bottom: 1.5vh;
   line-height: 1.4;
@@ -206,7 +207,7 @@ select:hover {
   }
 
   td {
-    min-width: fit-content;
+    min-width: 12.5vw;
   }
 
   /* 단어 등 */
@@ -218,23 +219,23 @@ select:hover {
   }
 
   .yomigana {
-    font-size: 2.8vw;
+    font-size: 2.6vw;
     letter-spacing: 0;
     color: rgb(85, 17, 88);
   }
 
   .tango {
-    font-size: 3.5vw;
+    font-size: 4.2vw;
     color: rgb(21, 2, 22);
   }
 
   .korMeaning {
-    font-size: 2.8vw;
+    font-size: 3.4vw;
     color: rgb(16, 16, 56);
   }
 
   h4.instruction {
-    font-size: 15px;
+    font-size: 2.8vw;
     color: brown;
     margin-bottom: 2vh;
     line-height: 0;
