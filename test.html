@@ -1,4 +1,3 @@
-<%@ page contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -8,7 +7,7 @@
     <title>한자 퀴즈</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/kanjiquizNew.css?v=1.6717">
+    <link rel="stylesheet" href="./css/kanjiquizNew.css?v=1.5717">
 </head>
 
 <body>
@@ -20,9 +19,9 @@
 
     <form action="kanjiquizMariaDB.jsp">
 
-   <section class="selectBox">
+        <section class="selectBox">
             <h3>퀴즈 데이터를 선택하세요 : </h3><select id="pageSelector" name="selectedPage">
-               	<option value= "107108">7월 16일 (107, 108페이지)</option>
+                <option value="107108">7월 16일 (107, 108페이지)</option>
                 <optgroup label=" ~ 6월 ~">
                     <option value="6768">6월 02일 (67, 68페이지)</option>
                     <option value="6970">6월 03일 (69, 70페이지)</option>
@@ -46,7 +45,7 @@
                     <option value="101012">7월 09일 (101, 102페이지)</option>
                     <option value="103104">7월 14일 (103, 104페이지)</option>
                     <option value="105106">7월 15일 (105, 106페이지)</option>
-                    <option value= "107108">7월 16일 (107, 108페이지)</option>
+                    <option value="107108">7월 16일 (107, 108페이지)</option>
                     <!-- <option value= "109110">7월 21일 (109, 110페이지)</option> -->
                 </optgroup>
             </select>
@@ -54,11 +53,11 @@
             <h3>문제 수를 선택하세요 : </h3><select id="numSelector" name="howMany">
                 <option value="10"> 몇 문제 ? </option>
                 <option value="5">5 문제</option>
-                <option value ="10">10 문제</option>
-                <option value ="15">15 문제</option>
-                <option value ="20">20 문제</option>
-                <option value ="25">25 문제</option>
-                <option value ="30">30 문제</option>
+                <option value="10">10 문제</option>
+                <option value="15">15 문제</option>
+                <option value="20">20 문제</option>
+                <option value="25">25 문제</option>
+                <option value="30">30 문제</option>
             </select>
             <div class="space submitBtn"></div>
         </section>

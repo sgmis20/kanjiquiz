@@ -26,8 +26,8 @@ h4 {
 }
 
 td {
-  min-width: 12vw;
-  padding-bottom: 1.5vh;
+  min-width: 12.7vw;
+  padding-bottom: 1.2vh;
   padding-right: 1vw;
 }
 
@@ -35,8 +35,8 @@ td {
 h5 {
   line-height: 0.05;
   font-size: 20px;
-  margin-block-start: 1.08em;
-  margin-block-end: 1.15em;
+  margin-block-start: 0.87em;
+  margin-block-end: 1.05em;
 }
 
 .yomigana,
@@ -45,17 +45,21 @@ h5 {
 }
 
 .yomigana {
-  font-size: 18px;
-  color: rgb(85, 17, 88);
+  margin-top: 1.15em;
+  font-size: 2vw;
+  letter-spacing: normal;
+  color: rgb(76, 91, 139);
 }
 
 .tango {
-  font-size: 33px;
+  font-size: 4.1vw;
+  letter-spacing: normal;
   color: rgb(21, 2, 22);
 }
 
 .korMeaning {
-  font-size: 22px;
+  letter-spacing: normal;
+  font-size: 2.5vw;
   color: rgb(16, 16, 56);
 }
 
@@ -85,8 +89,9 @@ h3.btnAnswer {
 }
 
 .btnAnswer:hover {
-  color: seashell;
-  background-color: rgb(7, 73, 67);
+  color: rgb(235, 235, 55);
+  background-color: rgb(0, 0, 71);
+  transition: all 0.3s;
 }
 
 input,
@@ -97,6 +102,14 @@ select {
   margin-right: auto;
   color: aliceblue;
   border: none;
+}
+
+select {
+  width: 42%;
+  font-weight: 900;
+  box-sizing: border-box;
+  background-color: cadetblue;
+  border-radius: 15px;
 }
 
 input {
@@ -116,13 +129,18 @@ input:hover {
   transition: all 0.3s;
 }
 
-select {
-  width: 40%;
-  font-weight: 900;
-  box-sizing: border-box;
-  background-color: cadetblue;
-  border-radius: 15px;
+#pageSelector {
+  font-size: 2.2vw;
+  padding: 0.5em 2.8em;
 }
+
+#numSelector {
+  font-size: 2.2vw;
+  padding: 0.5em 6.5em;
+  letter-spacing: 0.1em;
+  margin-bottom: 5vh;
+}
+
 /* select:active {
   background-color: aquamarine;
 }
@@ -136,17 +154,6 @@ select:hover {
 /* select option {
   filter: opacity(0.5);
 } */
-
-#pageSelector {
-  font-size: 2.2vw;
-  padding: 0.5em 3em;
-}
-
-#numSelector {
-  font-size: 2.2vw;
-  padding: 0.5em 6.5em;
-  letter-spacing: 0.1em;
-}
 
 .resultTable {
   padding-top: 1.2vh;
@@ -170,28 +177,37 @@ select:hover {
   margin-top: 3.5vw;
 }
 
+h4.dataInfo {
+  color: rgb(119, 25, 72);
+  margin-bottom: 0.35em;
+}
+
 @media screen and (max-width: 858px) {
   select {
     width: 60%;
+    background-color: rgb(141, 255, 211);
+    color: rgb(19, 2, 16);
+    border-radius: 4px;
   }
 
   input {
-    font-size: 3.6vw;
+    font-size: 4.2vw;
     color: aliceblue;
-    width: 30%;
-    padding: 0.65em 0em;
+    width: 29%;
     border-radius: 3em;
   }
 
   #pageSelector {
     font-size: 3.2vw;
     padding: 0.6em 1.5em;
+    margin-bottom: 0.2vh;
   }
 
   #numSelector {
     font-size: 3.2vw;
     padding: 0.6em 5.9em;
     letter-spacing: 0.1em;
+    margin-bottom: 5vh;
   }
 
   h3 {
@@ -206,10 +222,6 @@ select:hover {
     line-height: 1.3;
   }
 
-  td {
-    min-width: 12.5vw;
-  }
-
   /* 단어 등 */
   h5 {
     line-height: 0.05;
@@ -218,19 +230,26 @@ select:hover {
     margin-block-end: 1.3em;
   }
 
+  td {
+    min-width: 14vw;
+    padding-bottom: 0.5vh;
+    padding-right: 2vw;
+  }
+
   .yomigana {
-    font-size: 2.6vw;
-    letter-spacing: 0;
-    color: rgb(85, 17, 88);
+    margin-top: 1.1em;
+    font-size: 2.4vw;
+    letter-spacing: normal;
+    color: rgb(76, 91, 139);
   }
 
   .tango {
-    font-size: 4.2vw;
+    font-size: 4.1vw;
     color: rgb(21, 2, 22);
   }
 
   .korMeaning {
-    font-size: 3.4vw;
+    font-size: 2.8vw;
     color: rgb(16, 16, 56);
   }
 
@@ -242,7 +261,7 @@ select:hover {
   }
 
   h3.btnAnswer {
-    font-size: 17px;
+    font-size: 15px;
     padding: 1vw 3vw;
     border-radius: 50px;
     position: fixed;
@@ -253,21 +272,33 @@ select:hover {
     line-height: normal;
   }
 
-  td {
-    min-width: max-content;
-    padding-bottom: 1.8vh;
-    padding-right: 2vw;
-  }
-
   .desktop {
     display: none;
   }
 
   .mobile {
     display: block;
+    margin-top: 3.5vw;
+    margin-bottom: 2.5vw;
+  }
+
+  #pageSelector {
+    font-size: 3.05vw;
+    padding: 0.5em 2.65em;
+  }
+
+  #numSelector {
+    font-size: 3vw;
+    padding: 0.5em 6.5em;
+    letter-spacing: 0.1em;
+    margin-bottom: 4vh;
   }
 
   .spaceResult {
     margin-top: 3vh;
+  }
+
+  .submitBtn {
+    margin-top: 7.5vh;
   }
 }
