@@ -645,4 +645,8 @@ a {
     width: 75vw;
     height: auto;
   }
+
+  .desktop {
+    display: none;
+  }
 }

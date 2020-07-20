@@ -14,24 +14,13 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap"
 	rel="stylesheet">
-<link rel="stylesheet" href="./css/kanjiquizNew.css?v=1.6717">
+<link rel="stylesheet" href="./css/kanjiquizNew.css?v=1.7718">
 </head>
 <body>
 
 
 	<div class="spaceResult"></div>
 	<h3>한자퀴즈 자가테스트</h3>
-
-	<!--
-    <br />
-        <p> 오늘 날짜 : </p>LocalDate.now()w() %>
-    <br />
- -->
-
-
-
-
-
 
 	<%
 		StaticSelect orclKanjiquiz = new StaticSelect();
