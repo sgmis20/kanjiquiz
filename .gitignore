@@ -4,6 +4,7 @@
 target/
 hodgepodge/
 archives/
+WEB-INF/
 
 # OS Files #
 .DS_Store
