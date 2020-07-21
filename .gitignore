@@ -2,9 +2,10 @@
 /build/
 /bin/
 target/
-hodgepodge/
 archives/
+hodgepodge/
 WEB-INF/
+
 
 # OS Files #
 .DS_Store
