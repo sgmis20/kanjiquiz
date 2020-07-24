@@ -11,6 +11,44 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap" rel="stylesheet">
     <script src="./javascript/toggle.js?v=1.8" async defer></script>
+    <style>
+        /* 단어 너무 많고 길어서 넘어가는 줄 강제 조정 */
+        td.smaller1 {
+            font-size: 1.3vw !important;
+        }
+
+        td.smaller2 {
+            font-size: 3.9vw !important;
+        }
+
+        td.smaller3 {
+            font-size: 1.2vw !important;
+        }
+
+        /* 단어 너무 많고 길어서 넘어가는 줄 강제 조정 */
+        @media screen and (max-width: 858px) {
+
+            td.smaller1 {
+                font-size: 3.3vw !important;
+            }
+
+            td.smaller2 {
+                font-size: 6.5vw !important;
+            }
+
+            td.smaller3 {
+                font-size: 3vw !important;
+            }
+
+            td.smaller1,
+            td.smaller2,
+            td.smaller3 {
+                letter-spacing: 0 !important;
+                padding-left: 0vw !important;
+                padding-right: 0vw !important;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -20,8 +58,8 @@
     <nav class="navbar">
         <ul>
             <li><a class="index" href="./index.html">메인페이지</a></li>
-            <li><a class="page" href="#frontpage">앞페이지 (109p)</a></li>
-            <li><a class="page" href="#backpage">뒷페이지 (110p)</a></li>
+            <li><a class="page" href="#frontpage">앞페이지(109p)</a></li>
+            <li><a class="page" href="#backpage">뒷페이지(110p)</a></li>
             <li class="btn1"><a>읽기+뜻</a></li>
             <li class="btn2"><a>한자 읽기</a></li>
             <li class="btn3"><a>한글 뜻</a></li>
@@ -391,28 +429,28 @@
                 <td class="kanjiyomi" rowspan="3">せん<br></td> <!-- 음독 -->
                 <td class="kanjiyomi" rowspan="3">そ<br>し</td> <!-- 훈독 -->
 
-                <td class="yomigana">おせん</td> <!-- 단어1 -->
-                <td class="yomigana">かんせん</td> <!-- 단어2 -->
-                <td class="yomigana">でんせん</td> <!-- 단어3 -->
-                <td class="yomigana">そまる</td> <!-- 단어4 -->
-                <td class="yomigana">そめる</td> <!-- 단어5 -->
-                <td class="yomigana">しみる</td> <!-- 단어6 -->
+                <td class="yomigana smaller1">おせん</td> <!-- 단어1 -->
+                <td class="yomigana smaller1">かんせん</td> <!-- 단어2 -->
+                <td class="yomigana smaller1">でんせん</td> <!-- 단어3 -->
+                <td class="yomigana smaller1">そまる</td> <!-- 단어4 -->
+                <td class="yomigana smaller1">そめる</td> <!-- 단어5 -->
+                <td class="yomigana smaller1">しみる</td> <!-- 단어6 -->
             </tr>
             <tr>
-                <td class="tango">汚染</td> <!-- 단어1 -->
-                <td class="tango">感染</td> <!-- 단어2 -->
-                <td class="tango">伝染</td> <!-- 단어3 -->
-                <td class="tango">染まる</td> <!-- 단어4 -->
-                <td class="tango">染める</td> <!-- 단어5 -->
-                <td class="tango">染みる</td> <!-- 단어6 -->
+                <td class="tango smaller2">汚染</td> <!-- 단어1 -->
+                <td class="tango smaller2">感染</td> <!-- 단어2 -->
+                <td class="tango smaller2">伝染</td> <!-- 단어3 -->
+                <td class="tango smaller2">染まる</td> <!-- 단어4 -->
+                <td class="tango smaller2">染める</td> <!-- 단어5 -->
+                <td class="tango smaller2">染みる</td> <!-- 단어6 -->
             </tr>
             <tr>
-                <td class="kor">오염</td> <!-- 단어1 -->
-                <td class="kor">감염</td> <!-- 단어2 -->
-                <td class="kor">전염</td> <!-- 단어3 -->
-                <td class="kor">물들다</td> <!-- 단어4 -->
-                <td class="kor">물들이다</td> <!-- 단어5 -->
-                <td class="kor">스며들다</td> <!-- 단어6 -->
+                <td class="kor smaller3">오염</td> <!-- 단어1 -->
+                <td class="kor smaller3">감염</td> <!-- 단어2 -->
+                <td class="kor smaller3">전염</td> <!-- 단어3 -->
+                <td class="kor smaller3">물들다</td> <!-- 단어4 -->
+                <td class="kor smaller3">물들이다</td> <!-- 단어5 -->
+                <td class="kor smaller3">스며들다</td> <!-- 단어6 -->
             </tr>
             <tr>
                 <!-- 5555555555555555555555555555555555555555555555555 -->
@@ -439,8 +477,8 @@
             <tr>
                 <td class="kor">영화</td> <!-- 단어1 -->
                 <td class="kor">상영</td> <!-- 단어2 -->
-                <td class="kor">비추다</td> <!-- 단어3 -->
-                <td class="kor">비치다</td> <!-- 단어4 -->
+                <td class="kor">비치다</td> <!-- 단어3 -->
+                <td class="kor">비추다</td> <!-- 단어4 -->
                 <td class="kor"></td> <!-- 단어5 -->
                 <td class="kor"></td> <!-- 단어6 -->
             </tr>
