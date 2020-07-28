@@ -19,7 +19,7 @@
 
    <section class="selectBox">
             <h3>퀴즈 데이터를 선택하세요 : </h3><select id="pageSelector" name="selectedPage">
-               	<option value= "111112">7월 22일 (111, 112페이지)</option>
+               	<option value= "115116">7월 28일 (115, 116페이지)</option>
                 <optgroup label="~·~·~ 6월 ~·~·~">
                     <option value="6768">6월 2일 (67, 68페이지)</option>
                     <option value="6970">6월 3일 (69, 70페이지)</option>
@@ -46,7 +46,9 @@
                     <option value= "107108">7월 16일 (107, 108페이지)</option>
                     <option value= "109110">7월 21일 (109, 110페이지)</option>
                     <option value= "111112">7월 22일 (111, 112페이지)</option>
-                    <!--<option value= "113114">7월 23일 (113, 114페이지)</option>-->
+                    <option value= "113114">7월 23일 (113, 114페이지)</option>
+                    <option value= "115116">7월 28일 (115, 116페이지)</option>
+                    <!--<option value= "117118">7월 29일 (117, 118페이지)</option>-->
                 </optgroup>
             </select>
             <br />

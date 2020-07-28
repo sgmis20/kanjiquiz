@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet" />
+    <title>미니프로젝트</title>
+    <style type="text/css">
+        body {
+            background-color: rgb(3, 5, 7);
+            font-family: "Noto Sans KR", sans-serif;
+        }
+
+        h1 {
+            font-size: 50px;
+            color: aliceblue;
+            text-align: center;
+            line-height: 0.5;
+            padding-top: 1.5vh;
+        }
+
+
+        a:link {
+            color: aliceblue;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: lightcoral;
+        }
+
+        .space {
+            padding: 1vh;
+        }
+
+        #miniproject {
+            margin-bottom: 5vh;
+        }
+
+        .miniprojectBox {
+            width: 70%;
+            margin-left: auto;
+            margin-right: 13vw;
+            padding: 0.5em 0.5em;
+            background-color: rgb(53, 48, 47);
+            border-radius: 1.5em;
+            margin-bottom: 5vh;
+        }
+
+        ul li {
+            color: rgb(194, 176, 137);
+            font-size: 2.22vw;
+            list-style-type: decimal-leading-zero;
+            margin-left: 4vw;
+            font-weight: 700;
+            line-height: 1.7;
+        }
+
+        ul li a {
+            color: aliceblue;
+            margin-left: 1vw;
+        }
+
+        @media screen and (max-width: 858px) {
+            h1 {
+                font-size: 6.5vw;
+                font-weight: 900;
+            }
+
+            #miniproject {
+                margin-bottom: 5vh;
+                margin-left: 3vw;
+                margin-right: 3vw;
+            }
+
+            .miniprojectBox {
+                width: 85%;
+                margin-right: 2.9vw;
+                padding: 0.5em 2em;
+                border-radius: 1.5em;
+                margin-bottom: 7vh;
+            }
+
+            ul li {
+                font-weight: 800;
+                font-size: 4.8vw;
+                margin-left: 0.2vw;
+                line-height: 1.85;
+            }
+
+            ul li a {
+                font-weight: 700;
+                margin-left: 0.1vw;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <a href="../index.html">
+        <h1 id="miniproject">HTML / CSS & JAVA / JSP</h1>
+    </a>
+    <section class="miniprojectBox" id="listBox">
+        <ul>
+            <li><a href="./miniproject01.html">HTML / CSS 구문 (syntax)</a></li>
+            <li><a href="./practice/practice-html01.html">HTML 실습</a></li>
+            <li><a href="./practice/practice-css01.html">CSS 실습</a></li>
+        </ul>
+    </section>
+</body>
+
+</html>

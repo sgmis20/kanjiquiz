@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HTML 실습 1</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="../highlight/styles/atom-one-dark-reasonable.css" /> -->
+  <link rel="stylesheet" href="../../highlight/styles/vs2015.css" />
+  <style type="text/css">
+    body {
+      font-size: 1.35vw;
+      /* overflow-x: scroll; */
+      /* font-size: 1.65vw; */
+      background-color: rgb(1, 7, 24);
+    }
+
+    h1 {
+      font-size: 2.8vw;
+      background-color: rgb(12, 49, 70);
+      padding: 0.5em 2vw;
+      margin-top: 8vh;
+      line-height: 1;
+      color: aliceblue;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    li,
+    a {
+      margin-left: 1em;
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 2vw;
+      margin-bottom: 2.5em;
+    }
+
+    li {
+      color: rgb(191, 208, 223);
+    }
+
+    li.description {
+      color: lightseagreen;
+    }
+
+    a {
+      font-size: 3vw;
+      color: lightpink;
+      text-decoration: none;
+    }
+
+    a:hover {
+      transition: all 0.3s;
+      color: aqua;
+      text-decoration: underline;
+    }
+
+    .space {
+      margin-top: 4vh;
+    }
+
+    @media screen and (max-width: 858px) {
+
+      body {
+        font-size: 2.5vw;
+        /* overflow-x: scroll; */
+        /* font-size: 1.65vw; */
+        background-color: rgb(1, 7, 24);
+
+      }
+
+      br {
+        display: none;
+      }
+
+      h1 {
+        font-size: 4vw;
+        background-color: rgb(12, 49, 70);
+        padding: 0.5em 2vw;
+        margin-top: 2vh;
+        line-height: 1;
+        color: aliceblue;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+
+      li,
+      a {
+        margin-left: 0.5em;
+        margin-right: 1.5em;
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size: 4vw;
+        margin-bottom: 3em;
+        word-wrap: break-word;
+      }
+
+      li {
+        color: rgb(191, 208, 223);
+      }
+
+      li.description {
+        color: lightseagreen;
+      }
+
+      a {
+        font-size: 4.5vw;
+        font-weight: bold;
+        color: lightpink;
+        text-decoration: none;
+      }
+
+      .space {
+        margin-top: 10vw;
+      }
+    }
+  </style>
+  <script src="../../highlight/highlight.pack.js"></script>
+</head>
+
+<body>
+  <!-- https://www.freeformatter.com/html-escape.html#ad-output -->
+
+  <h1>raami.html</h1>
+  <pre><code>
+    &lt;!DOCTYPE html&gt;
+
+    &lt;html&gt;
+
+    &lt;head&gt;
+      &lt;meta charset=&quot;UTF-8&quot;&gt;
+      &lt;title&gt;iittala - raami&lt;/title&gt;
+    &lt;/head&gt;
+
+    &lt;body&gt;
+      &lt;h1&gt; Raami &lt;/h1&gt;
+    &lt;/body&gt;
+
+    &lt;/html&gt;
+  </code></pre>
+  <!-- ☆ -->
+  <div class="space"></div>
+  <ol>
+    <li><a href="http://yorusung.cafe24.com/archives/raami.zip">실습 준비 파일 다운로드 ← 클릭!</a></li>
+    <li class="description">위 파일을 다운로드 받고 압축을 푼 폴더로 이동해서 raami.html을 <br>
+      VSCode와 같은 텍스트 편집기 등을 이용해 아래 순서에 따라 <br>
+      실습을 진행해봅시다. (VSCode의 live server 확장기능을 이용해서 <br>
+      한 단계 한 단계 변화내용을 실시간으로 확인하면서 <br>
+      실습을 진행하기를 적극 권장합니다!) <br>
+      먼저 raami.html 을 웹 브라우저에서 실행시키거나, <br>
+      VSCode의 live server 기능을 이용해여 웹 브라우저에 표시해봅시다. <br>
+      (하얀색 배경화면에 Raami 라는 검정색 글씨만 보입니다.) </li>
+
+    <li>텍스트 편집기로 이동해서 body태그 안에 있는 <br>
+      h1 태그(내용 : Raami)를 찾아 바로 아래에 <br>
+      div 태그를 만들고 div 태그의 id는 intro로 지정해줍니다 </li>
+
+    <li>div 태그 안에 h2 태그를 이용해서 아래 텍스트를 그 안에 내용으로 입력<br>
+      Raami – a new dining collection by Jasper Morrison</li>
+
+    <li>p 태그를 만들고 안에 내용을 아래와 같이 입력 <br><br>
+      라미(Raami)는 재스퍼 모리슨(Jasper Morrison)이 디자인한 이딸라의 새로운 다이닝 컬렉션입니다. &lt;br&gt;
+      핀란드어로는 &lsquo;프레임&rsquo;을 의미하는 라미 컬렉션은, 제품이 그 공간의 분위기를 만들어내는 역할에 중점을 두었습니다. &lt;br&gt;
+      도자기, 유리 그리고 나무로 구성된 컬렉션으로 어떤 장소나 시간에 상관 없이 멋스러운 테이블 분위기를 만들어냅니다. </li>
+
+    <li>div id="intro" 아래에 div id="main" 태그를 새로 만들기 <br><br>
+      참고로 이 문단 이하에서 #main은 태그의 id 값이 main을 의미하며 <br>
+      .content 라고 함은 태그의 class 값이 content를 의미합니다 <br>
+      (css에서 # 는 id 선택자를 의미하고 . 은 class 선택자를 의미)</li>
+
+    <li>div #main 안에는 h3 태그를 이용해서 '제품 종류' 라고 내용을 넣고 <br>
+      그 아래에 ul태그를 이용해서 순서 없는 리스트를 만들어봅시다 <br><br>
+
+      ul의 하위 태그로 li 태그(list 태그)가 있으며 리스트는 4개를 만들고 각각 <br>
+      '텀블러', '카라페', '딥 플레이트', '캔들 홀더'라고 내용을 넣어줍니다</li>
+
+    <li>ul태그 아래에는 h3 태그를 이용해서 '디자이너 인터뷰' 텍스트를 입력합니다</li>
+
+    <li>h3태그 아래에 p 태그를 이용해서 아래 내용을 복붙해줍니다. <br><br>
+
+      "Ninety-nine per cent of all design objects are intended to be noticed quickly, that's part of the marketing
+      strategy of a great many companies. But objects that you notice immediately are not usually the best everyday
+      performers, they disturb the atmosphere by providing too much presence. Objects that contribute the best
+      atmosphere tend to be less immediately noticeable; it may take some time before you appreciate them for their
+      practicality and more subtle, discreet presence."
+      Extract from Iittala Journal - No2 - September 2018, interview with Jasper Morrison conducted by Marco Velardi.
+    </li>
+    <li>p 태그 아래에 a 태그를 이용해서 다음 주소의 링크를 걸어줍니다 <br><br>
+      https://www.jaspermorrison.com/publications/interviews/objects-atmosphere
+      <br><br>
+      a 태그의 화면 표시내용 : 인터뷰 전문 보기</li>
+    <li>
+      div #main 아래에 div를 생성하고 id는 media로 지정해줍니다
+    </li>
+    <li>div #media 안에 h2 태그를 이용해서 다음 내용을 입력합니다
+      <br>'이미지 레이아웃'
+    </li>
+
+    <hr>
+    <div class="space"></div>
+    <li class="description">이제부터는 텍스트만 있던 html 파일에 <br>
+      img 태그를 이용한 이미지 파일 링크, <br>
+      iframe 태그를 이용한 Youtube 동영상 링크를 <br>
+      걸어주는 방법을 연습해봅시다!
+    </li>
+
+    <li>div #intro 안에 p 태그 바로 아래에 img 태그를 이용해서 <br>
+      같은 방식으로 images 폴더 안에 있는 raami-kitchen.jpg 파일을 불러옵니다</li>
+    <li>img 태그를 이용해서 불러온 raami-kitchen.jpg 사진 아래 <br>
+      p태그를 만들고 class를 pictureText로 지정해줍니다(대소문자에 주의) <br>
+      p.pictureText 태그 안의 내용은 아래와 같이 입력합니다. <br>
+      세라믹, 유리 그리고 참나무(oak)소재들이 어우러진 데일리 키친
+    </li>
+    <li>다음으로 div #main 안의 내용에 img 태그를 넣어봅시다 <br><br>
+      ul 태그 안에 '텀블러', '카라페', '딥 플레이트', '캔들 홀더'가 <br>
+      각각 li 태그 안의 내용으로 들어있습니다 <br>
+      li 태그가 /li 태그로 닫힌 바로 뒤에 img 태그를 이용해서 <br>
+      위에서 부터 순서대로 (images 폴더 안에 있는) <br>
+      raami-tumbler.jpg <br>
+      raami-carafe.jpg <br>
+      raami-deep-plate.jpg <br>
+      raami-candleholder.jpg <br>
+      파일을 각각의 li 태그가 닫힌 바로 뒤에 img 태그로 불러옵니다
+    </li>
+    <li>다음으로 다시 div #media 태그로 이동해서 <br>
+      각각 img 태그를 이용해서 아래 상대경로의 이미지를 div #media 안에 넣어줍니다 <br>
+      ./images/raami-pic1.jpg <br>
+      ./images/raami-pic2.jpg <br>
+      ./images/raami-pic3.jpg <br>
+    </li>
+
+    <li>
+      raami-pic3을 불러온 img 태그 아래에 <br>
+      p 태그를 만들고 class 이름은 pictureText로 지정해줍니다 <br>
+      내용은 다음을 입력합니다 -> 'Photography: Osma Harvilahti'</li>
+
+    <li>방금 만든 p태그 바로 아래에 <br>
+      iframe 태그와 내용을 통째로 raami.html에 복사+붙여넣기 해줍니다 <br>
+      (Youtube 동영상을 embedded 링크로 연결해주는 태그입니다 <br>
+      데스크탑 Youtube 페이지에서 원하는 동영상의 공유(share) 버튼을 누르고 <br>
+      Embed &lt;&gt; 버튼을 클릭하면 아래와 같은 형식의 html 태그를 생성해줍니다.)
+      <br><br>
+
+      &lt;iframe width="560" height="315" src="https://www.youtube.com/embed/M01ptqMP_II?start=4" frameborder="0"
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+    </li>
+    <li>iframe 태그 위에 br 태그를 만들어서 줄바꿈을 해줍니다</li>
+    <li>이상으로 html 태그만을 이용해서 간단한 웹페이지를 만들어보았습니다.</li>
+
+    <li><a href="./raami-FINISHED.html" target="_blank">완성된 페이지 예시 ← 클릭</a></li>
+
+    <li>예시 페이지의 코드는 아래와 같습니다</li>
+
+    <li>다음 시간에는 css를 이용해서 오늘 만든 html 페이지의 <br>
+      스타일을 설정해주는 실습을 해보겠습니다.　<br>
+      お疲れさまでした。</li>
+
+
+  </ol>
+  <h1>raami-FINISHED.html</h1>
+  <pre><code>
+    &lt;!DOCTYPE html&gt;
+    &lt;html&gt;
+
+    &lt;head&gt;
+      &lt;meta charset=&quot;UTF-8&quot;&gt;
+      &lt;title&gt;iittala - raami&lt;/title&gt;
+    &lt;/head&gt;
+
+    &lt;body&gt;
+      &lt;h1&gt; Raami &lt;/h1&gt;
+      &lt;div id=&quot;intro&quot;&gt;
+        &lt;h2&gt;Raami &ndash; a new dining collection by Jasper Morrison&lt;/h2&gt;
+        &lt;p&gt;라미(Raami)는 재스퍼 모리슨(Jasper Morrison)이 디자인한 이딸라의 새로운 다이닝 컬렉션입니다. &lt;br&gt;
+          핀란드어로는 &lsquo;프레임&rsquo;을 의미하는 라미 컬렉션은, 제품이 그 공간의 분위기를 만들어내는 역할에 중점을 두었습니다. &lt;br&gt;
+          도자기, 유리 그리고 나무로 구성된 컬렉션으로 어떤 장소나 시간에 상관 없이 멋스러운 테이블 분위기를 만들어냅니다. &lt;/p&gt;
+        &lt;img src=&quot;./images/raami-kitchen.jpg&quot; alt=&quot;sample pics&quot;&gt;
+        &lt;p class=&quot;pictureText&quot;&gt; 세라믹, 유리 그리고 참나무(oak)소재들이 어우러진 데일리 키친&lt;/p&gt;
+
+      &lt;/div&gt;
+      &lt;div id=&quot;main&quot;&gt;
+        &lt;h3&gt;제품 종류&lt;/h3&gt;
+        &lt;ul&gt;
+          &lt;li&gt;텀블러&lt;/li&gt;&lt;img src=&quot;./images/raami-tumbler.jpg&quot; alt=&quot;&quot;&gt;
+          &lt;li&gt;카라페&lt;/li&gt;&lt;img src=&quot;./images/raami-carafe.jpg&quot; alt=&quot;&quot;&gt;
+          &lt;li&gt;딥 플레이트&lt;/li&gt;&lt;img src=&quot;./images/raami-deep-plate.jpg&quot; alt=&quot;&quot;&gt;
+          &lt;li&gt;캔들 홀더&lt;/li&gt;&lt;img src=&quot;./images/raami-candleholder.jpg&quot; alt=&quot;&quot;&gt;
+        &lt;/ul&gt;
+
+        &lt;h3&gt;디자이너 인터뷰&lt;/h3&gt;
+        &lt;p&gt;&quot;Ninety-nine per cent of all design objects are intended to be noticed quickly,that's part of the marketing
+          strategy of a great many companies. But objects that you notice immediately are not usually the best everyday
+          performers, they disturb the atmosphere by providing too much presence. Objects that contribute the best
+          atmosphere tend to be less immediately noticeable; it may take some time before you appreciate them for their
+          practicality and more subtle, discreet presence.&quot;
+          Extract from Iittala Journal - No2 - September 2018, interview with Jasper Morrison conducted by Marco Velardi.
+        &lt;/p&gt;
+        &lt;a href=&quot;https://www.jaspermorrison.com/publications/interviews/objects-atmosphere&quot;&gt;인터뷰 전문 보기&lt;/a&gt;
+      &lt;/div&gt;
+
+      &lt;div id=&quot;media&quot;&gt;
+        &lt;h2&gt;이미지 레이아웃&lt;/h2&gt;
+        &lt;img src=&quot;./images/raami-pic1.jpg&quot; alt=&quot;&quot;&gt;
+        &lt;img src=&quot;./images/raami-pic2.jpg&quot; alt=&quot;&quot;&gt;
+        &lt;img src=&quot;./images/raami-pic3.jpg&quot; alt=&quot;&quot;&gt;
+        &lt;p class=&quot;pictureText&quot;&gt;Photography: Osma Harvilahti&lt;/p&gt;
+        &lt;br&gt;
+        &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/M01ptqMP_II?start=4&quot; frameborder=&quot;0&quot;
+          allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
+      &lt;/div&gt;
+    &lt;/body&gt;
+
+    &lt;/html&gt;
+  </code></pre>
+  <!-- ☆ -->
+
+  <!-- <pre><code class="html">...</code></pre> -->
+  <!-- <pre><code class="language-html">...</code></pre> -->
+  <!-- <pre><code class="plaintext">...</code></pre> -->
+  <!-- <pre><code class="nohighlight">...</code></pre> -->
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+</body>
+
+</html>
