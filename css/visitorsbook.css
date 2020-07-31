@@ -1,0 +1,15 @@
+body {
+  background-color: rgb(2, 15, 26);
+  color: aliceblue;
+}
+
+table {
+  align: center;
+  width: 500;
+  border: 1;
+}
+
+textarea {
+  color: black;
+  background-color: lightgrey;
+}

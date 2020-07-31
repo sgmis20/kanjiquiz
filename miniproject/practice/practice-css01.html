@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CSS 실습 1</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
   <!-- <link rel="stylesheet" href="../highlight/styles/atom-one-dark-reasonable.css" /> -->
   <link rel="stylesheet" href="../../highlight/styles/vs2015.css" />
   <style type="text/css">
@@ -56,6 +57,12 @@
 
     .space {
       margin-top: 4vh;
+    }
+
+    li.japanese {
+      color: rgba(218, 218, 39, 0.815);
+      font-family: 'Kosugi Maru', sans-serif;
+      list-style-type: none;
     }
 
     @media screen and (max-width: 858px) {
@@ -156,15 +163,136 @@
       <br>
       &gt;link rel="stylesheet" href="./css/style.css"&lt;
     </li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
+    <li>
+      단 몇 줄의 css 코드만으로도 분위기가 변했습니다! <br>
+      여기에 이어 학습한 내용을 바탕으로 자유롭게 실습을 진행해봅시다.
+    </li>
+    <li>어느 정도 실습을 마쳤으면 아래의 샘플 페이지와 <br>
+      샘플 페이지에 쓰인 css 코드(링크 아래 부분)를 보면서 <br>
+      혹시 사용하지 않은 css 속성 등을 조금 더 연습해보세요 </li>
+    <li><a href="./raami-css-FINISHED.html" target="_blank">css 적용 샘플 페이지 ← 클릭</a></li>
+    <li class="description">다음으로 웹폰트를 지정하는 방법을 익혀봅시다 <br>
+      유저가 사용하고 있는 운영체제, 설치된 시스템 폰트 등은 서로 다르므로 <br>
+      개발자 / 디자이너가 원하는 폰트를 손쉽게 웹페이지에 적용하기 위해서는 <br>
+      웹 폰트(웹페이지가 로드될 때 폰트를 자동으로 다운받도록 함)를 <br>
+      이용하는 방법이 있습니다. <br>
+      가장 손쉽게 이용가능한 Google Fonts 서비스를 이용해서 <br>
+      실습에 적용해봅시다!</li>
+    <li>구글 검색창에 구글 폰트(google fonts)로 검색하거나 아래 링크를 이용해서 <br>
+      구글 폰트 서비스 웹페이지로 이동합니다. </li>
+    <li><a href="https://fonts.google.com/" target="_blank">구글 폰트 페이지 ← 클릭</a></li>
+
+
+    <li>웹페이지 상단 검색 창 바로 아래에 언어를 고를 수 있는 <br>
+      Language 를 이용해서 원하는 언어를 지원하는 폰트를 쉽게 <br>
+      지정하여 볼 수 있습니다. <br>
+      (Categories로 Serif 체, Sans Serif 체, 손글씨 체 등 <br>
+      폰트 서체에 따라 세분화된 검색 결과를 볼 수도 있습니다.) <br>
+      마음에 드는 폰트를 찾았다면 클릭해줍시다 </li>
+    <li>서로 다른 font-weight 에 따른 폰트 예시가 보입니다. <br>
+      원하는 굵기의 폰트를 찾았다면 <br>
+      오른쪽에 있는 + Select this style 버튼을 눌러줍시다 <br>
+    </li>
+    <li>우측에 선택한 폰트가 담겼습니다 <br>
+      현재는 Review 탭이 선택되어 있는데 그 오른쪽에 있는 <br>
+      Embed 탭을 클릭해줍시다 </li>
+    <li>코드가 두 가지 나옵니다. <br>
+      상단은 html의 head 태그 안에 들어가는 link 태그이고 <br>
+      하단의 코드는 css 파일 안에 적용시키기 위한 속성과 속성값을 의미합니다. <br>
+      자 이제, 선택한 폰트를 raami.html 페이지에 적용해봅시다!
+    </li>
+    <li class="description">여유가 있을 때 심심풀이로 다양한 css 속성과 속성값을 <br>
+      새로운 html 페이지로 만들어서 연습해보고 <br>
+      심플하지만 잘 디자인된 웹페이지의 css 코드를 보고 <br>
+      하나하나 분석해보면서 css 스킬을 습득하는 방법을 추천합니다. <br>
+    </li>
+    <li class="japanese">ご苦労さん!</li>
   </ol>
 
+
+  <h1>style.css (샘플 페이지)</h1>
+  <pre><code class="language-css">
+    body {
+      background-color: rgb(1, 7, 24);
+      color: aliceblue;
+      font-family: "Noto Sans KR", sans-serif;
+    }
+
+    h1 {
+      font-size: 50px;
+    }
+
+    h2 {
+      font-size: 30px;
+    }
+
+    h3 {
+      font-size: 25px;
+    }
+
+    ul li {
+      font-size: 20px;
+      letter-spacing: 5px;
+      margin-top: 30px;
+      margin-bottom: 10px;
+      vertical-align: middle;
+      list-style-type: circle;
+    }
+
+    p {
+      font-size: 20px;
+    }
+
+    p.pictureText {
+      line-height: 0;
+      margin-bottom: 50px;
+      font-family: "Noto Sans KR", sans-serif;
+    }
+
+    p.interview {
+      font-size: 25px;
+      font-family: "Marck Script", cursive;
+      color: aliceblue;
+      background-color: rgb(43, 52, 68);
+      padding: 20px 30px 20px 30px;
+      border-radius: 15px;
+    }
+
+    a {
+      font-size: 30px;
+      color: aliceblue;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 10px 15px 10px 15px;
+      border-radius: 30px;
+    }
+
+    a:hover {
+      background-color: bisque;
+      color: black;
+    }
+
+    iframe {
+      width: calc(560px * 1.3);
+      height: calc(315px * 1.3);
+    }
+
+    div#main {
+      margin-top: 80px;
+      margin-bottom: 80px;
+    }
+
+    div#main img {
+      border-radius: 45px;
+      display: inline-block;
+    }
+
+    div#media img {
+      height: 250px;
+      width: auto;
+    }
+
+   </code></pre>
   <!-- ☆ -->
 
   <!-- <pre><code class="html">...</code></pre> -->
