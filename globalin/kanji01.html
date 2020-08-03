@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01주차</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&display=swap"
+        rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap"
+        rel="stylesheet"> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap" rel="stylesheet"> -->
+    <link rel="stylesheet" href="./style.css?v=1.5">
+</head>
+
+<body>
+    <section class="button-container">
+        <section class="button-vertical-center">
+            <button class="toggleLeft">
+                <h4>왼쪽 바꾸기</h4>
+            </button>
+            <button class="toggleRight">
+                <h4>오른쪽 바꾸기</h4>
+            </button>
+            <button class="toggleAll">
+                <h4>둘 다 바꾸기</h4>
+            </button>
+        </section>
+    </section>
+    <table class="center">
+        <thead>
+            <tr>
+                <th>漢字 →　読み仮名</th>
+                <th>読み仮名 →　漢字</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <ol id="tangoToYomigana">
+                    </ol>
+                </td>
+                <td>
+                    <ol id="yomiganaToTango">
+                    </ol>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        const left01 = '1汚い手2きたないて3で食べ物に触るな。';
+        const left02 = '一度に大量の1商品2しょうひん3を仕入れる。';
+        const left03 = 'スープはすっかり1冷えて2ひえて3いた。';
+        const left04 = '電気代をコンビニで1払う2はらう3。';
+        const left05 = '覚えるべき表現に1下線2かせん3を引いた。';
+        const left06 = '船で1地球2ちきゅう3を一周する。';
+        const left07 = 'フランスはワインの1主要2しゅよう3な生産国だ。';
+        const left08 = '1過去2かこ3のことを悔やんでも始まらない。';
+        const left09 = 'その試合に多くの1観客2かんきゃく3が集まった。';
+        const left10 = '彼女は看護の1訓練2くんれん3を受けた。';
+        const left11 = '彼は1丸い2まるい3顔をしている。';
+        const left12 = '英会話の1個人2こじん3レッスンを受けている。';
+        const left13 = '先週病院で1血液型2けつえきがた3を調べた。';
+        const left14 = '1美しい2うつくしい3景色を見ながら食事をする。';
+        const left15 = '大阪は1商業2しょうぎょう3の中心地だった。';
+
+        const right01 = '人手不足で1こまって2困って3いる。';
+        const right02 = '山田さんは右腕が1おれた2折れた3。';
+        const right03 = '感謝の気持ちを1つたえる2伝える3。';
+        const right04 = '彼の成績は1へいきん2平均3以上です。';
+        const right05 = 'あの子のことはよく1おぼえて2覚えて3いる。';
+        const right06 = '無理して1わらう2笑う3ことはない。';
+        const right07 = '彼は２日で原稿を1かんせい2完成3させた。';
+        const right08 = '彼女は不満げに腕を1くんだ2組んだ3。';
+        const right09 = '小林さんは、1ぶんしょう2文章3が上手です。';
+        const right10 = 'これは役に立つ1じょうほう2情報3です。';
+        const right11 = '彼は銀行に借金を1かえした2返した3。';
+        const right12 = '状況は絶えず1へんか2変化3している。';
+        const right13 = '1じゅんばん2順番3を守ってください。';
+        const right14 = '1しょっき2食器3を洗うのを手伝う。';
+        const right15 = '彼は1あせ2汗3びっしょりだった。';
+    </script>
+    <script src="./toggleKanji.js?v=1.5"></script>
+</body>
+
+</html>

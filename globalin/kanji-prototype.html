@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01주차</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./style.css?v=1.0">
+</head>
+
+
+
+<body>
+    <table class="center">
+        <thead>
+            <tr>
+                <th>漢字 → 読み仮名</th>
+                <th>読み仮名 → 漢字</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <ol id="tangoToYomigana">
+                        <li><strong class="tango">汚い手</strong><strong class="toYomigana">きたないて</strong>で食べ物に触るな。</li>
+                        <li>一度に大量の<strong class="tango">商品</strong><strong class="toYomigana">しょうひん</strong>を仕入れる。</li>
+                        <li>スープはすっかり<strong class="tango">冷えて</strong><strong class="toYomigana">ひえて</strong>いた。</li>
+                        <li>電気代をコンビニで<strong class="tango">払う</strong><strong class="toYomigana">はらう</strong>。</li>
+                        <li>覚えるべき表現に<strong class="tango">下線</strong><strong class="toYomigana">かせん</strong>を引いた。</li>
+                        <li>船で<strong class="tango">地球</strong><strong class="toYomigana">ちきゅう</strong>を一周する。</li>
+                        <li>フランスはワインの<strong class="tango">主要</strong><strong class="toYomigana">しゅよう</strong>な生産国だ。
+                        </li>
+                        <li><strong class="tango">過去</strong><strong class="toYomigana">かこ</strong>のことを悔やんでも始まらない。</li>
+                        <li>その試合に多くの<strong class="tango">観客</strong><strong class="toYomigana">かんきゃく</strong>が集まった。
+                        </li>
+                        <li>彼女は看護の<strong class="tango">訓練</strong><strong class="toYomigana">くんれん</strong>を受けた。</li>
+                        <li>彼は<strong class="tango">丸い</strong><strong class="toYomigana">まるい</strong>顔をしている。</li>
+                        <li>英会話の<strong class="tango">個人</strong><strong class="toYomigana">こじん</strong>レッスンを受けている。</li>
+                        <li>先週病院で<strong class="tango">血液型</strong><strong class="toYomigana">けつえきがた</strong>を調べた。</li>
+                        <li><strong class="tango">美しい</strong><strong class="toYomigana">うつくしい</strong>景色を見ながら食事をする。
+                        </li>
+                        <li>大阪は<strong class="tango">商業</strong><strong class="toYomigana">しょうぎょう</strong>の中心地だった。</li>
+                    </ol>
+                </td>
+                <td>
+                    <ol id="yomiganaToTango">
+                        <!-- <li><strong class="yomigana"></strong><strong class="toTango"></strong></li> -->
+                    </ol>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <section class="buttons">
+        <button class="toggleLeft">
+            <h4>Left toggle</h4>
+        </button>
+
+
+
+        <button class="toggleRight">
+            <h4>Right toggle</h4>
+        </button>
+    </section>
+    <script>
+        /* eslint-disable */
+        const rightHandSide = document.getElementById('yomiganaToTango');
+
+        const strongRight01 = '<strong class="yomigana">';
+        const strongRight02 = '</strong><strong class="toTango">';
+        const strongRight03 = '</strong>';
+
+        const right01 = '人手不足で1こまって2困って3いる。';
+        const right02 = '山田さんは右腕が1おれた2折れた3。';
+        const right03 = '感謝の気持ちを1つたえる2伝える3。';
+        const right04 = '彼の成績は1へいきん2平均3以上です。';
+        const right05 = 'あの子のことはよく1おぼえて2覚えて3いる。';
+        const right06 = '無理して1わらう2笑う3ことはない。';
+        const right07 = '彼は２日で原稿を1かんせい2完成3させた。';
+        const right08 = '彼女は不満げに腕を1くんだ2組んだ3。';
+        const right09 = '小林さんは、1ぶんしょう2文章3が上手です。';
+        const right10 = 'これは役に立つ1じょうほう2情報3です。';
+        const right11 = '彼は銀行に借金を1かえした2返した3。';
+        const right12 = '状況は絶えず1へんか2変化3している。';
+        const right13 = '1じゅんばん2順番3を守ってください。';
+        const right14 = '1しょっき2食器3を洗うのを手伝う。';
+        const right15 = '彼は1あせ2汗3びっしょりだった。';
+
+        const listRightContent = [
+            right01,
+            right02,
+            right03,
+            right04,
+            right05,
+            right06,
+            right07,
+            right08,
+            right09,
+            right10,
+            right11,
+            right12,
+            right13,
+            right14,
+            right15,
+        ];
+
+        for (let i = 0; i < listRightContent.length; i++) {
+            listRightContent[i] = listRightContent[i].replace('1', strongRight01);
+            listRightContent[i] = listRightContent[i].replace('2', strongRight02);
+            listRightContent[i] = listRightContent[i].replace('3', strongRight03);
+            const listTag = `<li>${listRightContent[i]}</li>`;
+            rightHandSide.insertAdjacentHTML('beforeend', listTag);
+        }
+
+        const rightSentenceToString = [
+            right01,
+            right02,
+            right03,
+            right04,
+            right05,
+            right06,
+            right07,
+            right08,
+            right09,
+            right10,
+            right11,
+            right12,
+            right13,
+            right14,
+            right15,
+        ];
+
+        for (let i = 0; i < rightSentenceToString.length; i++) {
+            rightSentenceToString[i] = rightSentenceToString[i].replace('1', '');
+            rightSentenceToString[i] = rightSentenceToString[i].replace('2', '');
+            rightSentenceToString[i] = rightSentenceToString[i].replace('3', '');
+            console.log(rightSentenceToString[i]);
+        }
+
+        let tangoList = '';
+        const tango = document.getElementsByClassName('tango');
+        for (let i = 0; i < tango.length; i++) {
+            if (tango[i].innerText === '') continue;
+            tangoList += `"${tango[i].innerText}",`;
+        }
+        const tangoListToString = tangoList.substring(0, tangoList.length - 1);
+
+        let toYomiganaList = '';
+        const toYomigana = document.getElementsByClassName('toYomigana');
+        for (let i = 0; i < toYomigana.length; i++) {
+            if (toYomigana[i].innerText === '') continue;
+            toYomiganaList += `"${toYomigana[i].innerText}",`;
+        }
+        const toYomiganaListToString = toYomiganaList.substring(
+            0,
+            toYomiganaList.length - 1
+        );
+
+        let yomiganaList = '';
+        const yomigana = document.getElementsByClassName('yomigana');
+        for (let i = 0; i < yomigana.length; i++) {
+            if (yomigana[i].innerText === '') continue;
+            yomiganaList += `"${yomigana[i].innerText}",`;
+        }
+        const yomiganaListToString = yomiganaList.substring(0, yomiganaList.length - 1);
+
+        let toTangoList = '';
+        const toTango = document.getElementsByClassName('toTango');
+        for (let i = 0; i < toTango.length; i++) {
+            if (toTango[i].innerText === '') continue;
+            toTangoList += `"${toTango[i].innerText}",`;
+        }
+        const toTangoListToString = toTangoList.substring(0, toTangoList.length - 1);
+
+        function showList() {
+            console.log('tangoListToString');
+            console.log(tangoListToString);
+            console.log('');
+            console.log('toYomiganaListToString');
+            console.log(toYomiganaListToString);
+            console.log('');
+            console.log('yomiganaListToString');
+            console.log(yomiganaListToString);
+            console.log('');
+            console.log('toTangoListToString');
+            console.log(toTangoListToString);
+            console.log('');
+        }
+        showList();
+
+        function hideLeftLatter() {
+            const leftLatter = document.getElementsByClassName('toYomigana');
+            let i;
+            for (i = 0; i < leftLatter.length; i++) {
+                leftLatter[i].style.display = 'none';
+            }
+        }
+        hideLeftLatter();
+
+        document.querySelector('.toggleLeft').addEventListener('click', function () {
+            const leftFormer = document.getElementsByClassName('tango');
+            const leftLatter = document.getElementsByClassName('toYomigana');
+            let i;
+            for (i = 0; i < leftLatter.length; i++) {
+                if (leftLatter[i].style.display === 'none') {
+                    leftFormer[i].style.display = 'none';
+                    leftLatter[i].style.display = 'inline-block';
+                } else {
+                    leftFormer[i].style.display = 'inline-block';
+                    leftLatter[i].style.display = 'none';
+                }
+            }
+        });
+
+        function hideRightLatter() {
+            const rightLatter = document.getElementsByClassName('toTango');
+            let i;
+            for (i = 0; i < rightLatter.length; i++) {
+                rightLatter[i].style.display = 'none';
+            }
+        }
+        hideRightLatter();
+
+        document.querySelector('.toggleRight').addEventListener('click', function () {
+            const rightFormer = document.getElementsByClassName('yomigana');
+            const rightLatter = document.getElementsByClassName('toTango');
+            let i;
+            for (i = 0; i < rightLatter.length; i++) {
+                if (rightLatter[i].style.display === 'none') {
+                    rightFormer[i].style.display = 'none';
+                    rightLatter[i].style.display = 'inline-block';
+                } else {
+                    rightFormer[i].style.display = 'inline-block';
+                    rightLatter[i].style.display = 'none';
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

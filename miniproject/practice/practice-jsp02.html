@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JSP 실습 2</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="../highlight/styles/atom-one-dark-reasonable.css" /> -->
+  <link rel="stylesheet" href="../../highlight/styles/vs2015.css" />
+  <style type="text/css">
+    body {
+      font-size: 1.35vw;
+      /* overflow-x: scroll; */
+      /* font-size: 1.65vw; */
+      background-color: rgb(1, 7, 24);
+    }
+
+    h1 {
+      font-size: 2.8vw;
+      background-color: rgb(12, 49, 70);
+      padding: 0.5em 2vw;
+      margin-top: 8vh;
+      line-height: 1;
+      color: aliceblue;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    li,
+    a {
+      margin-left: 1em;
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 2vw;
+
+    }
+
+    li {
+      color: rgb(191, 208, 223);
+      margin-bottom: 3em;
+    }
+
+    li.description {
+      color: lightseagreen;
+    }
+
+    li strong {
+      color: rgb(216, 127, 94);
+    }
+
+    li strong.method {
+      color: rgb(189, 202, 132);
+    }
+
+    a {
+      font-size: 3vw;
+      color: lightpink;
+      text-decoration: none;
+    }
+
+    a:hover {
+      transition: all 0.3s;
+      color: aqua;
+      text-decoration: underline;
+    }
+
+    .space {
+      margin-top: 4vh;
+    }
+
+    .japanese {
+      color: rgba(218, 218, 39, 0.815);
+      font-family: 'Kosugi Maru', sans-serif;
+      list-style-type: none;
+    }
+
+    Strong.colored {
+      color: rgb(236, 148, 231);
+    }
+
+    Span.colored {
+      color: rgb(240, 124, 130);
+    }
+
+    @media screen and (max-width: 858px) {
+
+      body {
+        font-size: 2.5vw;
+        /* overflow-x: scroll; */
+        /* font-size: 1.65vw; */
+        background-color: rgb(1, 7, 24);
+
+      }
+
+      br {
+        display: none;
+      }
+
+      h1 {
+        font-size: 4vw;
+        background-color: rgb(12, 49, 70);
+        padding: 0.5em 2vw;
+        margin-top: 2vh;
+        line-height: 1;
+        color: aliceblue;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+
+      li,
+      a {
+        margin-left: 0.5em;
+        margin-right: 1.5em;
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size: 4vw;
+        margin-bottom: 3em;
+        word-wrap: break-word;
+      }
+
+      li {
+        color: rgb(191, 208, 223);
+      }
+
+      li.description {
+        color: lightseagreen;
+      }
+
+      a {
+        font-size: 4.5vw;
+        font-weight: bold;
+        color: lightpink;
+        text-decoration: none;
+      }
+
+      .space {
+        margin-top: 10vw;
+      }
+    }
+  </style>
+  <script src="../../highlight/highlight.pack.js"></script>
+</head>
+
+<body>
+  <!-- https://www.freeformatter.com/html-escape.html#ad-output -->
+
+  <h1>form-response.jsp</h1>
+  <pre><code class="language-java">
+    &lt;%@ page contentType=&quot;text/html; charset=UTF-8&quot; %&gt;
+
+    &lt;!DOCTYPE html&gt;
+    &lt;html&gt;
+      &lt;head&gt;
+         &lt;meta charset=&quot;utf-8&quot;&gt;
+        &lt;title&gt;주문식 햄버거&lt;/title&gt;
+        &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;./css/burger-response.css?v=1.3&quot;&gt;
+      &lt;/head&gt;
+      &lt;body&gt;
+
+      &lt;p&gt;패티 : &lt;%= request.getParameter(&quot;amount&quot;)%&gt; 장&lt;/p&gt;
+      &lt;p&gt;패티 굽기 정도 : [1(레어)~5(웰던)] : &lt;%= request.getParameter(&quot;doneness&quot;)%&gt;&lt;/p&gt;
+      &lt;P&gt;선택한 토핑&lt;/P&gt;
+
+      &lt;ul&gt;
+         &lt;%
+         String[] toppings = request.getParameterValues(&quot;topping&quot;);
+          if (toppings != null) {
+           for(String checkboxValue : toppings){
+             out.println(&quot;&lt;li&gt;&quot;+ checkboxValue +&quot;&lt;/li&gt;&quot;);
+           }
+         }
+         %&gt;
+       &lt;/ul&gt;
+
+      &lt;p&gt;치즈 선택 여부 : &lt;%= request.getParameter(&quot;cheese&quot;)%&gt;&lt;/p&gt;
+
+      &lt;p&gt;번 타입 : &lt;%= request.getParameter(&quot;bun&quot;)%&gt;&lt;/p&gt;
+
+      &lt;p&gt;소스 타입 : &lt;%= request.getParameter(&quot;sauce&quot;)%&gt;&lt;/p&gt;
+
+      &lt;/body&gt;
+    &lt;/html&gt;
+   </code></pre>
+  <!-- ☆ -->
+  <div class="space"></div>
+  <ol>
+    <li class="description">
+      위 코드는 지난 시간 실습 결과 예시입니다<br>
+      혹시 만에 하나 놓친 부분이 있거나 구현이 안된 부분이 있다면<br>
+      참고하시고 궁금한 점은 언제든지 물어보세요<br>
+      <br>
+      앞서 JSP 실습 1에서 간단히 구현한 동적페이지를 <br>
+      좀 더 재미있게, 실제적으로 활용될법한 페이지로 만들어보겠습니다.
+      <br> <br>
+      실습에 앞서 잠시 페이지를 구상해봅시다~!
+      <br>
+      우리는 사용자(혹은 고객)로부터 입력받은 패티 장 수, 패티 굽기 정도, <br>
+      선택한 토핑의 종류, 치즈 선택여부, 햄버거 빵의 타입, 소스 종류... <br>
+      꽤 여러가지 값을 하나하나 입력 받았습니다. <br>
+      <br>
+      여기 예제에서는 입력 받은 속성 값에 따라 <br>
+      img 태그를 이용해서 거기에 해당하는 이미지 파일을 불러옴으로써 <br>
+      하나하나 차곡차곡 쌓이는 이미지, 즉 🍔 모양의 이미지를 <br>
+      구현해보고자 합니다. <br>
+
+
+    <li>이클립스를 실행해서 전 시간에 했던 practice 프로젝트의 <br>
+      form 폴더 안에 css 폴더와 images 폴더가 있는 것을 확인할 수 있습니다 <br><br>
+      그 중에서 images 폴더 안의 이미지 파일들을 하나씩 클릭해보며<br>
+      어떤 파일로 구성이 되어있는지 확인해봅시다 <br>
+      이미지 파일과 이름만 보아도 쉽게 알 수 있을겁니다 <br>
+      <br>
+      ( patty에 숫자가 붙어있는 건 굽기 정도에 따라 패티 색깔을 <br>
+      바꿔주려고 따로 지정해 놓은 것인데 <br>
+      복잡하다면 이 부분은 한가지 패티로 지정해줘도 무방합니다! )</li>
+
+    <li>자 준비가 되었으면 아래 코드를 지난 시간에 만든 <br>
+      form-response.jsp 파일의 body 태그 안에 넣어줍니다 <br>
+      body 태그가 시작하는 부분에 붙여 넣어도 좋고 <br>
+      body 태그가 끝나는 부분 바로 앞에 붙여넣어도 좋습니다.
+    </li>
+
+    <h1>form-response.jsp 파일의 &lt;body&gt;의 내용</h1>
+    <pre><code class="language-java">
+
+    &lt;% out.println(&quot;&lt;h1&gt; 주문하신 햄버거 나왔습니다~ &lt;/h1&gt;&quot;); %&gt;
+
+    &lt;!--  번 top --&gt;
+    &lt;%
+    String bunTop = request.getParameter(&quot;bun&quot;);
+    switch(bunTop){
+    case &quot;sesame&quot;:
+      out.println(&quot;&lt;img src=\&quot;./images/bun-top-sesame.png\&quot; alt=\&quot;sesame bun top\&quot;&gt;&quot;);
+      break;
+    case &quot;oregano&quot;:
+      out.println(&quot;&lt;img src=\&quot;./images/bun-top-oregano.png\&quot; alt=\&quot;oregano bun top\&quot;&gt;&quot;);
+      break;
+    case &quot;pita&quot;:
+      out.println(&quot;&lt;img src=\&quot;./images/bun-top-pita.png\&quot; alt=\&quot;pita bun top\&quot;&gt;&quot;);
+      break;
+    }
+    %&gt;
+
+    &lt;!--  번 bottom --&gt;
+    &lt;%
+    String bunBottom = request.getParameter(&quot;bun&quot;);
+    switch(bunBottom){
+    case &quot;sesame&quot;:
+      out.println(&quot;&lt;img src=\&quot;./images/bun-bottom-sesame.png\&quot; alt=\&quot;sesame bun bottom\&quot;&gt;&quot;);
+      break;
+    case &quot;oregano&quot;:
+      out.println(&quot;&lt;img src=\&quot;./images/bun-bottom-oregano.png\&quot; alt=\&quot;oregano bun bottom\&quot;&gt;&quot;);
+      break;
+    case &quot;pita&quot;:
+      out.println(&quot;&lt;img src=\&quot;./images/bun-bottom-pita.png\&quot; alt=\&quot;pita bun bottom\&quot;&gt;&quot;);
+      break;
+    }
+    %&gt;
+
+    &lt;h2&gt;&lt;a href=&quot;./form-burger.html&quot;&gt;햄버거 다시 주문하기&lt;/a&gt;&lt;/h2&gt;
+      </code></pre>
+
+    <li>
+      위 코드를 이클립스 상에서 천천히 들여다 보면 <br>
+      먼저 JSP 스크립틀릿 안에는 예~전에 배웠던 <br>
+      Java 코드가 낯익게 느껴질 겁니다. <br>
+      참고가 될 수 있도록 햄버거 윗 빵과 아랫빵의 종류를 <br>
+      사용자가 입력한 값에 따라(sesame, oregano, pita) <br>
+      거기에 맞는 이미지를 img 태그를 이용해서 출력하는 코드 입니다 <br>
+    </li>
+
+    <li> 한가지 주의해야할 점은 자바코드에서 <br>
+      "" 쌍따옴표(double quotes)안에 쌍따옴표를 입력하는 방법입니다<br>
+      지금까지 Java코드를 배우면서 "String" 쌍따옴표 안에는 <br>
+      String 즉, 문자열만 입력했으나 JSP의 out.println() 메소드를<br>
+      입력하는 경우에는 tag의 속성값에 해당하는 "" 쌍따옴표를 추가적으로 <br>
+      포함해야하는 경우가 생깁니다. 이때 가장 바깥의 쌍따옴표 이외의 ""를 <br>
+      입력하기 위해서는 다음과 같이 역슬래시(backslash) 를 이용해주면 됩니다. <br>
+      ( \" 를 입력하게 되면 역슬래시 뒤에 "는 단순 문자로 인식하게 됩니다 )<br>
+      <br>
+      out.println(<strong class="colored">&quot;&lt;p class=\&quot;colored\&quot;&gt;&lt;/p&gt;&quot;</strong>);
+    </li>
+
+    <li>다음으로 예시 코드를 하나하나 살펴보도록 하겠습니다 <br>
+      번 top 주석 부분에 있는 코드를 보면 <br>
+      JSP 스크립틀릿 안에 자바 코드가 있는 것을 확인할 수 있습니다 <br>
+      먼저 bunTop 이라는 String 변수를 선언해 준 후<br>
+      대입연산자(=)를 이용하여 form의 name 속성이 bun인 <br>
+      input, select 등의 태그의 value 속성 값을 가져오는<br>
+      다음 코드를 이용해서 bunTop 변수에 값을 넣어줍니다.<br>
+      <br>
+      <strong class="method">request.getParameter("bun")</strong><br>
+      <br>
+    </li>
+
+    <li>form-burger.html 파일을 열어서 <br>
+      Ctrl+F 를 눌러서 "bun" 을 찾으면 <br>
+      해당 속성을 가진 select 태그를 찾을 수 있습니다. <br>
+      여기서 우리는 <strong class="method">request.getParameter("bun")</strong>의 값이<br>
+      사용자가 선택함에 따라 "sesame", "oregano", "pita" 중 한 가지의 값을 <br>
+      가지게 될 것임을 알 수 있습니다. <br>
+      예시코드에서는 이것을 이용해서 switch 구문을 통해 <br>
+      <strong class="method">request.getParameter("bun")</strong>의 값이 할당된 <br>
+      String bunTop의 값에 따라 서로 다른 <strong class="method">out.println()</strong> 메소드를<br>
+      활용하여 html img 태그를 생성해주는 코드를 만들어보았습니다. <br>
+      <br>
+      또한 햄버거 빵은 위 아래 세트이므로 <br>
+      아래 코드는 다른 부분은 같고 top만 bottom으로 바뀌어<br>
+      아랫부분의 빵에 해당하는 이미지 파일을 출력하도록 했습니다 <br>
+    </li>
+
+    <li>
+      자 이제 위의 코드를 참고해서 <br>
+      햄버거 빵 사이에 나머지 name의 속성 값들의 value 속성 값들을 파악하고 <br>
+      <br>
+      <strong class="colored"> topping, amount, doneness, cheese, sauce </strong><br>
+      <br>
+      Java의 for문, while문, if문, switch문 등을 이용하여<br>
+      나머지 재료들을 불러오는 코드를 작성해봅시다! <br>
+      <br>
+      ( 재료의 순서는 상관없으며 for문을 이용할지 while문을 이용할지 <br>
+      혹은 if문을 이용할지 switch문을 이용할지 등도 자유롭게<br>
+      선택해서 코딩 실습을 진행해주시기 바랍니다 😊 ) <br>
+
+
+
+    </li>
+
+    <li>
+      <span class="japanese">よくできました！ </span> <br>
+      <span class="colored"> 맛있는 🍔가 완성되었나요? </span><br>
+      하다가 막히면 아래 완성버전 예시 링크를 참고해주세요<br>
+      크롬에서 F12를 눌러 개발자도구를 실행하면<br>
+      HTML 소스를 참고할 수 있습니다.<br>
+    </li>
+    <li><a href="http://yorusung.cafe24.com/archives/form/form-burger-FINISHED.html">최종완성 버전 페이지 ← 클릭!</a></li>
+    <li>
+      다음 JSP 실습은 <br>
+      Session, Cookie, JSTL(core tag, function tag), Servlet의 순서로 <br>
+      진행하도록 하겠습니다~<br>
+    </li>
+    <li>
+      다음 시간 전까지 이번 실습내용과 관련된 JSP 교재 페이지를 읽어와 주세요! <br>
+      <span class="colored">65p ~ 81p 까지 (스크립트요소, request, response, JSP 주석)</span>
+      <br>
+
+      ( 시간의 여유가 된다면 Ch10 세션 중에서 <br>
+      <span class="colored">232p ~ 242p 상단</span> 까지 읽어오면 다음 세션 실습 진행하는데 <br>
+      더 수월하게 진행할 수 있을 겁니다 아마도요😝 )</li>
+
+
+
+
+    <!-- <pre><code class="language-html">...</code></pre> -->
+    <!-- <pre><code class="plaintext">...</code></pre> -->
+    <!-- <pre><code class="nohighlight">...</code></pre> -->
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
+</body>
+
+</html>

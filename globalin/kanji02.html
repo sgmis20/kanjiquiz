@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02주차</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&display=swap"
+        rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap"
+        rel="stylesheet"> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap" rel="stylesheet"> -->
+    <link rel="stylesheet" href="./style.css?v=1.5">
+</head>
+
+
+
+
+
+<body>
+
+    <section class="button-container">
+        <section class="button-vertical-center">
+            <button class="toggleLeft">
+                <h4>왼쪽 바꾸기</h4>
+            </button>
+            <button class="toggleRight">
+                <h4>오른쪽 바꾸기</h4>
+            </button>
+            <button class="toggleAll">
+                <h4>둘 다 바꾸기</h4>
+            </button>
+        </section>
+    </section>
+    <table class="center">
+        <thead>
+            <tr>
+                <th>漢字 →　読み仮名</th>
+                <th>読み仮名 →　漢字</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <ol id="tangoToYomigana">
+                    </ol>
+                </td>
+                <td>
+                    <ol id="yomiganaToTango">
+                    </ol>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+    <script>
+        const left01 = '留守の1間2あいだ3にどろぼうが入った。';
+        const left02 = '費用が７００円1余って2あまって3いる。';
+        const left03 = '２週間1以内2いない3に本を返却してください。';
+        const left04 = '来週、試験を1行います2おこないます3。';
+        const left05 = 'ドイツの1主な2おもな3都市を訪ねた。';
+        const left06 = '1家庭2かてい3ごみは週に２ど回収される。';
+        const left07 = '8時には1帰宅2きたく3しています。';
+        const left08 = 'それは私が1工夫2くふう3して作ったものだ。';
+        const left09 = '彼らは大阪1見物2けんぶつ3に行った。';
+        const left10 = 'これは過去1最大2さいだい3の地震だ。';
+        const left11 = 'その仮説が正しいか1実験2じっけん3してみよう。';
+        const left12 = '娘は1自分2じぶん3の部屋を欲しがっている。';
+        const left13 = '1主要2しゅよう3科目のテストが終わった。';
+        const left14 = 'これは店の1信用2しんよう3にかかわる問題だ。';
+        const left15 = 'あの兄弟は1性格2せいかく3が全く違う。';
+
+        const right01 = 'このごろ彼女にあまり1あって2会って3いない。';
+        const right02 = 'コピー機が1あいたら2空いたら3教えてください。';
+        const right03 = '私はこの単語の1いみ2意味3がわからない。';
+        const right04 = '最近カタログを1おくって2送って3ください。';
+        const right05 = 'ラジオの1おと2音3を小さくしてください。';
+        const right06 = '社会福祉1かんけい2関係3の仕事がしたい。';
+        const right07 = '高校まで日本で1きょういく2教育3を受けた。';
+        const right08 = 'あなたに1けいえい2経営3を一任します。';
+        const right09 = '彼は1こうどう2行動3に移すのが早い。';
+        const right10 = 'チューリップの花が1さいた2咲いた3。';
+        const right11 = '夢はいつか1じつげん2実現3する。';
+        const right12 = '彼女は私の話に興味を1しめした2示した3。';
+        const right13 = '1しょうらい2将来3の見通しは明るい。';
+        const right14 = 'パレードはゆっくり1すすんだ2進んだ3。';
+        const right15 = '以前より1せいかつ2生活3が楽になった。';
+    </script>
+    <script src="./toggleKanji.js?v=1.5"></script>
+</body>
+
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JSP 실습 1</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="../highlight/styles/atom-one-dark-reasonable.css" /> -->
+  <link rel="stylesheet" href="../../highlight/styles/vs2015.css" />
+  <style type="text/css">
+    body {
+      font-size: 1.35vw;
+      /* overflow-x: scroll; */
+      /* font-size: 1.65vw; */
+      background-color: rgb(1, 7, 24);
+    }
+
+    h1 {
+      font-size: 2.8vw;
+      background-color: rgb(12, 49, 70);
+      padding: 0.5em 2vw;
+      margin-top: 8vh;
+      line-height: 1;
+      color: aliceblue;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    li,
+    a {
+      margin-left: 1em;
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 2vw;
+      margin-bottom: 2.5em;
+    }
+
+    li {
+      color: rgb(191, 208, 223);
+    }
+
+    li.description {
+      color: lightseagreen;
+    }
+
+    li strong {
+      color: rgb(216, 127, 94);
+    }
+
+    li strong.method {
+      color: rgb(189, 202, 132);
+    }
+
+    a {
+      font-size: 3vw;
+      color: lightpink;
+      text-decoration: none;
+    }
+
+    a:hover {
+      transition: all 0.3s;
+      color: aqua;
+      text-decoration: underline;
+    }
+
+    .space {
+      margin-top: 4vh;
+    }
+
+    .japanese {
+      color: rgba(218, 218, 39, 0.815);
+      font-family: 'Kosugi Maru', sans-serif;
+      list-style-type: none;
+    }
+
+    .colored {
+      color: rgb(185, 109, 204);
+    }
+
+    @media screen and (max-width: 858px) {
+
+      body {
+        font-size: 2.5vw;
+        /* overflow-x: scroll; */
+        /* font-size: 1.65vw; */
+        background-color: rgb(1, 7, 24);
+
+      }
+
+      br {
+        display: none;
+      }
+
+      h1 {
+        font-size: 4vw;
+        background-color: rgb(12, 49, 70);
+        padding: 0.5em 2vw;
+        margin-top: 2vh;
+        line-height: 1;
+        color: aliceblue;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+
+      li,
+      a {
+        margin-left: 0.5em;
+        margin-right: 1.5em;
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size: 4vw;
+        margin-bottom: 3em;
+        word-wrap: break-word;
+      }
+
+      li {
+        color: rgb(191, 208, 223);
+      }
+
+      li.description {
+        color: lightseagreen;
+      }
+
+      a {
+        font-size: 4.5vw;
+        font-weight: bold;
+        color: lightpink;
+        text-decoration: none;
+      }
+
+      .space {
+        margin-top: 10vw;
+      }
+    }
+  </style>
+  <script src="../../highlight/highlight.pack.js"></script>
+</head>
+
+<body>
+  <!-- https://www.freeformatter.com/html-escape.html#ad-output -->
+
+  <h1>form-response.jsp</h1>
+  <pre><code class="language-java">
+    &lt;%@ page contentType=&quot;text/html; charset=UTF-8&quot; %&gt;
+
+    &lt;!DOCTYPE html&gt;
+    &lt;html&gt;
+      &lt;head&gt;
+         &lt;meta charset=&quot;utf-8&quot;&gt;
+        &lt;title&gt;주문식 햄버거&lt;/title&gt;
+        &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;./css/burger-response.css?v=1.3&quot;&gt;
+      &lt;/head&gt;
+      &lt;body&gt;
+
+      &lt;p&gt;패티 : &lt;%=  %&gt; 장&lt;/p&gt;
+
+      &lt;p&gt;패티 굽기 정도 : [1(레어)~5(웰던)] : &lt;%=  %&gt;&lt;/p&gt;
+
+
+      &lt;P&gt;선택한 토핑&lt;/P&gt;
+      &lt;ul&gt;
+         &lt;%
+         // form의 name=&quot;topping&quot; 에 있는 값들을 모두 가져오는 코드
+         String[] toppings = request.getParameterValues(&quot;topping&quot;);
+
+         // 이 JSP 스크립틀릿 안에 for문 또는 while문과 out.println(); 을 이용해서
+         // ul태그 안의 li 태그를 동적으로 만들어주는 코드를 작성하세요
+
+
+
+         %&gt;
+       &lt;/ul&gt;
+
+      &lt;p&gt;치즈 선택 여부 : &lt;%= 	%&gt;&lt;/p&gt;
+
+      &lt;p&gt;번 타입 : &lt;%= 	%&gt;&lt;/p&gt;
+
+      &lt;p&gt;소스 타입 : &lt;%= 	%&gt;&lt;/p&gt;
+
+      &lt;/body&gt;
+    &lt;/html&gt;
+   </code></pre>
+  <!-- ☆ -->
+  <div class="space"></div>
+  <ol>
+    <li class="description">
+      이번 시간에는 JSP를 이용해서 간단한 동적페이지를 만들어보도록 하겠습니다.<br>
+      먼저 html에서 제공하는 form 양식을 이용해서 사용자로부터 데이터를 입력받은 뒤 <br>
+      <br>
+      JSP 스크립트 요소 3가지(JSP표현식, JSP스크립틀릿, JSP선언문) 중에서 <br>
+      JSP 표현식 <strong>&lt;%= 　 %&gt;</strong> 과 JSP 스크립틀릿 <strong>&lt;% 　%&gt;</strong>, 그리고 <br>
+      <strong class="method">request.getParameter()</strong> <br>
+      <strong class="method">request.getParameterValues()</strong> <br>
+      <strong class="method">out.println()</strong> <br>
+      이 세 가지 메소드만을 이용해서 <br>
+      사용자의 입력 값을 출력하는 페이지를 만들어보겠습니다.
+      <br>
+      아래 링크를 통해 실습에 이용할 form.zip 파일을 다운 받습니다.
+    </li>
+
+    <li><a href="http://yorusung.cafe24.com/archives/form.zip">실습 준비 파일 다운로드 ← 클릭!</a></li>
+
+    <li>form 양식에서 지정한 input, select 태그 등의 name 속성 값을 <br>
+      JSP에서 가져오기 위한 메소드로 request.getParameter() 가 있습니다. <br>
+      정말 자주 쓰이는 메소드이니 꼭 외워주세요 () 괄호 안에는 name의 속성 값이 들어갑니다<br>
+      제일 처음 패티를 몇 장 주문했는지 값을 받기 위한 코드 예시는 아래와 같습니다.
+
+      <br><br><strong>&lt;%= request.getParameter("amount")%&gt;</strong></li>
+
+
+    <li class="description">이번 실습은 jsp로 동적페이지를 구현하는 실습이므로 <br>
+      이클립스를 이용하여 진행하도록 하겠습니다 <br>
+      아까 다운로드 받은 form.zip의 압축을 풀고 안에 있는 파일들을 <br>
+      이클립스 practice 프로젝트의 WebContent 폴더 안에 form이라는 폴더를 만들고 <br>
+      그 안으로 드래그 앤 드롭으로 복사하여 붙여넣습니다.
+    </li>
+    <li>form-burger.html <br>
+      form-response.jsp<br>
+      이렇게 두 가지 파일이 실습파일이고 </li>
+    <li>form-burger-example.html <br>
+      form-response-example.jsp<br>
+      이 두 파일이 실습결과 예제이며 </li>
+    <li>form-burger-FINISHED.html <br>
+      form-response-FINISHED.jsp<br>
+      은 실습결과 예제에 이미지 파일을 넣어 만든 <br>
+      최종완성물입니다. <br>
+      (이건 Java 코드 연습용으로 준비했으니 아직은 신경쓰지 않아도 됩니다.) </li>
+    <li>실행결과가 아래와 같이 나오도록 <br>
+      form-response.jsp 파일의 내용을 채워넣어보세요 <br> <br>
+      <img src="./images/form-burger-example.png" alt=""></li>
+
+
+    <li>
+      <span class="colored"> 수고하셨습니다 ! </span><br>
+      다음 시간에는 아래 링크의 최종완성 버전을 구현해보도록 하겠습니다. <br>
+      같이 하면 생각보다 어려운 부분이 아니니 기대해주세요! <br>
+      (<span class="japanese">ネタバレ : </span> 최종완성버전 실습은 사실 Java 코드 연습입니다) <br>
+    </li>
+
+    <!-- <pre><code class="html">...</code></pre> -->
+    <!-- <pre><code class="language-html">...</code></pre> -->
+    <!-- <pre><code class="plaintext">...</code></pre> -->
+    <!-- <pre><code class="nohighlight">...</code></pre> -->
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
+</body>
+
+</html>
