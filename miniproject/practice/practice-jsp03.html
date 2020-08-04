@@ -322,9 +322,23 @@ session.setAttribute("myToDoList", items);</code></pre>
       <span class="page">232p ~ 242p 상단</span>까지 (Ch10 세션)
       <br>
       이번 내용이 이해하기 어려웠다면 다음 시간에 연습할 <br>
-      Cookie에 해당하는 내용을 JSP 교재를 통해 예습해오세요 <br>
+      Cookie에 해당하는 내용을 JSP 교재를 통해 예습해오세요~ <br>
       <span class="page"> 205p ~ 213p </span> (쿠키의 도메인 전까지)
     </li>
+    <!--
+    <li>보너스 ! <br>
+      FAQ: How Do I Prevent Duplicate Items on Browser Reload? <br>
+      UPDATED CODE BLOCK FOR booleans and if/then statement<br>
+      <pre><code class="language-java">
+boolean isUserInputNotEmpty = userInput != null && userInput.trim().length() > 0;
+boolean isUserInputNotDuplicate = userInput != null && !items.contains(userInput.trim());
+
+  if (isUserInputNotEmpty && isUserInputNotDuplicate) {
+    items.add(userInput.trim());
+    response.sendRedirect("session-todo.jsp");
+  }
+      </code></pre>
+    </li> -->
 
     <!-- <pre><code class="language-html">...</code></pre> -->
     <!-- <pre><code class="nohighlight">...</code></pre> -->

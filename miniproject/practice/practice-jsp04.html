@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JSP 실습 4</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="../highlight/styles/atom-one-dark-reasonable.css" /> -->
+  <link rel="stylesheet" href="../../highlight/styles/vs2015.css" />
+  <style type="text/css">
+    body {
+      font-size: 1.35vw;
+      /* overflow-x: scroll; */
+      /* font-size: 1.65vw; */
+      background-color: rgb(1, 7, 24);
+    }
+
+    pre {
+      font-family: 'Noto Sans KR', sans-serif;
+      font-weight: 900;
+    }
+
+    h1 {
+      font-size: 2.5vw;
+      background-color: rgb(12, 49, 70);
+      padding: 0.5em 2vw;
+      margin-top: 8vh;
+      line-height: 1;
+      color: aliceblue;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    li,
+    a {
+      margin-left: 1em;
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 1.9vw;
+
+    }
+
+    li {
+      color: rgb(191, 208, 223);
+      margin-bottom: 3em;
+    }
+
+    li.description {
+      color: lightseagreen;
+    }
+
+    li strong {
+      color: rgb(216, 127, 94);
+    }
+
+    .method {
+      color: rgb(189, 202, 132);
+    }
+
+    .page {
+      color: #c47ff1;
+    }
+
+    .smaller {
+      font-size: 2vw;
+    }
+
+    a {
+      font-size: 3vw;
+      color: lightpink;
+      text-decoration: none;
+    }
+
+    a:hover {
+      transition: all 0.3s;
+      color: aqua;
+      text-decoration: underline;
+    }
+
+    figcaption{
+      color: aliceblue;
+    }
+
+    .space {
+      margin-top: 4vh;
+    }
+
+    .japanese {
+      color: rgba(218, 218, 39, 0.815);
+      font-family: 'Kosugi Maru', sans-serif;
+      list-style-type: none;
+    }
+
+    Strong.colored {
+      color: rgb(236, 148, 231);
+    }
+
+    Span.colored {
+      color: rgb(240, 124, 130);
+    }
+
+    @media screen and (max-width: 858px) {
+
+      body {
+        font-size: 2.5vw;
+        /* overflow-x: scroll; */
+        /* font-size: 1.65vw; */
+        background-color: rgb(1, 7, 24);
+
+      }
+
+      br {
+        display: none;
+      }
+
+      h1 {
+        font-size: 4vw;
+        background-color: rgb(12, 49, 70);
+        padding: 0.5em 2vw;
+        margin-top: 2vh;
+        line-height: 1;
+        color: aliceblue;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+
+      li,
+      a {
+        margin-left: 0.5em;
+        margin-right: 1.5em;
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size: 3.2vw;
+        margin-bottom: 3em;
+        word-wrap: break-word;
+      }
+
+      li {
+        color: rgb(191, 208, 223);
+      }
+
+      li.description {
+        color: lightseagreen;
+      }
+
+
+      a {
+        font-size: 4.5vw;
+        font-weight: bold;
+        color: lightpink;
+        text-decoration: none;
+      }
+
+
+      .smaller {
+        font-size: 2.5vw;
+      }
+
+      .space {
+        margin-top: 10vw;
+      }
+    }
+  </style>
+  <script src="../../highlight/highlight.pack.js"></script>
+</head>
+
+<body>
+  <!-- https://www.freeformatter.com/html-escape.html#ad-output -->
+
+  <h1>cookies-homepage.jsp</h1>
+  <pre><code class="language-java">&lt;%@ page contentType=&quot;text/html; charset=UTF-8&quot; %&gt;
+    &lt;%@ page import=&quot;java.net.URLDecoder&quot; %&gt;
+
+    &lt;html&gt;
+    &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot; /&gt;
+    &lt;title&gt;쿠키 메인&lt;/title&gt;
+     &lt;link rel=&quot;stylesheet&quot; href=&quot;./cookie.css&quot; /&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;h3&gt;프로그래밍 언어 교재&lt;/h3&gt;
+
+    &lt;%
+
+      String favLang = &quot;Java&quot;;
+      Cookie[] cookieArray = request.getCookies();
+
+      if (cookieArray != null) {
+        for (Cookie temp : cookieArray) {
+          if (temp.getName().equals(&quot;myApp.favoriteLanguage&quot;)) {
+                favLang = URLDecoder.decode(temp.getValue(), &quot;UTF-8&quot;);
+          }
+        }
+      }
+    %&gt;
+
+    &lt;h4&gt;명품 &lt;%= favLang %&gt; Programming&lt;/h4&gt;
+    &lt;ul&gt;
+      &lt;li&gt; &lt;%= favLang %&gt; 코딩에 빠져들게 하는 재미있고 쉬운 해설서&lt;/li&gt;
+      &lt;li&gt;생능출판&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;h4&gt;&lt;%= favLang %&gt;의 정석&lt;/h4&gt;
+    &lt;ul&gt;
+      &lt;li&gt;개발자로 입문하기: 일단 이것부터 읽어보자!&lt;/li&gt;
+      &lt;li&gt;도우출판&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;h4&gt;Do it! 프로그래밍 : &lt;%= favLang %&gt;편&lt;/h4&gt;
+    &lt;ul&gt;
+      &lt;li&gt;이미 200만명이 이 책으로 프로그래밍을 시작했다!&lt;/li&gt;
+      &lt;li&gt;이지스퍼블리싱&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;h4&gt;혼자 공부하는 &lt;%= favLang %&gt; 알고리즘&lt;/h4&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;%= favLang %&gt; 최신 버전 반영&lt;/li&gt;
+      &lt;li&gt;한빛미디어&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;hr&gt;
+      &lt;a href=&quot;cookies-personalize-form.html&quot;&gt;쿠키 설정 페이지로 이동&lt;/a&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+    </code></pre>
+  <h1>cookies-personalize-form.html</h1>
+  <pre><code class="language-html">&lt;html&gt;
+    &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot; /&gt;
+    &lt;title&gt;쿠키 설정&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;./cookie.css&quot; /&gt;
+    &lt;/head&gt;
+
+    &lt;body&gt;
+      &lt;form action=&quot;cookies-personalize-response.jsp&quot;&gt;
+
+        &lt;span&gt;선호하는 프로그래밍 언어를 고르세요&lt;/span&gt;
+        &lt;select name=&quot;favoriteLanguage&quot;&gt;
+          &lt;option&gt;Java&lt;/option&gt;
+          &lt;option&gt;C++&lt;/option&gt;
+          &lt;option&gt;Python&lt;/option&gt;
+          &lt;option&gt;Javascript&lt;/option&gt;
+          &lt;option&gt;Ruby&lt;/option&gt;
+        &lt;/select&gt;
+        &lt;hr&gt;
+        &lt;input type=&quot;submit&quot; value=&quot;Submit&quot; /&gt;
+      &lt;/form&gt;
+
+    &lt;/body&gt;
+    &lt;/html&gt;</code></pre>
+
+  <h1>cookies-personalize-response.jsp</h1>
+  <pre><code class="language-java">&lt;%@ page contentType=&quot;text/html; charset=UTF-8&quot; %&gt;
+    &lt;%@ page import=&quot;java.net.URLEncoder&quot; %&gt;
+    &lt;html&gt;
+    &lt;head&gt;
+    &lt;title&gt;cookie 확인&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;./cookie.css&quot; /&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+
+    &lt;%
+      String favLang = request.getParameter(&quot;favoriteLanguage&quot;);
+
+      favLang = URLEncoder.encode(favLang, &quot;UTF-8&quot;);
+
+      Cookie theCookie = new Cookie(&quot;myApp.favoriteLanguage&quot;, favLang);
+
+      theCookie.setMaxAge(60*60*24*365);
+      response.addCookie(theCookie);
+    %&gt;
+
+      &lt;p&gt;프로그래밍 언어를 &lt;%= favLang %&gt; 로(으로) 설정했습니다&lt;/p&gt;
+      &lt;a href=&quot;cookies-homepage.jsp&quot;&gt;메인페이지로&lt;/a&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;</code></pre>
+
+  <div class="space"></div>
+  <ol>
+    <li class="description">
+      <span class="colored">쿠키(Cookie)</span>는 클라이언트 기기에 text 파일의 형태로 저장되어 <br>
+      웹 브라우저와 서버 사이에 서로 주고 받는 text 데이터를 의미합니다. <br>
+      <br>
+      항공권 및 호텔 예약 사이트 같은 곳에 한 번 검색했던 출발지, 목적지를 <br>
+      쿠키를 이용해 사용자(클라이언트) 측에 저장해서 차후 같은 도메인의 사이트를 <br>
+      재방문 할 때 지난 번 검색 기록을 입력 form에 자동완성 시켜 줌으로써 <br>
+      유저의 편의성을 도모해주는 서비스 등에 이용됩니다.<br>
+      <figure>
+        <img src="./images/cookie-expedia.png" alt="expedia page using cookie">
+        <figcaption>
+          예) 익스피디아 사이트에 접속했을 때 지난번 검색기록이 남아있는 모습
+        </figcaption>
+      </figure>
+      <br>
+      보다 자세한 내용은 JSP 교재나 구글 검색을 통해 확인바랍니다.<br></ll>
+
+
+    <li class="description">
+      이번 쿠키(cookie) 실습 예제는 위 3가지 파일과 <br>
+      css 파일로 구성되어 있습니다. <br>
+      아래 링크를 통해 다운 받을 수 있는 실습파일에는<br>
+      위 코드에는 없는 주석이 달려있습니다. <br>
+    </li>
+
+    <li><a href="http://yorusung.cafe24.com/archives/cookie.zip">cookie 실습자료 다운로드 ← 클릭!</a></li>
+
+
+    <li> 위 실습파일을 다운 받은 후 practice 프로젝트의 WebContent <br>
+      폴더 안에 cookie 폴더를 만들어준 후 압축파일 내 파일들을 복붙해줍니다<br>
+      이클립스에서 파일 소스를 보기 전에 아래와 같이 <br>
+      쿠키와 관련된 내용에 대해 간단 알아봅시다
+    </li>
+
+    <li>
+      JSP에서 쿠키는 request, response, out 그리고 이전 시간 살펴본 <br>
+      session과 같은 내장 객체가 아니기 때문에 직접 객체를 생성한 뒤(new 키워드 이용) <br>
+      <span class="method">response.addCookie() </span>를 통해 쿠키를 저장하고 <br>
+      <span class="method">request.getCookie() </span>를 통해 쿠키의 text 데이터를 읽어옵니다 <br>
+      <br>
+      (쿠키는 javax.servlet.http 패키지에 포함되어 있는데, <br>
+      JSP에 자동으로 import 되기 때문에 따로 import 할 필요없이 바로 이용가능)
+    </li>
+
+
+
+    <li>쿠키 객체를 생성하기 위한 생성자는 다음과 같습니다 <br>
+      <pre><code class="language-java smaller"> Cookie(String name, String value)</code></pre>
+      <span class="colored">session 때와는 달리 value에 해당하는 데이터 타입은 String 뿐임에 주의!!</span> <br>
+      <span class="colored">위 쿠키의 정의에서 쿠키는 text 데이터임을 기억합시다</span>
+      <br> 따라서 Cookie의 객체를 만들 때 쿠키의 이름을 (객체의 이름이 아닌, 쿠키의 객체에 String name){
+      <span class="colored">"myApp.favoriteCity" </span>라고 지정해주고 그 안에 <br>
+      <pre><code class="language-java smaller"> String favCity = request.getParameter("favoriteCity");</code></pre>
+      와 같이 favCity 라는 String 변수를 설정해서 Cookie 객체를 생성해주는 예시는 아래와 같습니다 <br>
+
+      <pre><code class="language-java smaller"> Cookie myCookie = new Cookie("myApp.favoriteCity", favCity); </code></pre>
+
+      <br>
+      여기서 다시 한 번 다음을 짚고 넘어갑시다 <br>
+      <span class="colored">myCookie</span>는 Cookie 클래스의 인스턴스, 즉 객체의 이름이며 <br>
+      <span class="colored">myApp.favoriteCity</span>는 Cookie 클래스 내의 멤버 변수 String name에 입력되는 값이며 <br>
+      <span class="colored">favCity</span>는 쿠키에 저장될 value(값) 입니다. HTML form 을 통해 <br>
+      사용자의 입력을 받아<span class="method"> request.getParameter()</span> 를 통해 저장할 수 있습니다.
+      <br>
+    </li>
+
+    <li>다음으로 쿠키의 수명을 정하는 메소드를 다음과 같이 활용합니다.
+      <pre><code class="language-java smaller">myCookie.setMaxAge(60*60*24*365);</code></pre>
+      <span class="method">setMaxAge() </span>의 괄호 안에 들어가는 파라미터 값은 '초'이므로 <br>
+      60*60*24*365 를 통해 일반적인 쿠키의 수명인 1년을 지정해줬습니다. <br>
+      (물론 위 수식이 아닌 직접 계산된 값을 입력해도 무방) <br>
+    </li>
+
+    <li>
+      마지막으로 생성한 쿠키 객체를 웹 브라우저로 전달하게 주기 위해 <br>
+      <span class="method">response.addCookie() </span> 메소드를 통해 <br>
+      다음과 같이 작성해주면 됩니다. <br>
+
+
+      <pre><code class="language-java smaller">response.addCookie(myCookie);</code></pre>
+    </li>
+
+    <li>
+      실습파일은 위에 코드 내용과 같이 총 3가지로 구성되어있습니다. <br>
+      <br>
+      <span class="colored">cookies-homepage.jsp </span> <br>
+      이클립스에서 실행할 메인페이지이고 여기서 a 태그를 통해 <br> <br>
+      <span class="colored">cookies-personalize-form.html</span> 페이지로 이동 뒤 <br>
+      원하는 쿠키 값을 고르고 submit 버튼을 누르면 <br> <br>
+      <span class="colored">cookies-personalize-response.jsp</span>에서 <br>
+      쿠키를 생성하고 확인 메시지를 띄워줍니다.
+    </li>
+
+    <li>
+      이클립스에서 <span class="colored">cookies-homepage.jsp </span>를 실행해보고 <br>
+      쿠키 값에 따라 달라지는 페이지를 확인해보세요 <br>
+      그리고 주소를 복사 후 다른 브라우저를 실행해 같은 페이지를 실행하면 <br>
+      이 브라우저에는 아직 쿠키가 저장되 있지 않으므로 기본값인 Java로 <br>
+      설정된 페이지가 보여집니다. 이처럼 쿠키를 이용하면 <br>
+      사용자에 따라 설정된 쿠키 값을 통해 상태 관리(state management)를 <br>
+      해줄 수 있습니다. <br>
+      <br>
+      <span class="colored">
+        Session과 Cookie 모두 상태 관리 기법에서 쓰이는 기술로서 <br>
+        둘 다 정보를 저장한다는 공통점이 있지만, <br>
+        cookie의 정보는 클라이언트 측 기기에만 그 정보가 저장되는 반면에 <br>
+        session 정보는 서버와 클라이언트 양측 모두에 저장되어 이용된다는 점입니다! <br></span>
+      <br>
+      나머지 부분은 실습파일에 있는 코드와 주석을 참고 바라며 <br>
+      JSP 교재를 통해 다시 한 번 내용을 정리해봅시다
+    </li>
+
+    <li>
+      다음 스터디를 위해 JSP 교재 페이지를 읽어와 주세요! <br> <br>
+      <span class="page"> 205p ~ 213p </span> (쿠키의 도메인 전까지) <br>
+      <span class="page"> 98p ~ 111p </span> (JSP의 필수 이해요소) <br>
+      <br>
+      <span class="japanese">ご苦労様でした 🙌</span>
+    </li>
+
+
+
+
+    <!-- <pre><code class="language-html">...</code></pre> -->
+    <!-- <pre><code class="nohighlight">...</code></pre> -->
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
+</body>
+
+</html>
