@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JSP 실습 3</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="../highlight/styles/atom-one-dark-reasonable.css" /> -->
+  <link rel="stylesheet" href="../../highlight/styles/vs2015.css" />
+  <style type="text/css">
+    body {
+      font-size: 1.35vw;
+      /* overflow-x: scroll; */
+      /* font-size: 1.65vw; */
+      background-color: rgb(1, 7, 24);
+    }
+
+    h1 {
+      font-size: 2.8vw;
+      background-color: rgb(12, 49, 70);
+      padding: 0.5em 2vw;
+      margin-top: 8vh;
+      line-height: 1;
+      color: aliceblue;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    li,
+    a {
+      margin-left: 1em;
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 2vw;
+
+    }
+
+    li {
+      color: rgb(191, 208, 223);
+      margin-bottom: 3em;
+    }
+
+    li.description {
+      color: lightseagreen;
+    }
+
+    li strong {
+      color: rgb(216, 127, 94);
+    }
+
+    .method {
+      color: rgb(189, 202, 132);
+    }
+
+    .page {
+      color: #c47ff1;
+    }
+
+    .smaller {
+      font-size: 2vw;
+    }
+
+    a {
+      font-size: 3vw;
+      color: lightpink;
+      text-decoration: none;
+    }
+
+    a:hover {
+      transition: all 0.3s;
+      color: aqua;
+      text-decoration: underline;
+    }
+
+    .space {
+      margin-top: 4vh;
+    }
+
+    .japanese {
+      color: rgba(218, 218, 39, 0.815);
+      font-family: 'Kosugi Maru', sans-serif;
+      list-style-type: none;
+    }
+
+    Strong.colored {
+      color: rgb(236, 148, 231);
+    }
+
+    Span.colored {
+      color: rgb(240, 124, 130);
+    }
+
+    @media screen and (max-width: 858px) {
+
+      body {
+        font-size: 2.5vw;
+        /* overflow-x: scroll; */
+        /* font-size: 1.65vw; */
+        background-color: rgb(1, 7, 24);
+
+      }
+
+      br {
+        display: none;
+      }
+
+      h1 {
+        font-size: 4vw;
+        background-color: rgb(12, 49, 70);
+        padding: 0.5em 2vw;
+        margin-top: 2vh;
+        line-height: 1;
+        color: aliceblue;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+
+      li,
+      a {
+        margin-left: 0.5em;
+        margin-right: 1.5em;
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size: 3.2vw;
+        margin-bottom: 3em;
+        word-wrap: break-word;
+      }
+
+      li {
+        color: rgb(191, 208, 223);
+      }
+
+      li.description {
+        color: lightseagreen;
+      }
+
+
+      a {
+        font-size: 4.5vw;
+        font-weight: bold;
+        color: lightpink;
+        text-decoration: none;
+      }
+
+
+      .smaller {
+        font-size: 2.5vw;
+      }
+
+      .space {
+        margin-top: 10vw;
+      }
+    }
+  </style>
+  <script src="../../highlight/highlight.pack.js"></script>
+</head>
+
+<body>
+  <!-- https://www.freeformatter.com/html-escape.html#ad-output -->
+
+  <h1>session-todo.jsp</h1>
+  <pre><code class="language-java">
+    &lt;%@ page contentType=&quot;text/html; charset=UTF-8&quot; %&gt;
+    &lt;%@ page import=&quot;java.util.*&quot; %&gt;
+    &lt;html&gt;
+    &lt;head&gt;
+    &lt;title&gt;To to List&lt;/title&gt;
+    &lt;/head&gt;
+
+    &lt;body&gt;
+
+    &lt;!-- 1단계 HTML 폼 만들기  --&gt;
+
+    &lt;form action = &quot;session-todo-FINISHED.jsp&quot;&gt;
+      &lt;span&gt;새로운 할 일 추가 : &lt;/span&gt;
+      &lt;input type= &quot;text&quot; name = &quot;userInput&quot; /&gt;
+      &lt;input type=&quot;submit&quot; value=&quot;추가&quot; /&gt;
+    &lt;/form&gt;
+
+    &lt;!-- 2단계  To Do 리스트에 새로운 항목 추가하기 --&gt;
+
+    &lt;%
+      @SuppressWarnings(&quot;unchecked&quot;)
+
+      ArrayList&lt;String&gt; items
+        = (ArrayList&lt;String&gt;)session.getAttribute(&quot;myToDoList&quot;);
+
+      if (items == null) {
+        items = new ArrayList&lt;String&gt;();
+        session.setAttribute(&quot;myToDoList&quot;, items); //
+      }
+
+      String userInput = request.getParameter(&quot;userInput&quot;);
+      if (userInput != null &amp;&amp; !userInput.trim().equals(&quot;&quot;))  {
+        items.add(userInput);
+      }
+    %&gt;
+
+    &lt;!--3단계 To Do리스트를 세션으로부터 가져와 화면에 출력 --&gt;
+
+    &lt;hr&gt;
+      &lt;h3&gt;To Do 리스트 &lt;/h3&gt;
+    &lt;br/&gt;
+
+    &lt;ol&gt;
+      &lt;%
+      for(String print : items){
+        out.println(&quot;&lt;li&gt;&quot; + print + &quot;&lt;/li&gt;&quot;);
+      }
+      %&gt;
+    &lt;/ol&gt;
+
+    &lt;/body&gt;
+    &lt;/html&gt;
+   </code></pre>
+  <!-- ☆ -->
+  <div class="space"></div>
+  <ol>
+    <li class="description">
+      이번 시간에는 세션(session) 실습을 진행하고자 합니다. <br>
+      최종적으로 위에 나와 있는 <span class="colored">session-todo.jsp</span> 파일을 분석하고 <br>
+      실행해본 후 세션에 대한 이해와 위 코드에 대한 이해를 바탕으로 <br>
+      자신 만의 간단한 세션 페이지를 구현해보는 것이 목표입니다<br>
+    </li>
+
+    <li>먼저 세션이 무엇인지에 대해 다시 한 번 개념을 살펴봅시다. <br>
+      세션이란 웹 애플리케이션 사용자의 상태를 관리해주기 위해 <br>
+      각 사용자에게 고유하게 생성되는 객체입니다. <br>
+      (이를 위해 고유한 세션 ID가 부여되는 등의 서버단의 로직은 <br>
+      지금 우리가 배우는 JSP의 경우 Tomcat 서버 단에서 <br>
+      알아서 처리해주므로 신경 써주지 않아도 간단히 구현 가능) <br>
+    </li>
+    <li>
+      이해를 돕기 위해 예를 들어보자면 <br>
+      쇼핑몰에서 고객 개개인에게 고유한 장바구니를 가지고 이용할 수 있도록 하기위해, <br>
+      인터넷 뱅킹에서 각 회원의 계좌를 연결하고 고유한 거래를 처리하기 위해, <br>
+      심리 테스트 등, 온라인 테스트의 결과를 각자에 맞게 구성하여 보여주고자 할 때<br>
+      이용되는 개념이 <span class="colored">세션(session)</span> 입니다.
+    </li>
+
+    <li>세션 객체에 데이터를 추가해주기 위해 아래와 같은 형식의 메소드를 이용합니다
+      <pre><code class="language-java smaller">session.setAttribute(String name, Object value);</code></pre>
+      session은 JSP 첫 시간에 알아봤던 request, response 등의 객체와 같이 <br>
+      import 해주지 않아도 사용할 수 있는 JSP 내장 객체 입니다. <br>
+      여기 예시로는 아래와 같습니다 ArrayList 인스턴스인 items 객체를 만들고 <br>
+      이 items객체를 <span class="method">session.setAttribute()</span> 메소드 안에 <span class="colored">"myToDoList"</span>라는
+      이름으로 넣어줬습니다 <br>
+      <pre><code class="language-java smaller">ArrayList<String> items = new ArrayList<String>();
+
+session.setAttribute("myToDoList", items);</code></pre>
+    </li>
+
+    <li>세션 객체에 추가된 데이터를 불러오기 위해서는 다음 메소드를 이용합니다
+      <pre><code class="language-java smaller">object session.getAttribute(String name);</code></pre>
+
+      <span class="method">session.getAttribute()</span> 를 통해 가져온 객체를<br>
+      ArrayList&lt;String&gt; items 에 대입해주기 전에 <br>
+      ArrayList&lt;String&gt; 로 다운캐스팅 해준다는 점에 유의해주세요<br>
+      <pre><code class="language-java smaller">ArrayList&lt;String&gt; items
+ = (ArrayList&lt;String&gt;)session.getAttribute("myToDoList");</code></pre>
+    </li>
+
+    <li>다형성, 다운캐스팅, 업캐스팅이 헷갈린다면 아래 링크를 통해 <br>
+      개념을 다시 한 번 정리해보는 것을 적극 권장합니다
+    </li>
+    <li><a href="https://wikidocs.net/269">Java 다형성 복습하기 링크</a></li>
+
+    <li>다음으로, 각 유저에게 고유한 세션 객체를 생성해줌으로써 <br>
+      각 유저별로 고유한 To do List 를 가질 수 있도록 하는 <br>
+      To do List 페이지 예제를 살펴보며 세션 기능을 <br>
+      구현하는 방법을 익혀봅시다.
+    </li>
+
+    <li><a href="http://yorusung.cafe24.com/archives/session.zip">session 실습자료 다운로드 ← 클릭!</a></li>
+
+    <li> 위 실습파일을 다운 받은 후 practice 프로젝트의 WebContent <br>
+      폴더 안에 session 폴더를 만들어준 후 두 jsp파일을 붙여 넣어줍니다 <br>
+      <span class="colored">session-todo.jsp</span> 파일과 <span class="colored">session-todo-FINISHED.jsp</span> 파일은 동일한
+      내용을 <br>
+      담고 있으며 FINISHED가 붙은 쪽에는 주석을 제거해서 한 눈에 알아보기 쉽게 <br>
+      만들었습니다.
+    </li>
+
+    <li><span class="colored">session-todo.jsp</span> 파일을 이클립스에서 열어 코드를 보면서 <br>
+      먼저 몇 가지 살펴보도록 합시다. 내용은 크게 3단계로 구성되어있습니다.<br>
+      body 태그 부분으로 이동해보면 1단계 HTML form 만들기가 있습니다. <br>
+      여기서 To do List의 할 일을 입력 받는 input 태그를 만들어주었습니다. </li>
+
+    <li>다음으로 2단계에서는 1단계 form을 통해 사용자로부터 값을 입력받아 <br>
+      To do List 의 새로운 항목을 추가해주는 코드를 JSP <br>
+      스크립틀릿 안에 작성해주었습니다.</li>
+
+    <li>사용자 입력값을 받아 예제의 경우 ArrayList에 그 값을 추가한 후 <br>
+      3단계에서 그 ArrayList 객체의 내용을 출력해주는 코드를 통해 <br>
+      사용자에게 To do List를 화면에 보여주게 됩니다. <br>
+      <br>
+      ArrayList를 이용해주었기 때문에 java.util 패키지를, <br>
+      Java에서 Scanner나 BufferedReader 이용할 때 등 import 해주었던 것과 마찬가지로 <br>
+      JSP 구문을 통해 import 해주어야 합니다. <br>
+      (<span class="colored">session-todo.jsp</span> 페이지의 최상단을 확인해주세요) </li>
+
+    <li>자 이제 개괄적으로 살펴봤습니다 <br>
+      상세한 내용은 jsp파일 안에 주석을 이용바랍니다</li>
+    <li>이번에는 <span class="colored">session-todo.jsp</span> 파일을 tomcat 서버를 이용해 <br>
+      실행한 후 실세 세션이 구현되는 모습을 확인해봅시다</li>
+    <li>먼저 이클립스틀 통해 자동으로 실행된 브라우저 이외에 <br>
+      다른 브라우저를 동시에 띄워봅니다 <br>
+      (크롬이 기본 브라우저였다면 엣지, 파이어폭스 등으로) <br>
+      두 브라우저를 양 옆에 배치 시켜놓고 각각의 브라우저에<br>
+      직접 할 일을 입력하고 submit 버튼을 눌러 제대로 추가되는지 <br>
+      교대로 입력해보며 확인해보세요. <br>
+    </li>
+    <li class="description">
+      이 실습에서는 로그인이 없으므로 브라우저가 다르면 <br>
+      서로 다른 고유의 사용자로 인식하기 때문에<br>
+      세션을 통해 사용자에 따라 서로 다른 고유의 값을 가지는 <br>
+      화면을 유저에게 보여주는 기능을 확인할 수 있었습니다. <br>
+      다음 시간에는 또다른 JSP의 상태관리(state managemet) 방법인 <br>
+      <span class="colored">Cookie</span>를 활용하는 방법에 대해 익혀보도록 하겠습니다.
+    </li>
+
+    <li>
+      다음 시간 전까지 이번 실습내용과 관련된 JSP 교재 페이지를 읽어와 주세요! <br>
+      <span class="page">232p ~ 242p 상단</span>까지 (Ch10 세션)
+      <br>
+      이번 내용이 이해하기 어려웠다면 다음 시간에 연습할 <br>
+      Cookie에 해당하는 내용을 JSP 교재를 통해 예습해오세요 <br>
+      <span class="page"> 205p ~ 213p </span> (쿠키의 도메인 전까지)
+    </li>
+
+    <!-- <pre><code class="language-html">...</code></pre> -->
+    <!-- <pre><code class="nohighlight">...</code></pre> -->
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
+</body>
+
+</html>
