@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JSTL - coretag</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="../highlight/styles/atom-one-dark-reasonable.css" /> -->
+  <link rel="stylesheet" href="./css/stylePractice.css?v=1.1">
+  <link rel="stylesheet" href="../../highlight/styles/vs2015.css" />
+  <script src="../../highlight/highlight.pack.js"></script>
+</head>
+
+<body>
+
+  <h1>test.jsp</h1>
+  <pre><code class="language-java">&lt;%@ page contentType=&quot;text/html; charset=UTF-8&quot; %&gt;
+    &lt;%@ taglib uri=&quot;http://java.sun.com/jsp/jstl/core&quot; prefix=&quot;c&quot; %&gt;
+
+    &lt;html&gt;
+    &lt;head&gt;
+    &lt;title&gt;JSTL core 01&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+
+    &lt;c:set var = &quot;serverTime&quot; value=&quot;&lt;%= new java.util.Date() %&gt;&quot; /&gt;
+
+    &lt;p&gt;현재 서버 시각  :   ${serverTime} &lt;/p&gt;
+
+    &lt;/body&gt;
+    &lt;/html&gt;</code></pre>
+
+  <div class="space"></div>
+
+  <ol>
+    <li class="description">JSP 태그에는<br>
+      (1) JSP 커스텀 태그와 <span class="colored">(2) JSTL(JSP Standard Tag Library)</span> <br>
+      이렇게 두 가지가 있습니다. <br>
+      JSTL은 오라클에서 표준 태그 라이브러리를 지정하여 설정해 둔 것으로 <br>
+      <span class="colored">코어, 함수, 국제화, XML, 데이터베이스</span>의 5가지가 있습니다 <br>
+      이 중에서 이번 페이지에서는 코어(core) 태그와 함수(function) 태그를 <br>
+      예제 파일을 통해 몇 가지 알아보도록 하겠습니다.
+    </li>
+
+    <li>JSTL을 이용하기 위해서는 JSTL 라이브러리가 필요합니다 <br>
+      <span class="colored">WebContent/WEB-INF/lib</span>폴더에 <br>
+      아래 링크를 통해 다운 받은 .jar 파일 2개를 붙여 넣어줍니다</li>
+    <li><a href="http://yorusung.cafe24.com/archives/jstl-1.2.1.zip">jstl-1.2.1 다운로드</a></li>
+    <li>여기 페이지 상단에 test.jsp 파일의 코드가 있습니다 <br>
+      가장 JSTL의 core tag 중 set 을 하나 이용하여 현재 서버 시각을 <br>
+      출력하는 가장 간단한 JSTL 예제입니다. </li>
+
+    <li>
+      여기서 처음 등장하는 것이 다음 taglib 디렉티브 입니다
+      <pre><code class="language-java smaller">&lt;%@ taglib uri=&quot;http://java.sun.com/jsp/jstl/core&quot; prefix=&quot;c&quot; %&gt;</code></pre>
+      여기에 있는 <span class="colored">http://java.sun.com/jsp/jstl/core</span>는<br>
+      <a class="noMargin"
+        href="https://velog.io/@pa324/%EA%B0%9C%EB%B0%9C%EC%83%81%EC%8B%9D-URI-URL-%EC%B0%A8%EC%9D%B4-%EC%A0%95%EB%A6%AC">uri</a>로서
+      이 taglib 디렉티브를 포함한 jsp페이지를 <br> 로컬 컴퓨터에서 tomcat 서버를 이용하여 <br>
+      실행할 때 실제 인터넷 연결이 일어나지는 않습니다.
+      <br>
+      다음으로 prefix=<span class="colored">"c"</span> 에서 c는 core 태그를 의미합니다 <br>
+      (함수태그는 prefix 값으로 <span class="colored">"fn"</span>을 이용)
+    </li>
+    <li>다음으로 아래 JSTL 예제 파일을 받아 <br>
+      practice 프로젝트의 WebContent폴더 안에<br>
+      압축 파일 안에 있는 coretag, functiontag 폴더를,
+      폴더 채로 WebContent 안에 넣어줍니다. <br>
+      다음으로 src/tagdemo/Student.java 파일을 <br>
+      Java Resources /src에 tagdemo 패키지를 만들고 안에 넣어줍니다. </li>
+
+
+    <li><a href="http://yorusung.cafe24.com/archives/jstldemo.zip">JSTL 예제 다운로드 </a></li>
+
+
+    <li>다음 JSP 교재를 살펴본 후 <br>
+      <span class="page">292p ~ 314p</span>(JSTL core tag) <br>
+      <span class="page">332p ~ 334p</span>(JSTL function tag) <br>
+      하기 순서에 따라 하나씩 jsp파일을 실행하고 <br>
+      코드를 살펴보며 익혀보세요 <br><br>
+      <span class="method">JSTL core tag</span><br>
+      <ol>
+        <li class="noMargin">test.jsp</li>
+        <li class="noMargin">foreach-simple-test.jsp</li>
+        <li class="noMargin">foreach-student-test.jsp</li>
+        <li class="noMargin">if-student-test.jsp</li>
+        <li class="noMargin">choose-student-test.jsp</li>
+      </ol>
+      <br>
+      <span class="method">JSTL function tag</span><br>
+      <ol>
+        <li class="noMargin">function-test.jsp</li>
+        <li class="noMargin">split-join-test.jsp</li>
+      </ol>
+    </li>
+
+
+    <li class="description">끝</li>
+
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
+</body>
+
+</html>
