@@ -227,12 +227,12 @@ const strongTango = document.getElementsByClassName('tango');
             });
         }
         const strongYomigana = document.getElementsByClassName('yomigana');
-
+        const strongToTango = document.getElementsByClassName('toTango');
         for (i = 0; i < strongYomigana.length; i++) {
-            const yomiganaText = strongYomigana[i].innerHTML;
+            const toTangoText = strongToTango[i].innerHTML;
             strongYomigana[i].addEventListener('click', {
                 handleEvent(event) {
-                    const url = `https://ja.dict.naver.com/#/search?range=all&query=${yomiganaText}`;
+                    const url = `https://ja.dict.naver.com/#/search?range=all&query=${toTangoText}`;
                     window.open(url, '_blank');
                 },
             });

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>病院</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&display=swap"
+        rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap"
+        rel="stylesheet"> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap" rel="stylesheet"> -->
+    <link rel="stylesheet" href="./style.css?v=1.75">
+</head>
+
+
+
+
+
+<body>
+
+    <section class="button-container">
+        <section class="button-vertical-center">
+            <button class="toggleLeft">
+                <h4>왼쪽 바꾸기</h4>
+            </button>
+            <button class="toggleRight">
+                <h4>오른쪽 바꾸기</h4>
+            </button>
+            <button class="toggleAll">
+                <h4>둘 다 바꾸기</h4>
+            </button>
+        </section>
+    </section>
+    <table class="center">
+        <thead>
+            <tr>
+                <th>漢字 →　読み仮名</th>
+                <th>読み仮名 →　漢字</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <ol id="tangoToYomigana">
+                    </ol>
+                </td>
+                <td>
+                    <ol id="yomiganaToTango">
+                    </ol>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+    <script>
+        const left01 = '最近、1片頭痛2へんずつう3で吐き気がするんです。';
+        const left02 = 'インフルエンザの予防1接種2せっしゅ3を受ける。';
+        const left03 = '1生理痛2せいりつう3の薬を買いたいです。';
+        const left04 = '具合が悪いし、1微熱2びねつ3も少し出ている。';
+        const left05 = '彼は1風邪2かぜ3をこじらせて、咳き込んでいる。';
+        const left06 = '咳と1鼻水2はなみず3が止まらないんです。';
+        const left07 = 'では、1血圧2けつあつ3を測ってみましょう。';
+        const left08 = '1処方箋2しょほうせん3をもって、薬局に行く。';
+        const left09 = 'お薬ですが、1錠剤2じょうざい3で出ております。';
+        const left10 = '1気持ち2きもち3悪くて、吐いた。';
+        const left11 = '1病気2びょうき3が治るまで、薬を飲む。';
+        const left12 = '1癌2がん3保険に入る。';
+        const left13 = '明日1退院２たいいん3できるでしょう。';
+        const left14 = '1火傷2やけど3をして、水ぶくれができる。';
+        const left15 = '1寒気2さむけ3がして、ヒーターをつけた。';
+
+        const right01 = '1にんげん2人間ドックに行こうと思っています。';
+        const right02 = '1ふくつう2腹痛3がひどくて、今日はお休みします。';
+        const right03 = '老人は1こなぐすり2粉薬３を飲むのが、難しいです。';
+        const right04 = '1てんてき2点滴３を打たなければなりません。';
+        const right05 = '1しょうじょう2症状３が軽いので、自宅で療養する。';
+        const right06 = '1でんせんびょう2伝染病3は怖い。';
+        const right07 = '1しゅじゅつ2手術3は来週の月曜日を予定している。';
+        const right08 = '1せき2咳3が出て、苦しいんです。';
+        const right09 = '1きぶん2気分3が悪いので、早退します。';
+        const right10 = '1ちりょう2治療3は3か月続いた。';
+        const right11 = '1にゅういん3入院3中はお世話になりました。';
+        const right12 = '1こっせつ2骨折3してギプスしている。';
+        const right13 = '1はぐき2歯茎3が腫れる。';
+        const right14 = '1ちょうえん2腸炎3になって、会社を休む。';
+        const right15 = '1びょういん2病院3で、医者に診てもらう。';
+    </script>
+    <script src="./toggleGlobalin.js?v=1.75"></script>
+</body>
+
+</html>

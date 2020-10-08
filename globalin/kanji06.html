@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>郵便局・配達</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&display=swap"
+        rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap"
+        rel="stylesheet"> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap" rel="stylesheet"> -->
+    <link rel="stylesheet" href="./style.css?v=1.75">
+</head>
+
+
+
+
+
+<body>
+
+    <section class="button-container">
+        <section class="button-vertical-center">
+            <button class="toggleLeft">
+                <h4>왼쪽 바꾸기</h4>
+            </button>
+            <button class="toggleRight">
+                <h4>오른쪽 바꾸기</h4>
+            </button>
+            <button class="toggleAll">
+                <h4>둘 다 바꾸기</h4>
+            </button>
+        </section>
+    </section>
+    <table class="center">
+        <thead>
+            <tr>
+                <th>漢字 →　読み仮名</th>
+                <th>読み仮名 →　漢字</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <ol id="tangoToYomigana">
+                    </ol>
+                </td>
+                <td>
+                    <ol id="yomiganaToTango">
+                    </ol>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+    <script>
+        const left01 = '1郵便局2ゆうびんきょく3にいく。';
+        const left02 = '1切手2きって3をはる。';
+        const left03 = '1封筒2ふうとう3に住所を書く。';
+        const left04 = '日本には現金1書留2かきとめ3というものがある。';
+        const left05 = '1速達2そくたつ3料金は少し高い。';
+        const left06 = '1暑中2しょちゅう3見舞いのはがきをだす。';
+        const left07 = '船で送ることを1船便2ふなびん3という。';
+        const left08 = '会社が1私書箱2ししょばこ3を使う。';
+        const left09 = '手紙の紙を1便箋2びんせん3という。';
+        const left10 = '応募の締切は当日1消印2けしいん3有効だ。';
+        const left11 = '宅急便の1受付2うけつけ3はコンビニでできる。';
+        const left12 = '1宅急便2たっきゅうびん3はヤマトが有名だ。';
+        const left13 = '荷物を1梱包2こんぽう3する。';
+        const left14 = '宅配の受け取りには1印鑑2いんかん3を押す。　';
+        const left15 = 'こちらのお品物は発送1取扱い2とりあつかい3できません。';
+
+        const right01 = 'EMSは1こうくうびん2航空便3だ。';
+        const right02 = 'どこかに送る箱のことを1こづつみ2小包3という。';
+        const right03 = '日本ではまだ1ねんがじょう2年賀状3を出す習慣がある。';
+        const right04 = '郵便局の1さいはいたつ2再配達3は面倒だ。';
+        const right05 = '往復1はがき2葉書3というものが売っている。';
+        const right06 = '手紙の1さしだしにん2差出人3が不明だ。';
+        const right07 = '1こくさい2国際3郵便を送る。';
+        const right08 = '引越しの時は郵便局に1転居届2てんきょとどけ3を出す。';
+        const right09 = '宅急便の番号を1おくりじょう2送り状3ナンバーという。';
+        const right10 = '支払いは1ちゃくばらい2着払い3でお願いします。';
+        const right11 = '宅急便の1しゅうか2集荷3に来てもらう。';
+        const right12 = '家に帰ったら宅配の1ふざいひょう2不在表3が入っていた。';
+        const right13 = '1ちゅうもん2注文3した荷物が届く。';
+        const right14 = '決済は代金1引換２ひきかえ3で行う。';
+        const right15 = '荷物の大きさは大口1こぐち2小口3がある。';
+    </script>
+    <script src="./toggleGlobalin.js?v=1.75"></script>
+</body>
+
+</html>

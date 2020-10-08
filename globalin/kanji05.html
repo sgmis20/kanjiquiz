@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>銀行</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&display=swap"
+        rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap"
+        rel="stylesheet"> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap" rel="stylesheet"> -->
+    <link rel="stylesheet" href="./style.css?v=1.75">
+</head>
+
+
+
+
+
+<body>
+
+    <section class="button-container">
+        <section class="button-vertical-center">
+            <button class="toggleLeft">
+                <h4>왼쪽 바꾸기</h4>
+            </button>
+            <button class="toggleRight">
+                <h4>오른쪽 바꾸기</h4>
+            </button>
+            <button class="toggleAll">
+                <h4>둘 다 바꾸기</h4>
+            </button>
+        </section>
+    </section>
+    <table class="center">
+        <thead>
+            <tr>
+                <th>漢字 →　読み仮名</th>
+                <th>読み仮名 →　漢字</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <ol id="tangoToYomigana">
+                    </ol>
+                </td>
+                <td>
+                    <ol id="yomiganaToTango">
+                    </ol>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+    <script>const left01 = '1口座2こうざ3を開設する。';
+        const left02 = '1硬貨2こうか3を集める。';
+        const left03 = '1残高2ざんだか3を照会する。';
+        const left04 = '1通帳2つうちょう3残高をみる。';
+        const left05 = '1積立2つみたて3を始める。';
+        const left06 = '積立が1満期2まんき3になる。';
+        const left07 = '1為替2かわせ3レートを確認する。';
+        const left08 = '1窓口2まどぐち3で手続きをする。';
+        const left09 = '1利子2りし3は2パーセントです。';
+        const left10 = 'ATMで1振込2ふりこみ3をする。';
+        const left11 = '1現金2げんきん3を預ける。';
+        const left12 = '最近1円高2えんだか3だ。';
+        const left13 = '1金利2きんり3は固定と変動がある。';
+        const left14 = '1振替2ふりかえ3用紙を持って行く。';
+        const left15 = '通帳に1きちょう2記帳3する。';
+
+        const right01 = '1ぎんこう2銀行3に行く。';
+        const right02 = '1がいか2外貨3。';
+        const right03 = '1ちょきん2貯金3をくずす。';
+        const right04 = '定期1よきん2預金3をする。';
+        const right05 = '1あんしょう2暗証3番号を入力する。';
+        const right06 = '硬貨を1おさつ2お札3にかえる。';
+        const right07 = '1てすうりょう2手数料3がかかります。';
+        const right08 = '1えんやす2円安3のときは両替しない。';
+        const right09 = '1めいさい2明細3を発行する。';
+        const right10 = 'ネットで1けっさい2決済3する。';
+        const right11 = 'ローンを1へんさい2返済3する。';
+        const right12 = '1とりひき2取引3内容を確認する。';
+        const right13 = 'キャッシュカードの1ふんしつ2紛失3届を出す。';
+        const right14 = '1かいやく2解約3後の取引はできません。';
+        const right15 = '1しんき2新規3の契約をする。';
+    </script>
+    <script src="./toggleGlobalin.js?v=1.75"></script>
+</body>
+
+</html>

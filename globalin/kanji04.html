@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>空港</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&display=swap"
+        rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap"
+        rel="stylesheet"> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap" rel="stylesheet"> -->
+    <link rel="stylesheet" href="./style.css?v=1.75">
+</head>
+
+
+
+
+
+<body>
+
+    <section class="button-container">
+        <section class="button-vertical-center">
+            <button class="toggleLeft">
+                <h4>왼쪽 바꾸기</h4>
+            </button>
+            <button class="toggleRight">
+                <h4>오른쪽 바꾸기</h4>
+            </button>
+            <button class="toggleAll">
+                <h4>둘 다 바꾸기</h4>
+            </button>
+        </section>
+    </section>
+    <table class="center">
+        <thead>
+            <tr>
+                <th>漢字 →　読み仮名</th>
+                <th>読み仮名 →　漢字</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <ol id="tangoToYomigana">
+                    </ol>
+                </td>
+                <td>
+                    <ol id="yomiganaToTango">
+                    </ol>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+    <script>
+        const left01 = '1飛行機2ひこうき3の予約をする。';
+        const left02 = '1入国2にゅうこく3審査はこちらで行います。';
+        const left03 = '1国際線2こくさいせん3は第1ターミナルです。';
+        const left04 = '台風で飛行機が1欠航2けっこう3する。';
+        const left05 = '1手荷物2てにもつ3は10キロまでです。';
+        const left06 = 'ビザは日本語で1査証2さしょう3と言う。';
+        const left07 = '1空港2くうこう3にはリムジンバスで行く。';
+        const left08 = '1搭乗券2とうじょうけん3を発券する。';
+        const left09 = 'これは1課税2かぜい3対象だ。';
+        const left10 = 'チェックインカウンターで1手続き2てつづき3する。';
+        const left11 = '1出発2しゅっぱつ3時刻が遅れる。';
+        const left12 = '空港でも1両替2りょうがえ3できます。';
+        const left13 = '1搭乗口2とうじょうぐち3は5番です。';
+        const left14 = '1座席2ざせき3は通路側でお願いします。';
+        const left15 = '定刻通り1離陸2りりく3した。';
+
+        const right01 = '1ぜいかん2税関3でひっかかる。';
+        const right02 = '1しんこくしょ2申告書3を作成する。';
+        const right03 = '1りょけん2旅券3を発行する。';
+        const right04 = '1めんぜい2免税3範囲を確認する。';
+        const right05 = '1とうちゃく2到着3時刻を確認する。';
+        const right06 = '1けんえき2検疫3を受ける。';
+        const right07 = 'パリまで1ちょっこうびん2直行便3で行く。';
+        const right08 = '1じさ2時差3ボケで、眠い。';
+        const right09 = 'お席は1まどがわ2窓側3でお取りしました。';
+        const right10 = 'この便はホノルルを1けいゆ2経由3します。';
+        const right11 = '1りょかく2旅客3ターミナルまで行く。';
+        const right12 = '無事に1ちゃくりく2着陸3する。';
+        const right13 = '1きあつ2気圧3が下がって、耳が痛い。';
+        const right14 = '1きない2機内3アナウンスを聞く。';
+        const right15 = '1かいがい2海外3旅行に行く。';
+    </script>
+    <script src="./toggleGlobalin.js?v=1.75"></script>
+</body>
+
+</html>
