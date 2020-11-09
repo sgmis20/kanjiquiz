@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>電車・地下鉄</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&display=swap"
+        rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap"
+        rel="stylesheet"> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap" rel="stylesheet"> -->
+    <link rel="stylesheet" href="./style.css?v=1.75">
+</head>
+
+
+
+
+
+<body>
+
+    <section class="button-container">
+        <section class="button-vertical-center">
+            <button class="toggleLeft">
+                <h4>왼쪽 바꾸기</h4>
+            </button>
+            <button class="toggleRight">
+                <h4>오른쪽 바꾸기</h4>
+            </button>
+            <button class="toggleAll">
+                <h4>둘 다 바꾸기</h4>
+            </button>
+        </section>
+    </section>
+    <table class="center">
+        <thead>
+            <tr>
+                <th>漢字 →　読み仮名</th>
+                <th>読み仮名 →　漢字</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <ol id="tangoToYomigana">
+                    </ol>
+                </td>
+                <td>
+                    <ol id="yomiganaToTango">
+                    </ol>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+    <script>
+        const left01 = '日本の1新幹線2しんかんせん3はお金がかかる。';
+        const left02 = '1運賃2うんちん3の高いバスに乗る。';
+        const left03 = 'この1列車2れっしゃ3は普通電車です。';
+        const left04 = '各駅1停車2ていしゃ3の電車に乗る。';
+        const left05 = '1始発2しはつ3に乗って、仕事に行く。';
+        const left06 = '電車の1時刻表2じこくひょう3を検察する。';
+        const left07 = '1乗車券2じょうしゃけん3を確認します。';
+        const left08 = '1片道2かたみち3でお願いします。';
+        const left09 = '1切符2きっぷ3売り場はこちらです。';
+        const left10 = '自動1改札機2かいさつき3でひっかかる。';
+        const left11 = '乗り越し1精算機2せいさんき3で追加料金を払う。';
+        const left12 = 'わからない場合は1駅係員2えきかかりいん3に聞く。';
+        const left13 = '1下り2くだり3とは都市から地方に行くことをいう。';
+        const left14 = '最近は1踏切2ふみきり3が少なくなってきた。';
+        const left15 = '1車掌2しゃしょう3が安全を確認する。';
+
+        const right01 = '1でんしゃ2電車3に乗ってでかける。';
+        const right02 = '1ちかてつ2地下鉄3は便利だ。';
+        const right03 = '1きゅうこう2急行3列車は2番線ホーム到着です。';
+        const right04 = '指定の1ざせき2座席3をとる。';
+        const right05 = '1しゅうでん2終電3は23時45分です。';
+        const right06 = '1のりかえ2乗り換え3の料金は別です。';
+        const right07 = '1しんや2深夜3バスに乗って東京に行く。';
+        const right08 = 'バスのチケットを1おうふく2往復3で買う。';
+        const right09 = '1ていきけん2定期券3の方がお得です。';
+        const right10 = '1はっしゃ2発車3の際は内側の線までお下がりください。';
+        const right11 = 'あちらがのぼり1ほうめん2方面3のホームです。';
+        const right12 = '1つうきん2通勤3ラッシュは人でいっぱいだ。';
+        const right13 = '広島の1ろめん2路面3電車に乗る。';
+        const right14 = '切符を買うなら1かいすうけん2回数券3が安いです。';
+        const right15 = '1せんろ2線路3に問題がないか確認する。';
+    </script>
+    <script src="./toggleGlobalin.js?v=1.75"></script>
+</body>
+
+</html>

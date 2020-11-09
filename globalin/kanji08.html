@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>飲食</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&display=swap"
+        rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap"
+        rel="stylesheet"> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap" rel="stylesheet"> -->
+    <link rel="stylesheet" href="./style.css?v=1.75">
+</head>
+
+
+
+
+
+<body>
+
+    <section class="button-container">
+        <section class="button-vertical-center">
+            <button class="toggleLeft">
+                <h4>왼쪽 바꾸기</h4>
+            </button>
+            <button class="toggleRight">
+                <h4>오른쪽 바꾸기</h4>
+            </button>
+            <button class="toggleAll">
+                <h4>둘 다 바꾸기</h4>
+            </button>
+        </section>
+    </section>
+    <table class="center">
+        <thead>
+            <tr>
+                <th>漢字 →　読み仮名</th>
+                <th>読み仮名 →　漢字</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <ol id="tangoToYomigana">
+                    </ol>
+                </td>
+                <td>
+                    <ol id="yomiganaToTango">
+                    </ol>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+    <script>const left01 = '1居酒屋2いざかや3で酒を飲む。';
+        const left02 = '1喫茶店2きっさてん3とは昔でいうカフェのことだ。';
+        const left03 = 'お1店2みせ3で食料を買う。';
+        const left04 = '日本語で暖かい飲み水は1白湯2さゆ3という。';
+        const left05 = '1珈琲2コーヒー3のおいしい店に行く。';
+        const left06 = '日本の1寿司2すし3を食べる。';
+        const left07 = '日本の1焼肉2やきにく3とは牛肉を焼くものだ。';
+        const left08 = 'バイキングの1食べ放題2たべほうだい3を楽しむ。';
+        const left09 = 'お1惣菜2そうざい3とはおかずのことだ。';
+        const left10 = '1清涼飲料水2せいりょういんりょうすい3とは味のついた飲み物だ。';
+        const left11 = 'スーパーで1万引き2まんびき3は犯罪です。';
+        const left12 = '店内の1客席2きゃくせき3で食べることをイートインという。';
+        const left13 = '1出前2でまえ3でチャーハンを頼む。';
+        const left14 = '簡単に食べられる食事を1軽食2けいしょく3という。';
+        const left15 = 'シェフの1お勧め2おすすめ3メニューを食べる。';
+
+        const right01 = '1がいしょく2外食3すると、食費がかかる。';
+        const right02 = 'レストランを1よやく2予約3する。';
+        const right03 = '夕方まで飲み屋は1じゅんびちゅう2準備中3だ。';
+        const right04 = 'コンビニは24時間1えいぎょう2営業3している。';
+        const right05 = 'ピザをデリバリーで1ちゅうもん2注文3する。';
+        const right06 = 'デバ地下とは1ひゃっかてん2百貨店3の地下のことです。';
+        const right07 = '1かいてん2回転3ずしを食べに行く。';
+        const right08 = 'ランチに1ていしょく2定食3を選ぶ。';
+        const right09 = '駅の1ばいてん2売店3で飲み物を買う。';
+        const right10 = '行きたいレストランは今日1ていきゅうび2定休日3だった。';
+        const right11 = '1おもちかえり2お持ち帰り3とはテイクアウトのことだ。';
+        const right12 = '1こうきゅう2高級3レストランに一度行ってみたい。';
+        const right13 = 'ハンバーガーをピクルス1ぬき2抜き3で頼む。';
+        const right14 = '飲食1ぎょうかい2業界3で働く。';
+        const right15 = 'ごはんは1おおもり2大盛3でお願いします。';
+    </script>
+    <script src="./toggleGlobalin.js?v=1.75"></script>
+</body>
+
+</html>

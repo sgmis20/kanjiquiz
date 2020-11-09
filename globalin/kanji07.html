@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学校</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&display=swap"
+        rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap"
+        rel="stylesheet"> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap" rel="stylesheet"> -->
+    <link rel="stylesheet" href="./style.css?v=1.75">
+</head>
+
+
+
+
+
+<body>
+
+    <section class="button-container">
+        <section class="button-vertical-center">
+            <button class="toggleLeft">
+                <h4>왼쪽 바꾸기</h4>
+            </button>
+            <button class="toggleRight">
+                <h4>오른쪽 바꾸기</h4>
+            </button>
+            <button class="toggleAll">
+                <h4>둘 다 바꾸기</h4>
+            </button>
+        </section>
+    </section>
+    <table class="center">
+        <thead>
+            <tr>
+                <th>漢字 →　読み仮名</th>
+                <th>読み仮名 →　漢字</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <ol id="tangoToYomigana">
+                    </ol>
+                </td>
+                <td>
+                    <ol id="yomiganaToTango">
+                    </ol>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+    <script>const left01 = '1小学生2しょうがくせい3はランドセルを使う。';
+        const left02 = '大学の1学部2がくぶ3を選択する。';
+        const left03 = '料理の1専門学校2せんもんがっこう3に通う。';
+        const left04 = '国語で1漢文2かんぶん3を勉強する。';
+        const left05 = '小学校まで数学を1算数2さんすう3と言う。';
+        const left06 = '大学で1教養科目2きょうようかもく3を選択する。';
+        const left07 = '小学校の授業で1書道2しょどう3の時間がある。';
+        const left08 = '韓国は高校で夕方から1補習2ほしゅう3で勉強する。';
+        const left09 = '中学で1技術2ぎじゅつ3というモノづくりを学ぶ。';
+        const left10 = '1期末2きまつ3試験で良い点数をとる。';
+        const left11 = '大学の1願書2がんしょ3を書いて郵送する。';
+        const left12 = '1遠足2えんそく3でハイキングに行く。';
+        const left13 = '学校の1裏門2うらもん3から出て、授業をサボる。';
+        const left14 = '小学校の庭仕事は1用務員2ようむいん3という人がする。';
+        const left15 = '大学の1単位2たんい3が足りなくなる。';
+
+        const right01 = '日本は高校まで1こうりつ2公立3の学費は無料だ。';
+        const right02 = '公立より1しりつ2私立3の学費が高い。';
+        const right03 = '1だいがくいん2大学院2入学試験を受ける。';
+        const right04 = '国語で中学から1こてん2古典3の時間が始まる。';
+        const right05 = '秋の1ぶんかさい2文化祭３は楽しみだ。';
+        const right06 = 'ここは1がくしょく2学食3のおいしい学校です。';
+        const right07 = '1おんがく2音楽3の授業で合唱をする。';
+        const right08 = '大学に落ちて、１年1ろうにん2浪人3をする。';
+        const right09 = '学校は1だんたい2団体3生活も勉強できる。';
+        const right10 = '小学生が1こうてい2校庭3で走っている。';
+        const right11 = '1しょうがくきん2奨学金3をもらいながら学校に通う。';
+        const right12 = '大学で1ろんぶん2論文3を書く。';
+        const right13 = '大学に落ちて1よびこう2予備校3に通う。';
+        const right14 = 'センター1しけん2試験3で大学を受験する。';
+        const right15 = '大学の1にゅうがくきん2入学金3は高い。';
+    </script>
+    <script src="./toggleGlobalin.js?v=1.75"></script>
+</body>
+
+</html>
