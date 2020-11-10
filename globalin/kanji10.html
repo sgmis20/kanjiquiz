@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>職業</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&display=swap"
+        rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap"
+        rel="stylesheet"> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap" rel="stylesheet"> -->
+    <link rel="stylesheet" href="./style.css?v=1.75">
+</head>
+
+
+
+
+
+<body>
+
+    <section class="button-container">
+        <section class="button-vertical-center">
+            <button class="toggleLeft">
+                <h4>왼쪽 바꾸기</h4>
+            </button>
+            <button class="toggleRight">
+                <h4>오른쪽 바꾸기</h4>
+            </button>
+            <button class="toggleAll">
+                <h4>둘 다 바꾸기</h4>
+            </button>
+        </section>
+    </section>
+    <table class="center">
+        <thead>
+            <tr>
+                <th>漢字 →　読み仮名</th>
+                <th>読み仮名 →　漢字</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <ol id="tangoToYomigana">
+                    </ol>
+                </td>
+                <td>
+                    <ol id="yomiganaToTango">
+                    </ol>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+    <script>
+        const left01 = '1介護士2かいごし3は老人のケアをする。';
+        const left02 = '1美容師2びようし3に髪をきってもらう。';
+        const left03 = '有名な1建築家2けんちくか3に建物を造ってもらう。';
+        const left04 = '最近雑誌の1編集者2へんしゅうしゃ3の数が減ってきた。';
+        const left05 = '薬局で仕事するには1薬剤師2やくざいし3の資格がいる。';
+        const left06 = 'いろんな分野の1職人2しょくにん3がいる。';
+        const left07 = '将来は1警察官2けいさつかん3になるのが夢です。';
+        const left08 = '1事務職員2じむしょくいん3は一般的に多い。';
+        const left09 = '1塾2じゅく3の先生はいろいろある。';
+        const left10 = '1検事2けんじ3の仕事は難しい。';
+        const left11 = 'ドラマの1俳優2はいゆう3になると忙しい。';
+        const left12 = 'いい1料理人2りょうりにん3になるため修行する。';
+        const left13 = 'オペラ1歌手2かしゅ3は美しい声を出す。';
+        const left14 = 'スポーツ1選手2せんしゅ3は体力が勝負だ。';
+        const left15 = '立派な1学者2がくしゃ3になって発明したい。';
+
+        const right01 = '学校の1きょうし2教師3になるために勉強する。';
+        const right02 = '病院で1かんごし2看護師3として働く。';
+        const right03 = '小説の1さっか2作家3になる夢がある。';
+        const right04 = 'タクシーの1うんてんしゅ2運転手3は夜も忙しい。';
+        const right05 = 'いろんな病気を治す1いしゃ2医者3を目指す。';
+        const right06 = '有名な1げいのうじん2芸能人3に会う。';
+        const right07 = '英語の1つうやく2通訳3ができる程の実力だ。';
+        const right08 = '火事の時は1しょうぼうし2消防士3が活躍する。';
+        const right09 = '韓国には1ぐんじん2軍人3の仕事がある。';
+        const right10 = '最近は1こうむいん2公務員3が人気だ。';
+        const right11 = '1のうか2農家3は朝早く起きる。';
+        const right12 = '1がか2画家3が描いた絵を買う。';
+        const right13 = '専業1しゅふ2主婦3は最近少なくなった。';
+        const right14 = '新聞1きしゃ2記者3は情報をまとめる。';
+        const right15 = 'いつか1だいとうりょう2大統領3になって国に貢献する。';
+    </script>
+    <script src="./toggleGlobalin.js?v=1.75"></script>
+</body>
+
+</html>
