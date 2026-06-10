@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>한자 퀴즈</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/kanjiquizNew.css?v=1.7718">
+</head>
+<body>
+  <div class="spaceResult"></div>
+  <h3>한자퀴즈 자가테스트</h3>
+  <h4 class="dataInfo">{{ label }}  /  {{ pages_str }}페이지</h4>
+  <h4 class="instruction desktop">다음 단어의 일본어 한자와 요미가나를 써보세요 !</h4>
+
+  <table class="resultTable">
+    <tbody>
+      {% for q in questions %}
+      {% if loop.index0 % 5 == 0 %}<tr>{% endif %}
+        <td>
+          <h4 class="problemNumber">Q{{ loop.index }}</h4>
+          <h5 class="yomigana">{{ q.yomigana }}</h5>
+          <h5 class="tango">{{ q.tango }}</h5>
+          <h5 class="korMeaning">{{ q.kor }}</h5>
+        </td>
+      {% if loop.index % 5 == 0 or loop.last %}</tr>{% endif %}
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <h3 class="btnAnswer">정답 확인</h3>
+  <br /><br />
+  <div style="text-align:center; margin-top:1em; margin-bottom:3em;">
+    <a href="/quiz" style="text-decoration:none;">
+      <input type="button" value="다시 풀기" />
+    </a>
+  </div>
+
+  <script>
+    function hideAnswer() {
+      var upper = document.getElementsByClassName('yomigana');
+      var middle = document.getElementsByClassName('tango');
+      for (var i = 0; i < upper.length; i++) {
+        upper[i].style.display = 'none';
+        middle[i].style.display = 'none';
+      }
+    }
+    hideAnswer();
+
+    document.querySelector('.btnAnswer').addEventListener('click', function() {
+      var upper = document.getElementsByClassName('yomigana');
+      var middle = document.getElementsByClassName('tango');
+      for (var i = 0; i < upper.length; i++) {
+        upper[i].style.display = (upper[i].style.display === 'none') ? 'block' : 'none';
+      }
+      for (var i = 0; i < middle.length; i++) {
+        middle[i].style.display = (middle[i].style.display === 'none') ? 'block' : 'none';
+      }
+    });
+  </script>
+</body>
+</html>
