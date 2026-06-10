@@ -23,10 +23,16 @@ Two companion repos are referenced in `README.md`:
 ├── MMDD.html           Daily vocabulary pages (e.g. 0729.html = 7월 29일)
 ├── templateOnair.html  Template used when creating a new daily page
 ├── kanjiquiz.html      Static kanji quiz page
+├── kanjiquizDemo.html  DB-free quiz demo (uses javascript/kanjiData.js)
 ├── kanjiquiz.jsp       JSP entry for dynamic quiz (prototype)
 ├── kanjiquizNew.jsp    Form: select page range + question count
 ├── kanjiquizMariaDB.jsp  Renders a quiz from MariaDB (current)
 ├── kanjiquizOracleDB.jsp Renders a quiz from Oracle (legacy)
+├── server/             Python/Flask quiz backend (replaces JSP flow)
+│   ├── app.py             Routes: /quiz, /quiz/generate, /api/words, /api/pages
+│   ├── kanji_data.py      Single source of truth: all vocab (26 dates, 1044 words)
+│   ├── generate_js_data.py  Exports kanji_data.py → javascript/kanjiData.js
+│   └── templates/         Jinja2: base.html + quiz_form / quiz_result
 ├── browser.html, filePath.html  Small utility pages
 ├── css/                All stylesheets; versioned via ?v=... query strings
 ├── javascript/         Small vanilla-JS helpers (no bundler)
@@ -34,7 +40,10 @@ Two companion repos are referenced in `README.md`:
 │   ├── toggle.js          Hide/show yomigana / 한글뜻 / kanji on daily pages
 │   ├── toggleLyrics.js    Same pattern for /lyrics pages
 │   ├── collapsibles.js    Generic accordion behavior
-│   └── getString.js       Dev helper: serializes table cells to console
+│   ├── getString.js       Dev helper: serializes table cells to console
+│   ├── kanjiData.js       GENERATED from server/kanji_data.py — do not hand-edit
+│   ├── quizCards.js       Shared quiz-card reveal/toggle (demo + Flask result page)
+│   └── quizDemo.js        kanjiquizDemo.html logic (form build, shuffle, render)
 ├── kakunin/            "확인" pages — consolidated review quizzes per week
 ├── lyrics/             J-pop lyric pages with Korean translation toggle
 ├── globalin/           Secondary kanji series; uses toggleGlobalin.js
@@ -95,6 +104,18 @@ When editing JSP:
 - Page numbers are split via `Math.log10` branching; watch for edge cases when
   adding values with unusual digit counts (e.g. the `101012` entry in
   `kanjiquizNew.jsp` is almost certainly a typo for `101102`).
+
+### Python quiz backend and static demo
+
+`server/kanji_data.py` is the single source of truth for vocabulary. The Flask
+app (`server/app.py`, run with `cd server && python3 app.py`) serves the quiz
+at `/quiz` and JSON at `/api/words` / `/api/pages`. The static demo
+(`kanjiquizDemo.html`) needs no server: it loads `javascript/kanjiData.js`,
+which is **generated** — after editing `kanji_data.py`, regenerate it with
+`cd server && python3 generate_js_data.py`. Both UIs share
+`css/kanjiquizDemo.css` and `javascript/quizCards.js` (card markup contract:
+`.quizCard` containing `.qNum` / `.kor` / `.tango` / `.yomigana`; reveal state
+is the `.revealed` class).
 
 ### Lyrics and globalin
 

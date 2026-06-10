@@ -5,31 +5,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>한자 퀴즈 (데모)</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./css/kanjiquizNew.css?v=1.7718">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/kanjiquizDemo.css?v=1.0">
 </head>
 
 <body>
+  <header class="siteHeader">
+    <h1>한자퀴즈 데모</h1>
+    <a href="./index.html">메인페이지</a>
+  </header>
 
-  <div id="formSection">
-    <br /><br />
-    <section class="selectBox">
-      <h3>퀴즈 데이터를 선택하세요 : </h3>
-      <select id="pageSelector">
-        <option value="all">전체 (랜덤)</option>
-        <optgroup label="~·~·~ 6월 ~·~·~">
-          <option value="0602">6월 2일 (67, 68페이지)</option>
-          <option value="0616">6월 16일 (79, 80페이지)</option>
-        </optgroup>
-        <optgroup label="~·~·~ 7월 ~·~·~">
-          <option value="0701">7월 1일 (93, 94페이지)</option>
-          <option value="0714">7월 14일 (103, 104페이지)</option>
-          <option value="0729">7월 29일 (117, 118페이지)</option>
-        </optgroup>
-      </select>
-      <br />
-      <h3>문제 수를 선택하세요 : </h3>
+  <div class="quizContainer">
+
+    <section id="formSection" class="selectCard">
+      <h3>퀴즈 데이터를 선택하세요</h3>
+      <select id="pageSelector"></select>
+      <h3>문제 수를 선택하세요</h3>
       <select id="numSelector">
         <option value="5">5 개</option>
         <option value="10" selected>10 개</option>
@@ -38,353 +30,26 @@
         <option value="25">25 개</option>
         <option value="30">30 개</option>
       </select>
-      <div class="space submitBtn"></div>
+      <button type="button" id="startQuiz" class="btnPrimary">퀴즈 시작</button>
     </section>
-    <input type="button" id="startQuiz" value="퀴즈 시작" />
+
+    <section id="quizSection" hidden>
+      <div class="quizTopbar">
+        <p class="quizInfo" id="quizInfo"></p>
+        <div class="quizButtons">
+          <button type="button" id="btnAnswer" class="btnPrimary">정답 확인</button>
+          <button type="button" id="retryBtn" class="btnGhost">다시 풀기</button>
+        </div>
+      </div>
+      <p class="quizHint">한글 뜻을 보고 한자와 요미가나를 써보세요 · 카드를 클릭하면 정답이 보입니다</p>
+      <div class="cardGrid" id="cardGrid"></div>
+    </section>
+
   </div>
 
-  <div id="quizSection" style="display:none;">
-    <div class="spaceResult"></div>
-    <h3>한자퀴즈 자가테스트 (데모)</h3>
-    <h4 class="dataInfo" id="quizInfo"></h4>
-    <h4 class="instruction desktop">다음 단어의 일본어 한자와 요미가나를 써보세요 !</h4>
-
-    <table class="resultTable">
-      <tbody id="quizBody"></tbody>
-    </table>
-
-    <h3 class="btnAnswer" id="btnAnswer">정답 확인</h3>
-    <br /><br />
-    <div style="text-align:center; margin-top:2em;">
-      <input type="button" id="retryBtn" value="다시 풀기" />
-    </div>
-    <br /><br />
-  </div>
-
-  <script>
-  var quizData = {
-    "0602": {
-      label: "6월 2일  /  67, 68페이지",
-      words: [
-        {yomigana:"ぐん",tango:"郡",kor:"군"},
-        {yomigana:"けいたい",tango:"携帯",kor:"휴대"},
-        {yomigana:"おび",tango:"帯び",kor:"매듭"},
-        {yomigana:"せいと",tango:"生徒",kor:"생도/학생"},
-        {yomigana:"れんけつ",tango:"連結",kor:"연결"},
-        {yomigana:"れんぞく",tango:"連続",kor:"연속"},
-        {yomigana:"つれる",tango:"連れる",kor:"데리고오다"},
-        {yomigana:"りょうきん",tango:"料金",kor:"요금"},
-        {yomigana:"りょうり",tango:"料理",kor:"요리"},
-        {yomigana:"ばいか",tango:"梅花",kor:"매화"},
-        {yomigana:"うめしゅ",tango:"梅酒",kor:"매실주"},
-        {yomigana:"じんみゃく",tango:"人脈",kor:"인맥"},
-        {yomigana:"どうみゃく",tango:"動脈",kor:"동맥"},
-        {yomigana:"じょうみゃく",tango:"静脈",kor:"정맥"},
-        {yomigana:"ふんまつ",tango:"粉末",kor:"분말"},
-        {yomigana:"こむぎこ",tango:"小麦粉",kor:"밀가루"},
-        {yomigana:"かふんしょう",tango:"花粉症",kor:"꽃가루알레르기"},
-        {yomigana:"ざせき",tango:"座席",kor:"좌석"},
-        {yomigana:"だんしょう",tango:"談笑",kor:"담소"},
-        {yomigana:"わらう",tango:"笑う",kor:"웃다"},
-        {yomigana:"しそん",tango:"子孫",kor:"자손"},
-        {yomigana:"まご",tango:"孫",kor:"손자"},
-        {yomigana:"あんない",tango:"案内",kor:"안내"},
-        {yomigana:"ていあん",tango:"提案",kor:"제안"},
-        {yomigana:"にゅうよく",tango:"入浴",kor:"입욕"},
-        {yomigana:"よくしつ",tango:"浴室",kor:"욕실"},
-        {yomigana:"あびる",tango:"浴びる",kor:"씻다"},
-        {yomigana:"ざんねん",tango:"残念",kor:"유감"},
-        {yomigana:"のこる",tango:"残る",kor:"남겨지다"},
-        {yomigana:"のこす",tango:"残す",kor:"남기다"},
-        {yomigana:"しゃっきん",tango:"借金",kor:"빚"},
-        {yomigana:"かりる",tango:"借りる",kor:"빌리다"},
-        {yomigana:"さつじん",tango:"殺人",kor:"살인"},
-        {yomigana:"じさつ",tango:"自殺",kor:"자살"},
-        {yomigana:"さっとう",tango:"殺到",kor:"쇄도"},
-        {yomigana:"ころす",tango:"殺す",kor:"죽이다"}
-      ]
-    },
-    "0616": {
-      label: "6월 16일  /  79, 80페이지",
-      words: [
-        {yomigana:"かんこう",tango:"観光",kor:"관광"},
-        {yomigana:"かんさつ",tango:"観察",kor:"관찰"},
-        {yomigana:"かんそく",tango:"観測",kor:"관측"},
-        {yomigana:"しゅるい",tango:"種類",kor:"종류"},
-        {yomigana:"じんるい",tango:"人類",kor:"인류"},
-        {yomigana:"けいけん",tango:"経験",kor:"경험"},
-        {yomigana:"しけん",tango:"試験",kor:"시험"},
-        {yomigana:"たいけん",tango:"体験",kor:"체험"},
-        {yomigana:"かくだいきょう",tango:"拡大鏡",kor:"확대경"},
-        {yomigana:"かがみ",tango:"鏡",kor:"거울"},
-        {yomigana:"がんしょ",tango:"願書",kor:"원서"},
-        {yomigana:"ねんがん",tango:"念願",kor:"염원"},
-        {yomigana:"ねがう",tango:"願う",kor:"바라다"},
-        {yomigana:"きょうそう",tango:"競走",kor:"경주"},
-        {yomigana:"けいば",tango:"競馬",kor:"경마"},
-        {yomigana:"きそう",tango:"競う",kor:"경쟁하다"},
-        {yomigana:"ぎいん",tango:"議員",kor:"의원"},
-        {yomigana:"ぎかい",tango:"議会",kor:"의회"},
-        {yomigana:"きょうぎ",tango:"協議",kor:"협의"},
-        {yomigana:"えいきゅう",tango:"永久",kor:"영구"},
-        {yomigana:"ひさしい",tango:"久しい",kor:"오랜만이다"},
-        {yomigana:"たいきゅう",tango:"耐久",kor:"내구"},
-        {yomigana:"ぶっきょう",tango:"仏教",kor:"불교"},
-        {yomigana:"ほとけ",tango:"仏",kor:"부처"},
-        {yomigana:"たいひ",tango:"対比",kor:"대비"},
-        {yomigana:"ひりつ",tango:"比率",kor:"비율"},
-        {yomigana:"くらべる",tango:"比べる",kor:"비교하다"},
-        {yomigana:"しえん",tango:"支援",kor:"지원"},
-        {yomigana:"しじ",tango:"支持",kor:"지지"},
-        {yomigana:"ささえる",tango:"支える",kor:"지지하다"},
-        {yomigana:"かけつ",tango:"可決",kor:"가결"},
-        {yomigana:"かのう",tango:"可能",kor:"가능"},
-        {yomigana:"かんこうぶつ",tango:"刊行物",kor:"간행물"},
-        {yomigana:"しゅうかん",tango:"週刊",kor:"주간"},
-        {yomigana:"くとうてん",tango:"句読点",kor:"구두점"},
-        {yomigana:"もんく",tango:"文句",kor:"불평"},
-        {yomigana:"きゅうらい",tango:"旧来",kor:"종래"},
-        {yomigana:"はんざい",tango:"犯罪",kor:"범죄"},
-        {yomigana:"はんにん",tango:"犯人",kor:"범인"},
-        {yomigana:"おかす",tango:"犯す",kor:"저지르다"}
-      ]
-    },
-    "0701": {
-      label: "7월 1일  /  93, 94페이지",
-      words: [
-        {yomigana:"ほけん",tango:"保険",kor:"보험"},
-        {yomigana:"ぼうけん",tango:"冒険",kor:"모험"},
-        {yomigana:"けわしい",tango:"険しい",kor:"험악하다"},
-        {yomigana:"げんじつ",tango:"現実",kor:"현실"},
-        {yomigana:"げんしょう",tango:"現象",kor:"현상"},
-        {yomigana:"げんば",tango:"現場",kor:"현장"},
-        {yomigana:"あらわれる",tango:"現れる",kor:"나타나다"},
-        {yomigana:"あらわす",tango:"現す",kor:"나타내다"},
-        {yomigana:"こんざつ",tango:"混雑",kor:"혼잡"},
-        {yomigana:"こんらん",tango:"混乱",kor:"혼란"},
-        {yomigana:"まじる",tango:"混じる",kor:"섞이다"},
-        {yomigana:"まざる",tango:"混ざる",kor:"섞이다"},
-        {yomigana:"まぜる",tango:"混ぜる",kor:"섞다"},
-        {yomigana:"げんしょう",tango:"減少",kor:"감소"},
-        {yomigana:"さくげん",tango:"削減",kor:"삭감"},
-        {yomigana:"へる",tango:"減る",kor:"줄다"},
-        {yomigana:"へらす",tango:"減らす",kor:"줄이다"},
-        {yomigana:"けんさ",tango:"検査",kor:"검사"},
-        {yomigana:"てんけん",tango:"点検",kor:"점검"},
-        {yomigana:"かこ",tango:"過去",kor:"과거"},
-        {yomigana:"つうか",tango:"通過",kor:"통과"},
-        {yomigana:"あやまち",tango:"過ち",kor:"잘못"},
-        {yomigana:"すぎる",tango:"過ぎる",kor:"지나다"},
-        {yomigana:"すごす",tango:"過ごす",kor:"보내다"},
-        {yomigana:"たいよ",tango:"貸与",kor:"대여"},
-        {yomigana:"ちんたい",tango:"賃貸",kor:"임대"},
-        {yomigana:"かす",tango:"貸す",kor:"빌려주다"},
-        {yomigana:"ぼうえき",tango:"貿易",kor:"무역"},
-        {yomigana:"ほうこく",tango:"報告",kor:"보고"},
-        {yomigana:"ほうどう",tango:"報道",kor:"보도"},
-        {yomigana:"むくいる",tango:"報いる",kor:"갚다"},
-        {yomigana:"おうふく",tango:"往復",kor:"왕복"},
-        {yomigana:"ふっかつ",tango:"復活",kor:"부활"},
-        {yomigana:"ふくしゅう",tango:"復習",kor:"복습"},
-        {yomigana:"ほうふ",tango:"豊富",kor:"풍부"},
-        {yomigana:"かんび",tango:"完備",kor:"완비"},
-        {yomigana:"じゅんび",tango:"準備",kor:"준비"},
-        {yomigana:"そなえる",tango:"備える",kor:"준비하다"},
-        {yomigana:"そなわる",tango:"備わる",kor:"구비되다"},
-        {yomigana:"ぜいきん",tango:"税金",kor:"세금"},
-        {yomigana:"のうぜい",tango:"納税",kor:"납세"},
-        {yomigana:"きんぞく",tango:"金属",kor:"금속"},
-        {yomigana:"しょぞく",tango:"所属",kor:"소속"},
-        {yomigana:"うんえい",tango:"運営",kor:"운영"},
-        {yomigana:"えいぎょう",tango:"営業",kor:"영업"},
-        {yomigana:"けいえい",tango:"経営",kor:"경영"},
-        {yomigana:"いとなむ",tango:"営む",kor:"경영하다"},
-        {yomigana:"ぜつぼう",tango:"絶望",kor:"절망"},
-        {yomigana:"ぜったい",tango:"絶対",kor:"절대"},
-        {yomigana:"だんぜつ",tango:"断絶",kor:"단절"},
-        {yomigana:"たえる",tango:"絶える",kor:"끊어지다"},
-        {yomigana:"たつ",tango:"絶つ",kor:"끊다"}
-      ]
-    },
-    "0714": {
-      label: "7월 14일  /  103, 104페이지",
-      words: [
-        {yomigana:"じゃっかん",tango:"若干",kor:"약간"},
-        {yomigana:"かんしょう",tango:"干渉",kor:"간섭"},
-        {yomigana:"ほす",tango:"干す",kor:"널다"},
-        {yomigana:"じこ",tango:"自己",kor:"자기"},
-        {yomigana:"しぼう",tango:"死亡",kor:"사망"},
-        {yomigana:"もうじゃ",tango:"亡者",kor:"망자"},
-        {yomigana:"いっすん",tango:"一寸",kor:"한치"},
-        {yomigana:"すんぽう",tango:"寸法",kor:"치수"},
-        {yomigana:"しゅうかく",tango:"収穫",kor:"수확"},
-        {yomigana:"しゅうにゅう",tango:"収入",kor:"수입"},
-        {yomigana:"おさまる",tango:"収まる",kor:"걷히다"},
-        {yomigana:"おさめる",tango:"収める",kor:"거두다"},
-        {yomigana:"じんあい",tango:"仁愛",kor:"인애"},
-        {yomigana:"しゃくど",tango:"尺度",kor:"척도"},
-        {yomigana:"かたおもい",tango:"片思い",kor:"짝사랑"},
-        {yomigana:"だんぺん",tango:"断片",kor:"단편"},
-        {yomigana:"ようちえん",tango:"幼稚園",kor:"유치원"},
-        {yomigana:"おさない",tango:"幼い",kor:"어리다"},
-        {yomigana:"いっさつ",tango:"一冊",kor:"한 권"},
-        {yomigana:"しょぶん",tango:"処分",kor:"처분"},
-        {yomigana:"ところ",tango:"処",kor:"곳"},
-        {yomigana:"とちょう",tango:"都庁",kor:"도청"},
-        {yomigana:"ちょうしゃ",tango:"庁舎",kor:"청사"},
-        {yomigana:"あな",tango:"穴",kor:"구멍"},
-        {yomigana:"つくえ",tango:"机",kor:"책상"},
-        {yomigana:"うちゅう",tango:"宇宙",kor:"우주"},
-        {yomigana:"きき",tango:"危機",kor:"위기"},
-        {yomigana:"きけん",tango:"危険",kor:"위험"},
-        {yomigana:"あぶない",tango:"危ない",kor:"위험하다"},
-        {yomigana:"あやうい",tango:"危うい",kor:"위험하다"}
-      ]
-    },
-    "0729": {
-      label: "7월 29일  /  117, 118페이지",
-      words: [
-        {yomigana:"えんし",tango:"遠視",kor:"원시"},
-        {yomigana:"きんし",tango:"近視",kor:"근시"},
-        {yomigana:"しりょく",tango:"視力",kor:"시력"},
-        {yomigana:"くいき",tango:"区域",kor:"구역"},
-        {yomigana:"ちいき",tango:"地域",kor:"지역"},
-        {yomigana:"つうやく",tango:"通訳",kor:"통역"},
-        {yomigana:"ほんやく",tango:"翻訳",kor:"번역"},
-        {yomigana:"わけ",tango:"訳",kor:"이유"},
-        {yomigana:"いよく",tango:"意欲",kor:"의욕"},
-        {yomigana:"しょくよく",tango:"食欲",kor:"식욕"},
-        {yomigana:"よくぼう",tango:"欲望",kor:"욕망"},
-        {yomigana:"ほしい",tango:"欲しい",kor:"바라다"},
-        {yomigana:"ゆうびんきょく",tango:"郵便局",kor:"우체국"},
-        {yomigana:"ゆうそう",tango:"郵送",kor:"우송"},
-        {yomigana:"いこく",tango:"異国",kor:"이국"},
-        {yomigana:"いせい",tango:"異性",kor:"이성"},
-        {yomigana:"ことなる",tango:"異なる",kor:"다르다"},
-        {yomigana:"しゅうしょく",tango:"就職",kor:"취직"},
-        {yomigana:"つく",tango:"就く",kor:"취임하다/들다"},
-        {yomigana:"いつう",tango:"胃痛",kor:"위통"},
-        {yomigana:"くつう",tango:"苦痛",kor:"고통"},
-        {yomigana:"ずつう",tango:"頭痛",kor:"두통"},
-        {yomigana:"いたむ",tango:"痛む",kor:"아프다"},
-        {yomigana:"いためる",tango:"痛める",kor:"아프게하다"},
-        {yomigana:"けいようし",tango:"形容詞",kor:"형용사"},
-        {yomigana:"どうし",tango:"動詞",kor:"동사"},
-        {yomigana:"めいし",tango:"名詞",kor:"명사"},
-        {yomigana:"かいぜん",tango:"改善",kor:"개선"},
-        {yomigana:"ぎぜん",tango:"偽善",kor:"위선"},
-        {yomigana:"よい",tango:"善い",kor:"좋다"},
-        {yomigana:"そうち",tango:"装置",kor:"장치"},
-        {yomigana:"そうび",tango:"装備",kor:"장비"},
-        {yomigana:"いしょう",tango:"衣装",kor:"의상"},
-        {yomigana:"けっさい",tango:"決裁",kor:"결재"},
-        {yomigana:"さいばんしょ",tango:"裁判所",kor:"재판소"},
-        {yomigana:"さばく",tango:"裁く",kor:"심판하다"},
-        {yomigana:"そんけい",tango:"尊敬",kor:"존경"},
-        {yomigana:"そんちょう",tango:"尊重",kor:"존중"},
-        {yomigana:"とうとい/たっとい",tango:"尊い",kor:"소중하다"},
-        {yomigana:"こうしゅう",tango:"公衆",kor:"공중"},
-        {yomigana:"たいしゅう",tango:"大衆",kor:"대중"},
-        {yomigana:"そうかん",tango:"創刊",kor:"창간"},
-        {yomigana:"そうりつ",tango:"創立",kor:"창립"},
-        {yomigana:"どくそう",tango:"独創",kor:"독창"},
-        {yomigana:"せいさく",tango:"政策",kor:"정책"},
-        {yomigana:"たいさく",tango:"対策",kor:"대책"}
-      ]
-    }
-  };
-
-  function shuffle(arr) {
-    for (var i = arr.length - 1; i > 0; i--) {
-      var j = Math.floor(Math.random() * (i + 1));
-      var tmp = arr[i];
-      arr[i] = arr[j];
-      arr[j] = tmp;
-    }
-    return arr;
-  }
-
-  function generateQuiz() {
-    var pageKey = document.getElementById('pageSelector').value;
-    var numQ = parseInt(document.getElementById('numSelector').value);
-
-    var pool = [];
-    var label = '';
-
-    if (pageKey === 'all') {
-      var keys = Object.keys(quizData);
-      for (var k = 0; k < keys.length; k++) {
-        pool = pool.concat(quizData[keys[k]].words);
-      }
-      label = '전체 데이터 (랜덤)';
-    } else {
-      pool = quizData[pageKey].words.slice();
-      label = quizData[pageKey].label;
-    }
-
-    shuffle(pool);
-
-    if (numQ > pool.length) {
-      numQ = pool.length;
-    }
-
-    var selected = pool.slice(0, numQ);
-
-    document.getElementById('quizInfo').textContent = label;
-
-    var tbody = document.getElementById('quizBody');
-    tbody.innerHTML = '';
-
-    for (var i = 0; i < selected.length; i += 5) {
-      var tr = document.createElement('tr');
-      for (var j = i; j < i + 5 && j < selected.length; j++) {
-        var td = document.createElement('td');
-        td.innerHTML =
-          '<h4 class="problemNumber">Q' + (j + 1) + '</h4>' +
-          '<h5 class="yomigana">' + selected[j].yomigana + '</h5>' +
-          '<h5 class="tango">' + selected[j].tango + '</h5>' +
-          '<h5 class="korMeaning">' + selected[j].kor + '</h5>';
-        tr.appendChild(td);
-      }
-      tbody.appendChild(tr);
-    }
-
-    document.getElementById('formSection').style.display = 'none';
-    document.getElementById('quizSection').style.display = 'block';
-
-    hideAnswer();
-  }
-
-  function hideAnswer() {
-    var upper = document.getElementsByClassName('yomigana');
-    var middle = document.getElementsByClassName('tango');
-    for (var i = 0; i < upper.length; i++) {
-      upper[i].style.display = 'none';
-      middle[i].style.display = 'none';
-    }
-  }
-
-  function toggleAnswer() {
-    var upper = document.getElementsByClassName('yomigana');
-    var middle = document.getElementsByClassName('tango');
-    for (var i = 0; i < upper.length; i++) {
-      upper[i].style.display = (upper[i].style.display === 'none') ? 'block' : 'none';
-    }
-    for (var i = 0; i < middle.length; i++) {
-      middle[i].style.display = (middle[i].style.display === 'none') ? 'block' : 'none';
-    }
-  }
-
-  function resetQuiz() {
-    document.getElementById('quizSection').style.display = 'none';
-    document.getElementById('formSection').style.display = 'block';
-  }
-
-  document.getElementById('startQuiz').addEventListener('click', generateQuiz);
-  document.getElementById('btnAnswer').addEventListener('click', toggleAnswer);
-  document.getElementById('retryBtn').addEventListener('click', resetQuiz);
-  </script>
-
+  <script src="./javascript/kanjiData.js?v=1.0"></script>
+  <script src="./javascript/quizCards.js?v=1.0"></script>
+  <script src="./javascript/quizDemo.js?v=1.0"></script>
 </body>
 
 </html>

@@ -1,44 +1,26 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>한자 퀴즈</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/static/css/kanjiquizNew.css?v=1.7718">
-</head>
-<body>
-  <br /><br />
-  <form action="/quiz/generate" method="POST">
-    <section class="selectBox">
-      <h3>퀴즈 데이터를 선택하세요 : </h3>
-      <select id="pageSelector" name="selectedPage">
-        <option value="all">전체 ({{ total }}단어, 랜덤)</option>
-        <optgroup label="~·~·~ 6월 ~·~·~">
-          {% for p in pages if p.value.startswith('06') %}
-          <option value="{{ p.value }}">{{ p.label }} [{{ p.count }}단어]</option>
-          {% endfor %}
-        </optgroup>
-        <optgroup label="~·~·~ 7월 ~·~·~">
-          {% for p in pages if p.value.startswith('07') %}
-          <option value="{{ p.value }}">{{ p.label }} [{{ p.count }}단어]</option>
-          {% endfor %}
-        </optgroup>
-      </select>
-      <br />
-      <h3>문제 수를 선택하세요 : </h3>
-      <select id="numSelector" name="howMany">
-        <option value="5">5 개</option>
-        <option value="10" selected>10 개</option>
-        <option value="15">15 개</option>
-        <option value="20">20 개</option>
-        <option value="25">25 개</option>
-        <option value="30">30 개</option>
-      </select>
-      <div class="space submitBtn"></div>
-    </section>
-    <input type="submit" value="퀴즈 시작" />
-  </form>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+<form action="/quiz/generate" method="POST">
+  <section class="selectCard">
+    <h3>퀴즈 데이터를 선택하세요</h3>
+    <select id="pageSelector" name="selectedPage">
+      <option value="all">전체 ({{ total }}단어, 랜덤)</option>
+      {% for month in months %}
+      <optgroup label="~·~·~ {{ month }}월 ~·~·~">
+        {% for p in pages if p.month == month %}
+        <option value="{{ p.key }}">{{ p.label }} ({{ p.pages }}페이지) [{{ p.word_count }}단어]</option>
+        {% endfor %}
+      </optgroup>
+      {% endfor %}
+    </select>
+    <h3>문제 수를 선택하세요</h3>
+    <select id="numSelector" name="howMany">
+      {% for n in num_choices %}
+      <option value="{{ n }}" {% if n == 10 %}selected{% endif %}>{{ n }} 개</option>
+      {% endfor %}
+    </select>
+    <button type="submit" class="btnPrimary">퀴즈 시작</button>
+  </section>
+</form>
+{% endblock %}

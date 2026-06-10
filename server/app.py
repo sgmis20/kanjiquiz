@@ -1,13 +1,48 @@
-from flask import Flask, render_template, request, send_from_directory
-import random
 import os
+import random
+
+from flask import Flask, render_template, request, send_from_directory
+
 from kanji_data import KANJI_DATA
 
-app = Flask(
-    __name__,
-    static_folder=os.path.join(os.path.dirname(__file__), '..'),
-    static_url_path='/static'
-)
+ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+app = Flask(__name__, static_folder=ROOT_DIR, static_url_path='/static')
+
+NUM_CHOICES = (5, 10, 15, 20, 25, 30)
+
+
+def build_pool(page_key):
+    """선택한 날짜(또는 'all')의 단어 풀과 표시용 라벨을 돌려준다.
+
+    잘못된 키면 (None, None) 을 돌려준다.
+    """
+    if page_key == 'all':
+        pool = [w for entry in KANJI_DATA.values() for w in entry['words']]
+        return pool, '전체 데이터 (랜덤)'
+    entry = KANJI_DATA.get(page_key)
+    if entry is None:
+        return None, None
+    return list(entry['words']), f"{entry['label']}  /  {entry['pages']}페이지"
+
+
+def page_summaries():
+    """폼/API 용 날짜별 요약 목록 (월별 그룹 키 포함)."""
+    result = []
+    for key in sorted(KANJI_DATA.keys()):
+        entry = KANJI_DATA[key]
+        result.append({
+            'key': key,
+            'month': int(key[:2]),
+            'label': entry['label'],
+            'pages': entry['pages'],
+            'word_count': len(entry['words']),
+        })
+    return result
+
+
+def total_words():
+    return sum(len(v['words']) for v in KANJI_DATA.values())
 
 
 @app.route('/')
@@ -22,89 +57,46 @@ def serve_static(filename):
 
 @app.route('/quiz')
 def quiz_form():
-    pages = []
-    for key in sorted(KANJI_DATA.keys()):
-        entry = KANJI_DATA[key]
-        pages.append({
-            "value": key,
-            "label": f"{entry['label']} ({entry['pages']}페이지)",
-            "count": len(entry["words"])
-        })
-    total = sum(len(v["words"]) for v in KANJI_DATA.values())
-    return render_template('quiz_form.html', pages=pages, total=total)
+    pages = page_summaries()
+    months = sorted({p['month'] for p in pages})
+    return render_template('quiz_form.html', pages=pages, months=months,
+                           total=total_words(), num_choices=NUM_CHOICES)
 
 
 @app.route('/quiz/generate', methods=['POST'])
 def quiz_generate():
     page_key = request.form.get('selectedPage', 'all')
-    num_q = int(request.form.get('howMany', 10))
+    try:
+        num_q = int(request.form.get('howMany', 10))
+    except ValueError:
+        num_q = 10
 
-    if page_key == 'all':
-        pool = []
-        for v in KANJI_DATA.values():
-            pool.extend(v["words"])
-        label = '전체 데이터 (랜덤)'
-        pages_str = '67~118'
-    else:
-        entry = KANJI_DATA.get(page_key)
-        if not entry:
-            return '잘못된 페이지입니다', 400
-        pool = list(entry["words"])
-        label = entry["label"]
-        pages_str = entry["pages"]
+    pool, label = build_pool(page_key)
+    if pool is None:
+        return '잘못된 페이지입니다', 400
 
     random.shuffle(pool)
-    if num_q > len(pool):
-        num_q = len(pool)
-    selected = pool[:num_q]
+    selected = pool[:min(num_q, len(pool))]
 
-    rows = []
-    for i in range(0, len(selected), 5):
-        rows.append(selected[i:i+5])
-
-    return render_template(
-        'quiz_result.html',
-        label=label,
-        pages_str=pages_str,
-        questions=selected,
-        rows=rows
-    )
+    return render_template('quiz_result.html', label=label, questions=selected)
 
 
 @app.route('/api/words')
 def api_words():
     page_key = request.args.get('page', 'all')
-    count = request.args.get('count', '10', type=int)
+    count = request.args.get('count', 10, type=int)
 
-    if page_key == 'all':
-        pool = []
-        for v in KANJI_DATA.values():
-            pool.extend(v["words"])
-    else:
-        entry = KANJI_DATA.get(page_key)
-        if not entry:
-            return {"error": "invalid page"}, 400
-        pool = list(entry["words"])
+    pool, _ = build_pool(page_key)
+    if pool is None:
+        return {'error': 'invalid page'}, 400
 
     random.shuffle(pool)
-    if count > len(pool):
-        count = len(pool)
-
-    return {"words": pool[:count]}
+    return {'words': pool[:min(count, len(pool))]}
 
 
 @app.route('/api/pages')
 def api_pages():
-    result = []
-    for key in sorted(KANJI_DATA.keys()):
-        entry = KANJI_DATA[key]
-        result.append({
-            "key": key,
-            "label": entry["label"],
-            "pages": entry["pages"],
-            "word_count": len(entry["words"])
-        })
-    return {"pages": result, "total_words": sum(len(v["words"]) for v in KANJI_DATA.values())}
+    return {'pages': page_summaries(), 'total_words': total_words()}
 
 
 if __name__ == '__main__':
