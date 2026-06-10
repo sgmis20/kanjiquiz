@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}한자 퀴즈{% endblock %}</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/kanjiquizDemo.css?v=1.0">
+</head>
+
+<body>
+  <header class="siteHeader">
+    <h1>{% block heading %}한자퀴즈 자가테스트{% endblock %}</h1>
+    <a href="/">메인페이지</a>
+  </header>
+
+  <div class="quizContainer">
+    {% block content %}{% endblock %}
+  </div>
+
+  {% block scripts %}{% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="quizTopbar">
+  <p class="quizInfo">{{ label }} · {{ questions|length }}문제</p>
+  <div class="quizButtons">
+    <button type="button" id="btnAnswer" class="btnPrimary">정답 확인</button>
+    <a href="/quiz"><button type="button" class="btnGhost">다시 풀기</button></a>
+  </div>
+</div>
+<p class="quizHint">한글 뜻을 보고 한자와 요미가나를 써보세요 · 카드를 클릭하면 정답이 보입니다</p>
+
+<div class="cardGrid" id="cardGrid">
+  {% for q in questions %}
+  <div class="quizCard">
+    <div class="qNum">Q{{ loop.index }}</div>
+    <div class="kor">{{ q.kor }}</div>
+    <div class="tango">{{ q.tango }}</div>
+    <div class="yomigana">{{ q.yomigana }}</div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/javascript/quizCards.js?v=1.0"></script>
+<script>
+  const cardGrid = document.getElementById('cardGrid');
+  const btnAnswer = document.getElementById('btnAnswer');
+  attachCardReveal(cardGrid);
+  btnAnswer.addEventListener('click', function() {
+    toggleAllCards(cardGrid, btnAnswer);
+  });
+</script>
+{% endblock %}

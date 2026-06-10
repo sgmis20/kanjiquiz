@@ -1,0 +1,237 @@
+/* 한자퀴즈 데모 / Flask 퀴즈 공용 스타일 */
+
+:root {
+  --bg: #f4f6f5;
+  --card: #ffffff;
+  --ink: #21302e;
+  --muted: #7b8a87;
+  --accent: #2c978e;
+  --accent-dark: #1d6b65;
+  --line: #e2e8e6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Noto Sans KR", sans-serif;
+  background-color: var(--bg);
+  color: var(--ink);
+}
+
+.siteHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 1.4em 1em 0.6em;
+}
+
+.siteHeader h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.siteHeader a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.siteHeader a:hover {
+  color: var(--accent-dark);
+}
+
+.quizContainer {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 1em 3em;
+}
+
+/* ---------- 선택 폼 ---------- */
+
+.selectCard {
+  max-width: 460px;
+  margin: 2.5em auto;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 2em 1.8em;
+  box-shadow: 0 4px 16px rgba(33, 48, 46, 0.06);
+}
+
+.selectCard h3 {
+  margin: 0 0 0.5em;
+  font-size: 1rem;
+  color: var(--muted);
+}
+
+.selectCard h3 + select {
+  margin-bottom: 1.6em;
+}
+
+.selectCard select {
+  width: 100%;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0.7em 0.8em;
+}
+
+.btnPrimary {
+  display: block;
+  width: 100%;
+  font-family: inherit;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #fff;
+  background: var(--accent);
+  border: none;
+  border-radius: 10px;
+  padding: 0.8em;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btnPrimary:hover {
+  background: var(--accent-dark);
+}
+
+.btnGhost {
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--accent);
+  background: transparent;
+  border: 1px solid var(--accent);
+  border-radius: 10px;
+  padding: 0.55em 1.2em;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btnGhost:hover {
+  color: #fff;
+  background: var(--accent);
+}
+
+/* ---------- 퀴즈 화면 ---------- */
+
+.quizTopbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8em;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+  padding: 0.8em 0.2em;
+  margin-bottom: 1.2em;
+}
+
+.quizTopbar .quizInfo {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.quizTopbar .quizButtons {
+  display: flex;
+  gap: 0.5em;
+  flex-shrink: 0;
+}
+
+.quizHint {
+  margin: 0 0 1.2em;
+  font-size: 0.85rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 14px;
+}
+
+.quizCard {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1em 0.9em 1.1em;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(33, 48, 46, 0.05);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.quizCard:hover {
+  box-shadow: 0 6px 16px rgba(33, 48, 46, 0.1);
+  transform: translateY(-2px);
+}
+
+.quizCard .qNum {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--muted);
+  margin-bottom: 0.4em;
+}
+
+.quizCard .kor {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.6em;
+  word-break: keep-all;
+}
+
+.quizCard .tango {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 1.8rem;
+  line-height: 1.25;
+  margin-bottom: 0.25em;
+}
+
+.quizCard .yomigana {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 0.95rem;
+  color: var(--accent-dark);
+}
+
+/* 정답 가리기: 카드 클릭 또는 전체 버튼으로 .revealed 토글 */
+.quizCard .tango,
+.quizCard .yomigana {
+  filter: blur(7px);
+  user-select: none;
+  transition: filter 0.25s;
+}
+
+.quizCard.revealed .tango,
+.quizCard.revealed .yomigana {
+  filter: none;
+  user-select: text;
+}
+
+@media screen and (max-width: 600px) {
+  .cardGrid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 10px;
+  }
+
+  .quizCard .tango {
+    font-size: 1.5rem;
+  }
+
+  .quizTopbar {
+    flex-wrap: wrap;
+  }
+}

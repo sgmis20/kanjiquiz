@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>한자 퀴즈 (데모)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/kanjiquizDemo.css?v=1.0">
+</head>
+
+<body>
+  <header class="siteHeader">
+    <h1>한자퀴즈 데모</h1>
+    <a href="./index.html">메인페이지</a>
+  </header>
+
+  <div class="quizContainer">
+
+    <section id="formSection" class="selectCard">
+      <h3>퀴즈 데이터를 선택하세요</h3>
+      <select id="pageSelector"></select>
+      <h3>문제 수를 선택하세요</h3>
+      <select id="numSelector">
+        <option value="5">5 개</option>
+        <option value="10" selected>10 개</option>
+        <option value="15">15 개</option>
+        <option value="20">20 개</option>
+        <option value="25">25 개</option>
+        <option value="30">30 개</option>
+      </select>
+      <button type="button" id="startQuiz" class="btnPrimary">퀴즈 시작</button>
+    </section>
+
+    <section id="quizSection" hidden>
+      <div class="quizTopbar">
+        <p class="quizInfo" id="quizInfo"></p>
+        <div class="quizButtons">
+          <button type="button" id="btnAnswer" class="btnPrimary">정답 확인</button>
+          <button type="button" id="retryBtn" class="btnGhost">다시 풀기</button>
+        </div>
+      </div>
+      <p class="quizHint">한글 뜻을 보고 한자와 요미가나를 써보세요 · 카드를 클릭하면 정답이 보입니다</p>
+      <div class="cardGrid" id="cardGrid"></div>
+    </section>
+
+  </div>
+
+  <script src="./javascript/kanjiData.js?v=1.0"></script>
+  <script src="./javascript/quizCards.js?v=1.0"></script>
+  <script src="./javascript/quizDemo.js?v=1.0"></script>
+</body>
+
+</html>
